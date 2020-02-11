@@ -21,6 +21,7 @@ DEVMODE screenSettings;
 BOOL perspectiveChanged = FALSE;
 BOOL active = FALSE;
 BOOL done = FALSE;
+INT windowStyleWindowed = 0;
 GLuint vertexArrayObject;
 GLuint vertexBufferObject;
 GLfloat points[] = {
@@ -99,8 +100,9 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         currentWindowStyle = GetWindowLongPtr(window, GWL_STYLE);
         if (windowMode == WINDOW_MODE_WINDOWED) {
             if (currentWindowStyle != WM_WINDOWED) {
-                SetWindowLongPtr(window, GWL_STYLE, WM_WINDOWED);
+                SetWindowLongPtr(window, GWL_STYLE, windowStyleWindowed);
             }
+            SetWindowPos(window, 0, 0, 0, 800, 600, SWP_SHOWWINDOW);
             // if (!windowVisible) {
             //     ShowWindow(window, SW_SHOW);
             // }
@@ -165,6 +167,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
             ChangeDisplaySettings(NULL, 0);
         }
         PostQuitMessage(0);
+        done = TRUE;
         return 0;
     default:
         break;
@@ -190,6 +193,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     wc.lpszClassName = "Test123";
     RegisterClass(&wc);
     window = CreateWindow("Test123", "Hi there", WM_WINDOWED, 0, 0, 640, 480, NULL, NULL, hInstance, NULL);
+    windowStyleWindowed = GetWindowLongPtr(window, GWL_STYLE);
     deviceContext = GetDC(window);
     memset(&pfd, 0, sizeof(pfd));
     pfd.nSize = sizeof(pfd);
