@@ -2,11 +2,22 @@
 #include <windowsx.h>
 #include <GL/gl.h>
 #include <GL/glcorearb.h>
-#define GLFUNC(RETTYP, ARGS, NAME) (RETTYP (*)ARGS)wglGetProcAddress(NAME)
+#define GLFUNC(RETTYP, ARGTYPES, NAME) (RETTYP (*)ARGTYPES)wglGetProcAddress(NAME)
+#define KEYPRESSED(scancode) (keyboardState[scancode] >> 7) == 0 && (previousKeyboardState[scancode] >> 7) != 0
+#define WM_WINDOWED WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+#define WM_BORDERLESS_WINDOWED 0
+#define WM_CHANGE_WINDOW_MODE WM_USER
+#define WINDOW_MODE_WINDOWED 1
+#define WINDOW_MODE_BORDERLESS_WINDOWED 2
+#define WINDOW_MODE_FULLSCREEN 3
 HWND window;
 HDC deviceContext;
 HGLRC openGLRenderingContext;
 POINT windowSize = { 4, 3 };
+POINT fullScreen = { 4, 3 };
+BOOL windowVisible = FALSE;
+INT currentWindowStyle = WINDOW_MODE_WINDOWED;
+DEVMODE screenSettings;
 BOOL perspectiveChanged = FALSE;
 BOOL active = FALSE;
 BOOL done = FALSE;
@@ -17,8 +28,9 @@ GLfloat points[] = {
     0.5f, -0.5f, 0.0f,
     -0.5f, -0.5f, 0.0f
 };
-// 1 = windowed, 2 = borderless windowed, 3 = fullscreen
-INT rendermode = 1;
+INT windowMode = WINDOW_MODE_WINDOWED, oldWindowMode = WINDOW_MODE_WINDOWED;
+CHAR previousKeyboardState[256];
+CHAR keyboardState[256];
 const char* vertex_shader = ""
     "#version 410\n"
     "in vec3 vp;"
@@ -39,7 +51,8 @@ void (*glBufferData)(GLenum target, GLsizeiptr size, const GLvoid * data, GLenum
 void (*glGenVertexArrays)(GLsizei n, GLuint *arrays);
 void (*glBindVertexArray)(GLuint array);
 void (*glEnableVertexAttribArray)(GLuint index);
-void (*glVertexAttribPointer)(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid * pointer);
+void (*glVertexAttribPointer)(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride,
+                              const GLvoid * pointer);
 GLuint (*glCreateShader)(GLenum shaderType);
 void (*glShaderSource)(GLuint shader, GLsizei count, const GLchar **string, const GLint *length);
 void (*glCompileShader)(GLuint shader);
@@ -54,7 +67,8 @@ void LoadOpenGLFunctions() {
     glGenVertexArrays = GLFUNC(void, (GLsizei, GLuint *), "glGenVertexArrays");
     glBindVertexArray = GLFUNC(void, (GLuint), "glBindVertexArray");
     glEnableVertexAttribArray = GLFUNC(void, (GLuint), "glEnableVertexAttribArray");
-    glVertexAttribPointer = GLFUNC(void, (GLuint, GLint, GLenum, GLboolean, GLsizei, const GLvoid *), "glVertexAttribPointer");
+    glVertexAttribPointer = GLFUNC(void, (GLuint, GLint, GLenum, GLboolean, GLsizei, const GLvoid *),
+                                   "glVertexAttribPointer");
     glCreateShader = GLFUNC(GLuint, (GLenum), "glCreateShader");
     glShaderSource = GLFUNC(void, (GLuint, GLsizei, const GLchar **, const GLint *), "glShaderSource");
     glCompileShader = GLFUNC(void, (GLuint), "glCompileShader");
@@ -78,6 +92,59 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         PostMessage(window, WM_PAINT, 0, 0);
         perspectiveChanged = TRUE;
         return 0;
+    case WM_CHANGE_WINDOW_MODE:
+        oldWindowMode = windowMode;
+        windowMode = wParam;
+        // windowVisible = IsWindowVisible(window);
+        currentWindowStyle = GetWindowLongPtr(window, GWL_STYLE);
+        if (windowMode == WINDOW_MODE_WINDOWED) {
+            if (currentWindowStyle != WM_WINDOWED) {
+                SetWindowLongPtr(window, GWL_STYLE, WM_WINDOWED);
+            }
+            // if (!windowVisible) {
+            //     ShowWindow(window, SW_SHOW);
+            // }
+            if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
+                ChangeDisplaySettings(NULL, 0);
+            }
+        } else if (windowMode == WINDOW_MODE_BORDERLESS_WINDOWED) {
+            if (currentWindowStyle != WM_WINDOWED) {
+                SetWindowLongPtr(window, GWL_STYLE, WM_BORDERLESS_WINDOWED);
+            }
+            if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
+                ChangeDisplaySettings(NULL, 0);
+            }
+            // if (!windowVisible) {
+            //     ShowWindow(window, SW_SHOW);
+            // }
+            fullScreen.x = (int)GetSystemMetrics(SM_CXSCREEN);
+            fullScreen.y = (int)GetSystemMetrics(SM_CYSCREEN);
+            if (windowSize.x != fullScreen.x && windowSize.y != fullScreen.y) {
+                SetWindowPos(window, 0, 0, 0, fullScreen.x, fullScreen.y, SWP_SHOWWINDOW);
+            }
+        } else if (windowMode == WINDOW_MODE_FULLSCREEN) {
+            // if (windowVisible) {
+            //     ShowWindow(window, SW_HIDE);
+            // }
+            memset(&screenSettings, 0, sizeof(DEVMODE));
+            EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &screenSettings);
+            // screenSettings.dmSize = sizeof(DEVMODE);
+            // // TODO: Configurable fullscreen
+            // screenSettings.dmPelsWidth = 1280;
+            // screenSettings.dmPelsHeight = 720;
+            // // TODO: Store old resolution:
+            // // preFullscreenResolution.x = (int)GetSystemMetrics(SM_CXSCREEN);
+            // // preFullscreenResolution.y = (int)GetSystemMetrics(SM_CYSCREEN);
+            // screenSettings.dmBitsPerPel = 32;
+            // screenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
+            if (ChangeDisplaySettings(&screenSettings, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL) {
+              MessageBox(0, "Uh... failed", "", 0);
+            }
+            MoveWindow(window, 0, 0, screenSettings.dmPelsWidth, screenSettings.dmPelsHeight, TRUE);
+            PostMessage(window, WM_PAINT, 0, 0);
+        }
+        PostMessage(window, WM_PAINT, 0, 0);
+        return 0;
     case WM_SYSCOMMAND:
         if (wParam == SC_SCREENSAVE || wParam == SC_MONITORPOWER) {
             return 0;
@@ -94,6 +161,9 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     case WM_SYSKEYUP:
         return 0;
     case WM_CLOSE:
+        if (windowMode == WINDOW_MODE_FULLSCREEN) {
+            ChangeDisplaySettings(NULL, 0);
+        }
         PostQuitMessage(0);
         return 0;
     default:
@@ -117,10 +187,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     wc.hCursor = LoadCursor(NULL, IDC_ARROW);
     wc.hbrBackground = NULL;
     wc.lpszMenuName = NULL;
-    wc.lpszClassName = "WinParabolicRealms";
+    wc.lpszClassName = "Test123";
     RegisterClass(&wc);
-    window = CreateWindow("WinParabolicRealms", "Hi there", WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN, 0,
-                          0, 640, 480, NULL, NULL, hInstance, NULL);
+    window = CreateWindow("Test123", "Hi there", WM_WINDOWED, 0, 0, 640, 480, NULL, NULL, hInstance, NULL);
     deviceContext = GetDC(window);
     memset(&pfd, 0, sizeof(pfd));
     pfd.nSize = sizeof(pfd);
@@ -158,29 +227,44 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     glAttachShader(shaderProgram, vertexShader);
     glLinkProgram(shaderProgram);
     while (!done && message.message != WM_QUIT) {
-    if(PeekMessage(&message, 0, 0, 0, PM_REMOVE)) {
-    TranslateMessage(&message);
-    DispatchMessage(&message);
-    } else {
-    // TODO: Game engine stuff here
-    // Make OpenGL calls
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glUseProgram(shaderProgram);
-    glBindVertexArray(vertexArrayObject);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-    glFlush();
-    SwapBuffers(deviceContext);
-    // TODO: Lock framerate
-    // TODO: Display framerate (if below expected)
-    Sleep(50);
+        if(PeekMessage(&message, 0, 0, 0, PM_REMOVE)) {
+            TranslateMessage(&message);
+            DispatchMessage(&message);
+        } else {
+            for (INT i = 0; i < 256; i++) {
+                previousKeyboardState[i] = keyboardState[i];
+            }
+            GetKeyboardState((PBYTE)keyboardState);
+            // TODO: Game engine stuff here
+            // Check if a key was pressed which changes the window mode
+            if (KEYPRESSED(0x31) && windowMode != 1) {
+                SendMessage(window, WM_CHANGE_WINDOW_MODE, WINDOW_MODE_WINDOWED, 0);
+            } else if (KEYPRESSED(0x32) && windowMode != 2) {
+                SendMessage(window, WM_CHANGE_WINDOW_MODE, WINDOW_MODE_BORDERLESS_WINDOWED, 0);
+            } else if (KEYPRESSED(0x33) && windowMode != 3) {
+                SendMessage(window, WM_CHANGE_WINDOW_MODE, WINDOW_MODE_FULLSCREEN, 0);
+            } else if (KEYPRESSED(0x51) && windowMode != 3) {
+                SendMessage(window, WM_CLOSE, 0, 0);
+            }
+            // Make OpenGL calls
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            glUseProgram(shaderProgram);
+            glBindVertexArray(vertexArrayObject);
+            glDrawArrays(GL_TRIANGLES, 0, 3);
+            glFlush();
+            SwapBuffers(deviceContext);
+            // TODO: Lock framerate
+            // TODO: Display framerate (if below expected)
+            // This must be smaller than the input delay to register key presses.
+            // TODO: Should use timers so not all game updates happen at this high speed
+            Sleep(10);
+        }
     }
-}
-
-wglMakeCurrent(NULL, NULL);
-ReleaseDC(window, deviceContext);
-wglDeleteContext(openGLRenderingContext);
-DestroyWindow(window);
-return (int)message.wParam;
+    wglMakeCurrent(NULL, NULL);
+    ReleaseDC(window, deviceContext);
+    wglDeleteContext(openGLRenderingContext);
+    DestroyWindow(window);
+    return (int)message.wParam;
 }
 
 // #include <windows.h>
