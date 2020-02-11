@@ -18,6 +18,7 @@ POINT fullScreen = { 4, 3 };
 BOOL windowVisible = FALSE;
 INT currentWindowStyle = WINDOW_MODE_WINDOWED;
 DEVMODE screenSettings;
+MONITORINFO monitorInfo = { sizeof(MONITORINFO) };
 BOOL perspectiveChanged = FALSE;
 BOOL active = FALSE;
 BOOL done = FALSE;
@@ -99,7 +100,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         // windowVisible = IsWindowVisible(window);
         currentWindowStyle = GetWindowLongPtr(window, GWL_STYLE);
         if (windowMode == WINDOW_MODE_WINDOWED) {
-            if (currentWindowStyle != WM_WINDOWED) {
+            if (currentWindowStyle != windowStyleWindowed) {
                 SetWindowLongPtr(window, GWL_STYLE, windowStyleWindowed);
             }
             SetWindowPos(window, 0, 0, 0, 800, 600, SWP_SHOWWINDOW);
@@ -110,7 +111,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
                 ChangeDisplaySettings(NULL, 0);
             }
         } else if (windowMode == WINDOW_MODE_BORDERLESS_WINDOWED) {
-            if (currentWindowStyle != WM_WINDOWED) {
+            if (currentWindowStyle != WM_BORDERLESS_WINDOWED) {
                 SetWindowLongPtr(window, GWL_STYLE, WM_BORDERLESS_WINDOWED);
             }
             if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
@@ -128,6 +129,9 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
             // if (windowVisible) {
             //     ShowWindow(window, SW_HIDE);
             // }
+            if (currentWindowStyle != WM_BORDERLESS_WINDOWED) {
+                SetWindowLongPtr(window, GWL_STYLE, WM_BORDERLESS_WINDOWED);
+            }
             memset(&screenSettings, 0, sizeof(DEVMODE));
             EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &screenSettings);
             // screenSettings.dmSize = sizeof(DEVMODE);
@@ -142,7 +146,16 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
             if (ChangeDisplaySettings(&screenSettings, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL) {
               MessageBox(0, "Uh... failed", "", 0);
             }
+            // TODO: Selectable monitor
+            GetMonitorInfo(MonitorFromWindow(window ,MONITOR_DEFAULTTOPRIMARY), &monitorInfo);
+            SetWindowLongPtr(window, GWL_EXSTYLE, WS_EX_APPWINDOW | WS_EX_TOPMOST);
+            SetWindowLongPtr(window, GWL_STYLE, WS_POPUP | WS_VISIBLE);
+            SetWindowPos(window, HWND_TOP, monitorInfo.rcMonitor.left, monitorInfo.rcMonitor.top,
+                         monitorInfo.rcMonitor.right  - monitorInfo.rcMonitor.left,
+                         monitorInfo.rcMonitor.bottom - monitorInfo.rcMonitor.top,
+                         SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
             MoveWindow(window, 0, 0, screenSettings.dmPelsWidth, screenSettings.dmPelsHeight, TRUE);
+            InvalidateRect(window, NULL, TRUE);
             PostMessage(window, WM_PAINT, 0, 0);
         }
         PostMessage(window, WM_PAINT, 0, 0);
@@ -162,6 +175,32 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     case WM_KEYUP:
     case WM_SYSKEYUP:
         return 0;
+    case WM_LBUTTONDOWN:
+        SetCapture(window);
+        return 0;
+//             xTemp = GET_X_LPARAM(lParam);
+//             yTemp = GET_Y_LPARAM(lParam);
+//             if (filled == 0 || filled == 3) {
+//                 ax = xTemp;
+//                 ay = yTemp;
+//                 filled = 1;
+//             } else if (filled == 1) {
+//                 bx = xTemp;
+//                 by = yTemp;
+//                 filled = 2;
+//             } else if (filled == 2) {
+//                 cx = xTemp;
+//                 cy = yTemp;
+//                 filled = 3;
+//             }
+//             RECT rectTemp;
+//             rectTemp.left = 0;
+//             rectTemp.top = 0;
+//             rectTemp.right = winWidth;
+//             rectTemp.bottom = winHeight;
+//             InvalidateRect(window, &rectTemp, TRUE);
+//             RedrawWindow(window, NULL, NULL, NULL);
+//             break;
     case WM_CLOSE:
         if (windowMode == WINDOW_MODE_FULLSCREEN) {
             ChangeDisplaySettings(NULL, 0);
