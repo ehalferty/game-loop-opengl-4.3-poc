@@ -5,7 +5,7 @@
 #define GLFUNC(RETTYP, ARGTYPES, NAME) (RETTYP (*)ARGTYPES)wglGetProcAddress(NAME)
 #define KEYPRESSED(scancode) (keyboardState[scancode] >> 7) == 0 && (previousKeyboardState[scancode] >> 7) != 0
 #define WM_WINDOWED WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
-#define WM_BORDERLESS_WINDOWED 0
+#define WM_BORDERLESS_WINDOWED WS_POPUP | WS_VISIBLE
 #define WM_CHANGE_WINDOW_MODE WM_USER
 #define WINDOW_MODE_WINDOWED 1
 #define WINDOW_MODE_BORDERLESS_WINDOWED 2
@@ -154,7 +154,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
                          monitorInfo.rcMonitor.right  - monitorInfo.rcMonitor.left,
                          monitorInfo.rcMonitor.bottom - monitorInfo.rcMonitor.top,
                          SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
-            MoveWindow(window, 0, 0, screenSettings.dmPelsWidth, screenSettings.dmPelsHeight, TRUE);
+            // MoveWindow(window, 0, 0, screenSettings.dmPelsWidth, screenSettings.dmPelsHeight, TRUE);
             InvalidateRect(window, NULL, TRUE);
             PostMessage(window, WM_PAINT, 0, 0);
         }
