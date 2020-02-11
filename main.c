@@ -22,6 +22,7 @@ MONITORINFO monitorInfo = { sizeof(MONITORINFO) };
 BOOL perspectiveChanged = FALSE;
 BOOL active = FALSE;
 BOOL done = FALSE;
+INT xTemp = 0, yTemp = 0, filled = 0;
 INT windowStyleWindowed = 0;
 GLuint vertexArrayObject;
 GLuint vertexBufferObject;
@@ -91,6 +92,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     case WM_SIZE:
         windowSize.x = LOWORD(lParam);
         windowSize.y = HIWORD(lParam);
+        glViewport(0, 0, LOWORD(lParam), HIWORD(lParam));
         PostMessage(window, WM_PAINT, 0, 0);
         perspectiveChanged = TRUE;
         return 0;
@@ -176,31 +178,22 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     case WM_SYSKEYUP:
         return 0;
     case WM_LBUTTONDOWN:
-        SetCapture(window);
+        xTemp = GET_X_LPARAM(lParam);
+        yTemp = GET_Y_LPARAM(lParam);
+        if (filled == 0 || filled == 3) {
+            points[0] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+            points[1] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+            filled = 1;
+        } else if (filled == 1) {
+            points[3] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+            points[4] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+            filled = 2;
+        } else if (filled == 2) {
+            points[6] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+            points[7] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+            filled = 3;
+        }
         return 0;
-//             xTemp = GET_X_LPARAM(lParam);
-//             yTemp = GET_Y_LPARAM(lParam);
-//             if (filled == 0 || filled == 3) {
-//                 ax = xTemp;
-//                 ay = yTemp;
-//                 filled = 1;
-//             } else if (filled == 1) {
-//                 bx = xTemp;
-//                 by = yTemp;
-//                 filled = 2;
-//             } else if (filled == 2) {
-//                 cx = xTemp;
-//                 cy = yTemp;
-//                 filled = 3;
-//             }
-//             RECT rectTemp;
-//             rectTemp.left = 0;
-//             rectTemp.top = 0;
-//             rectTemp.right = winWidth;
-//             rectTemp.bottom = winHeight;
-//             InvalidateRect(window, &rectTemp, TRUE);
-//             RedrawWindow(window, NULL, NULL, NULL);
-//             break;
     case WM_CLOSE:
         if (windowMode == WINDOW_MODE_FULLSCREEN) {
             ChangeDisplaySettings(NULL, 0);
@@ -231,7 +224,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     wc.lpszMenuName = NULL;
     wc.lpszClassName = "Test123";
     RegisterClass(&wc);
-    window = CreateWindow("Test123", "Hi there", WM_WINDOWED, 0, 0, 640, 480, NULL, NULL, hInstance, NULL);
+    window = CreateWindow("Test123", "Hi there", WM_WINDOWED, 0, 0, 800, 600, NULL, NULL, hInstance, NULL);
     windowStyleWindowed = GetWindowLongPtr(window, GWL_STYLE);
     deviceContext = GetDC(window);
     memset(&pfd, 0, sizeof(pfd));
@@ -290,6 +283,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
                 SendMessage(window, WM_CLOSE, 0, 0);
             }
             // Make OpenGL calls
+            glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
+            glBufferData(GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points, GL_STATIC_DRAW);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glUseProgram(shaderProgram);
             glBindVertexArray(vertexArrayObject);
