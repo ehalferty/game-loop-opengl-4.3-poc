@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ed/winhome/game-loop-opengl-4.3-poc/main.c
+windows.h
+-
+windowsx.h
+-
+GL/gl.h
+-
+GL/glcorearb.h
+-
+

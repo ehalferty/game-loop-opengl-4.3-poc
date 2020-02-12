@@ -1,0 +1,1 @@
+/usr/bin/x86_64-w64-mingw32-gcc -g   CMakeFiles/game_loop_opengl_4_3_poc.dir/main.c.o  -o game_loop_opengl_4_3_poc -lgdi32 -lopengl32 -lopengl32 -Wl,--subsystem,windows 

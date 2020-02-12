@@ -2,6 +2,10 @@
 #include <windowsx.h>
 #include <GL/gl.h>
 #include <GL/glcorearb.h>
+#include <cstdio>
+#include <stdio.h>
+#include <io.h>
+#include <fcntl.h>
 #define GLFUNC(RETTYP, ARGTYPES, NAME) (RETTYP (*)ARGTYPES)wglGetProcAddress(NAME)
 #define KEYPRESSED(scancode) (keyboardState[scancode] >> 7) == 0 && (previousKeyboardState[scancode] >> 7) != 0
 #define WM_WINDOWED WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
@@ -34,18 +38,20 @@ GLfloat points[] = {
 INT windowMode = WINDOW_MODE_WINDOWED, oldWindowMode = WINDOW_MODE_WINDOWED;
 CHAR previousKeyboardState[256];
 CHAR keyboardState[256];
-const char* vertex_shader = ""
-    "#version 410\n"
-    "in vec3 vp;"
-    "void main () {"
-    "  gl_Position = vec4 (vp, 1.0);"
-"}";
-const char* fragment_shader = ""
-    "#version 410\n"
-    "out vec4 frag_colour;"
-    "void main () {"
-    "   frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);"
-"}";
+const char * vertex_shader = R"""(
+    #version 410
+    in vec3 vp;
+    void main () {
+      gl_Position = vec4 (vp, 1.0);
+    }
+)""";
+const char * fragment_shader = R"""(
+    #version 410
+    out vec4 frag_colour;
+    void main () {
+       frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);
+    }
+)""";
 GLuint vertexShader, fragmentShader;
 GLuint shaderProgram;
 void (*glGenBuffers)(GLsizei n, GLuint * buffers);
@@ -82,6 +88,8 @@ void LoadOpenGLFunctions() {
 }
 LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     static PAINTSTRUCT paintStruct;
+    INT i = 0;
+    BOOL found = FALSE;
     switch (uMsg) {
     case WM_PAINT:
         // Do this to mark window as not dirty, so we don't get WM_PAINT messages all the time.
@@ -89,6 +97,12 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         BeginPaint(window, &paintStruct);
         EndPaint(window, &paintStruct);
         return 0;
+    case WM_TIMER:
+        switch (wParam) {
+            case 0:
+                printf("Timer 0\r\n");
+                return 0;
+        }
     case WM_SIZE:
         windowSize.x = LOWORD(lParam);
         windowSize.y = HIWORD(lParam);
@@ -99,64 +113,41 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     case WM_CHANGE_WINDOW_MODE:
         oldWindowMode = windowMode;
         windowMode = wParam;
-        // windowVisible = IsWindowVisible(window);
         currentWindowStyle = GetWindowLongPtr(window, GWL_STYLE);
         if (windowMode == WINDOW_MODE_WINDOWED) {
             if (currentWindowStyle != windowStyleWindowed) {
                 SetWindowLongPtr(window, GWL_STYLE, windowStyleWindowed);
+                // SetWindowLongPtr(window, GWL_EXSTYLE, WS_EX_APPWINDOW);
+                SetWindowPos(window, HWND_BOTTOM, 0, 0, 0, 0,  SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
             }
             SetWindowPos(window, 0, 0, 0, 800, 600, SWP_SHOWWINDOW);
-            // if (!windowVisible) {
-            //     ShowWindow(window, SW_SHOW);
-            // }
             if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
                 ChangeDisplaySettings(NULL, 0);
             }
         } else if (windowMode == WINDOW_MODE_BORDERLESS_WINDOWED) {
             if (currentWindowStyle != WM_BORDERLESS_WINDOWED) {
                 SetWindowLongPtr(window, GWL_STYLE, WM_BORDERLESS_WINDOWED);
+                SetWindowPos(window, HWND_BOTTOM, 0, 0, 0, 0,  SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
             }
             if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
                 ChangeDisplaySettings(NULL, 0);
             }
-            // if (!windowVisible) {
-            //     ShowWindow(window, SW_SHOW);
-            // }
             fullScreen.x = (int)GetSystemMetrics(SM_CXSCREEN);
             fullScreen.y = (int)GetSystemMetrics(SM_CYSCREEN);
             if (windowSize.x != fullScreen.x && windowSize.y != fullScreen.y) {
                 SetWindowPos(window, 0, 0, 0, fullScreen.x, fullScreen.y, SWP_SHOWWINDOW);
             }
         } else if (windowMode == WINDOW_MODE_FULLSCREEN) {
-            // if (windowVisible) {
-            //     ShowWindow(window, SW_HIDE);
-            // }
+            // TODO: Is this really exclusive fullscreen?
             if (currentWindowStyle != WM_BORDERLESS_WINDOWED) {
                 SetWindowLongPtr(window, GWL_STYLE, WM_BORDERLESS_WINDOWED);
             }
-            memset(&screenSettings, 0, sizeof(DEVMODE));
-            EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &screenSettings);
-            // screenSettings.dmSize = sizeof(DEVMODE);
-            // // TODO: Configurable fullscreen
-            // screenSettings.dmPelsWidth = 1280;
-            // screenSettings.dmPelsHeight = 720;
-            // // TODO: Store old resolution:
-            // // preFullscreenResolution.x = (int)GetSystemMetrics(SM_CXSCREEN);
-            // // preFullscreenResolution.y = (int)GetSystemMetrics(SM_CYSCREEN);
-            // screenSettings.dmBitsPerPel = 32;
-            // screenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
-            if (ChangeDisplaySettings(&screenSettings, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL) {
-              MessageBox(0, "Uh... failed", "", 0);
-            }
-            // TODO: Selectable monitor
             GetMonitorInfo(MonitorFromWindow(window ,MONITOR_DEFAULTTOPRIMARY), &monitorInfo);
             SetWindowLongPtr(window, GWL_EXSTYLE, WS_EX_APPWINDOW | WS_EX_TOPMOST);
-            SetWindowLongPtr(window, GWL_STYLE, WS_POPUP | WS_VISIBLE);
-            SetWindowPos(window, HWND_TOP, monitorInfo.rcMonitor.left, monitorInfo.rcMonitor.top,
+            SetWindowPos(window, HWND_TOPMOST, monitorInfo.rcMonitor.left, monitorInfo.rcMonitor.top,
                          monitorInfo.rcMonitor.right  - monitorInfo.rcMonitor.left,
                          monitorInfo.rcMonitor.bottom - monitorInfo.rcMonitor.top,
                          SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
-            // MoveWindow(window, 0, 0, screenSettings.dmPelsWidth, screenSettings.dmPelsHeight, TRUE);
             InvalidateRect(window, NULL, TRUE);
             PostMessage(window, WM_PAINT, 0, 0);
         }
@@ -208,6 +199,14 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
+    // Setup a console for logging
+    AllocConsole();
+    HANDLE handle_out = GetStdHandle(STD_OUTPUT_HANDLE);
+    int hCrt = _open_osfhandle((intptr_t)handle_out, _O_TEXT);
+    FILE* hf_out = _fdopen(hCrt, "w");
+    setvbuf(hf_out, NULL, _IONBF, 1);
+    *stdout = *hf_out;
+    printf("Hello, party people!\r\n");
     MSG   message;
     WNDCLASS wc;
     int pf;
@@ -262,6 +261,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     glAttachShader(shaderProgram, fragmentShader);
     glAttachShader(shaderProgram, vertexShader);
     glLinkProgram(shaderProgram);
+    SetTimer(window, 0, 10000, (TIMERPROC) NULL);
     while (!done && message.message != WM_QUIT) {
         if(PeekMessage(&message, 0, 0, 0, PM_REMOVE)) {
             TranslateMessage(&message);
@@ -305,6 +305,43 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     return (int)message.wParam;
 }
 
+            // memset(&screenSettings, 0, sizeof(DEVMODE));
+            // EnumDisplaySettings(NULL, ENUM_CURRENT_SETTINGS, &screenSettings);
+            // printf("ENUM_CURRENT_SETTINGS=%s\r\n", screenSettings.dmDeviceName);
+            // i = 0;
+            // found = FALSE;
+            // while(EnumDisplaySettings(NULL, i, &screenSettings)) {
+            //     printf("MODE %d=%s\r\n", i, screenSettings.dmDeviceName);
+            //     if (screenSettings.dmPelsWidth == 1600 && screenSettings.dmPelsHeight == 900 &&
+            //         screenSettings.dmBitsPerPel == 32 && screenSettings.dmDisplayFrequency == 60) {
+            //         found = TRUE;
+            //         break;
+            //         // 1280 720
+            //     }
+            //     i++;
+            // }
+
+            // EnumDisplayModes();
+            // screenSettings.dmSize = sizeof(DEVMODE);
+            // // TODO: Configurable fullscreen
+            // screenSettings.dmPelsWidth = 1280;
+            // screenSettings.dmPelsHeight = 720;
+            // // TODO: Store old resolution:
+
+            // // preFullscreenResolution.x = (int)GetSystemMetrics(SM_CXSCREEN);
+            // // preFullscreenResolution.y = (int)GetSystemMetrics(SM_CYSCREEN);
+            // screenSettings.dmBitsPerPel = 32;
+            // screenSettings.dmFields = screenSettings.dmFields | DM_PELSWIDTH | DM_PELSHEIGHT;
+            // screenSettings.dmFields = DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT;
+            // screenSettings.dmFields = DM_PELSWIDTH | DM_PELSHEIGHT;
+            // screenSettings.dmDriverExtra = 0;
+            // if (!found) {
+            //   MessageBox(0, "Uh... failed", "", 0);
+            // }
+            // if (ChangeDisplaySettings(&screenSettings, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL) {
+            //   MessageBox(0, "Uh... failed 2", "", 0);
+            // }
+            // SetWindowLongPtr(window, GWL_STYLE, WS_POPUP | WS_VISIBLE);
 // #include <windows.h>
 // #include <windowsx.h>
 // #include <GL/gl.h>

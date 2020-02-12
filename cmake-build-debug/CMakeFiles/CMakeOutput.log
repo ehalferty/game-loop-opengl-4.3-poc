@@ -1,0 +1,55 @@
+The system is: Linux - 4.4.0-18362-Microsoft - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/x86_64-w64-mingw32-gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/a.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/x86_64-w64-mingw32-g++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+
+The CXX compiler identification is GNU, found in "/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/a.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9d1a4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9d1a4.dir/build.make CMakeFiles/cmTC_9d1a4.dir/build
+make[1]: Entering directory '/mnt/c/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9d1a4.dir/testCCompiler.c.o
+/usr/bin/x86_64-w64-mingw32-gcc    -o CMakeFiles/cmTC_9d1a4.dir/testCCompiler.c.o   -c /home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_9d1a4
+/home/ed/winhome/bin/CLion-2017.3.5/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d1a4.dir/link.txt --verbose=1
+/usr/bin/x86_64-w64-mingw32-gcc      CMakeFiles/cmTC_9d1a4.dir/testCCompiler.c.o  -o cmTC_9d1a4 
+make[1]: Leaving directory '/mnt/c/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_993c7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_993c7.dir/build.make CMakeFiles/cmTC_993c7.dir/build
+make[1]: Entering directory '/mnt/c/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_993c7.dir/testCXXCompiler.cxx.o
+/usr/bin/x86_64-w64-mingw32-g++     -o CMakeFiles/cmTC_993c7.dir/testCXXCompiler.cxx.o -c /home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_993c7
+/home/ed/winhome/bin/CLion-2017.3.5/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_993c7.dir/link.txt --verbose=1
+/usr/bin/x86_64-w64-mingw32-g++       CMakeFiles/cmTC_993c7.dir/testCXXCompiler.cxx.o  -o cmTC_993c7 
+make[1]: Leaving directory '/mnt/c/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
