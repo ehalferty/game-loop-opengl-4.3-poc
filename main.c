@@ -118,7 +118,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
             if (currentWindowStyle != windowStyleWindowed) {
                 SetWindowLongPtr(window, GWL_STYLE, windowStyleWindowed);
                 // SetWindowLongPtr(window, GWL_EXSTYLE, WS_EX_APPWINDOW);
-                SetWindowPos(window, HWND_BOTTOM, 0, 0, 0, 0,  SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
+                SetWindowPos(window, HWND_NOTOPMOST, 0, 0, 0, 0,  SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
             }
             SetWindowPos(window, 0, 0, 0, 800, 600, SWP_SHOWWINDOW);
             if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
@@ -127,7 +127,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         } else if (windowMode == WINDOW_MODE_BORDERLESS_WINDOWED) {
             if (currentWindowStyle != WM_BORDERLESS_WINDOWED) {
                 SetWindowLongPtr(window, GWL_STYLE, WM_BORDERLESS_WINDOWED);
-                SetWindowPos(window, HWND_BOTTOM, 0, 0, 0, 0,  SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
+                SetWindowPos(window, HWND_NOTOPMOST, 0, 0, 0, 0,  SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
             }
             if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
                 ChangeDisplaySettings(NULL, 0);
@@ -139,6 +139,8 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
             }
         } else if (windowMode == WINDOW_MODE_FULLSCREEN) {
             // TODO: Is this really exclusive fullscreen?
+            // TODO: See if there's input latency.
+            // TODO: Figure out how to get the removed resolution-changing code to work (driver issue?!)
             if (currentWindowStyle != WM_BORDERLESS_WINDOWED) {
                 SetWindowLongPtr(window, GWL_STYLE, WM_BORDERLESS_WINDOWED);
             }
@@ -160,6 +162,16 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         break;
     case WM_ACTIVATE:
         active = !HIWORD(wParam);
+        return 0;
+    case WM_SETFOCUS:
+        if (windowMode == WINDOW_MODE_FULLSCREEN) {
+            SetWindowPos(window, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
+        }
+        return 0;
+    case WM_KILLFOCUS:
+        if (windowMode == WINDOW_MODE_FULLSCREEN) {
+            SetWindowPos(window, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
+        }
         return 0;
     // TODO: Keyboard input mode (when menus open)
     case WM_KEYDOWN:
@@ -291,8 +303,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
             glDrawArrays(GL_TRIANGLES, 0, 3);
             glFlush();
             SwapBuffers(deviceContext);
-            // TODO: Lock framerate
-            // TODO: Display framerate (if below expected)
+            // TODO: Calculate framerate
             // This must be smaller than the input delay to register key presses.
             // TODO: Should use timers so not all game updates happen at this high speed
             Sleep(10);
