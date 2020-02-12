@@ -65,9 +65,9 @@ const char * vertex_shader = R"""(
     }
 )""";
 const char * fragment_shader = R"""(
-    #version 410
+    #version 450
     in vec2 texture_coordinates;
-    uniform sampler2D overlay_texture;
+    layout (binding = 0) uniform sampler2D overlay_texture;
     out vec4 frag_color;
     void main() {
         frag_color = texture(overlay_texture, texture_coordinates);
@@ -75,14 +75,9 @@ const char * fragment_shader = R"""(
 )""";
 GLuint vertexShader, fragmentShader;
 GLuint shaderProgram;
-void (*glGenBuffers)(GLsizei n, GLuint * buffers);
 void (*glBindBuffer)(GLenum target, GLuint buffer);
 void (*glBufferData)(GLenum target, GLsizeiptr size, const GLvoid * data, GLenum usage);
-void (*glGenVertexArrays)(GLsizei n, GLuint *arrays);
 void (*glBindVertexArray)(GLuint array);
-void (*glEnableVertexAttribArray)(GLuint index);
-void (*glVertexAttribPointer)(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride,
-                              const GLvoid * pointer);
 GLuint (*glCreateShader)(GLenum shaderType);
 void (*glShaderSource)(GLuint shader, GLsizei count, const GLchar **string, const GLint *length);
 void (*glCompileShader)(GLuint shader);
@@ -93,15 +88,24 @@ void (*glUseProgram)(GLuint program);
 void (*glActiveTexture)(GLenum texture);
 GLint (*glGetUniformLocation)(GLuint program, const GLchar *name);
 void (*glUniform1i)(GLint location, GLint v0);
+void (*glCreateBuffers)(GLsizei n, GLuint *buffers);
+void (*glNamedBufferData)(GLuint buffer, GLsizeiptr size, const void *data, GLenum usage);
+void (*glCreateVertexArrays)(GLsizei n, GLuint *arrays);
+void (*glEnableVertexArrayAttrib)(GLuint vaobj, GLuint index);
+void (*glVertexArrayVertexBuffer)(GLuint vaobj, GLuint bindingindex, GLuint buffer, GLintptr offset, GLsizei stride);
+void (*glVertexArrayAttribFormat)(GLuint vaobj, GLuint attribindex, GLint size, GLenum type, GLboolean normalized,
+      GLuint relativeoffset);
+void (*glVertexArrayAttribBinding)(GLuint vaobj, GLuint attribindex, GLuint bindingindex);
+void (*glCreateTextures)(GLenum target, GLsizei n, GLuint *textures);
+void (*glTextureStorage2D)(GLuint texture, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height);
+void (*glTextureSubImage2D)(GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height,
+      GLenum format,GLenum type, const void *pixels);
+void (*glTextureParameteri)(GLuint texture, GLenum pname, GLint param);
+void (*glBindTextureUnit)(GLuint unit, GLuint texture);
 void LoadOpenGLFunctions() {
-    glGenBuffers = GLFUNC(void, (GLsizei, GLuint *), "glGenBuffers");
     glBindBuffer = GLFUNC(void, (GLenum, GLuint), "glBindBuffer");
     glBufferData = GLFUNC(void, (GLenum, GLsizeiptr, const GLvoid *, GLenum), "glBufferData");
-    glGenVertexArrays = GLFUNC(void, (GLsizei, GLuint *), "glGenVertexArrays");
     glBindVertexArray = GLFUNC(void, (GLuint), "glBindVertexArray");
-    glEnableVertexAttribArray = GLFUNC(void, (GLuint), "glEnableVertexAttribArray");
-    glVertexAttribPointer = GLFUNC(void, (GLuint, GLint, GLenum, GLboolean, GLsizei, const GLvoid *),
-                                   "glVertexAttribPointer");
     glCreateShader = GLFUNC(GLuint, (GLenum), "glCreateShader");
     glShaderSource = GLFUNC(void, (GLuint, GLsizei, const GLchar **, const GLint *), "glShaderSource");
     glCompileShader = GLFUNC(void, (GLuint), "glCompileShader");
@@ -112,6 +116,20 @@ void LoadOpenGLFunctions() {
     glActiveTexture = GLFUNC(void, (GLenum), "glActiveTexture");
     glGetUniformLocation = GLFUNC(GLint, (GLuint, const GLchar *), "glGetUniformLocation");
     glUniform1i = GLFUNC(void, (GLint, GLint), "glUniform1i");
+    glCreateBuffers = GLFUNC(void, (GLsizei, GLuint *), "glCreateBuffers");
+    glNamedBufferData = GLFUNC(void, (GLuint, GLsizeiptr, const void *, GLenum), "glNamedBufferData");
+    glCreateVertexArrays = GLFUNC(void, (GLsizei, GLuint *), "glCreateVertexArrays");
+    glEnableVertexArrayAttrib = GLFUNC(void, (GLuint, GLuint), "glEnableVertexArrayAttrib");
+    glVertexArrayVertexBuffer = GLFUNC(void, (GLuint, GLuint, GLuint, GLintptr, GLsizei), "glVertexArrayVertexBuffer");
+    glVertexArrayAttribFormat = GLFUNC(void, (GLuint, GLuint, GLint, GLenum, GLboolean, GLuint),
+                                       "glVertexArrayAttribFormat");
+    glVertexArrayAttribBinding = GLFUNC(void, (GLuint, GLuint, GLuint), "glVertexArrayAttribBinding");
+    glCreateTextures = GLFUNC(void, (GLenum, GLsizei, GLuint *), "glCreateTextures");
+    glTextureStorage2D = GLFUNC(void, (GLuint, GLsizei, GLenum, GLsizei, GLsizei), "glTextureStorage2D");
+    glTextureSubImage2D = GLFUNC(void, (GLuint, GLint, GLint, GLint, GLsizei, GLsizei, GLenum, GLenum,
+                                 const void *), "glTextureSubImage2D");
+    glTextureParameteri = GLFUNC(void, (GLuint, GLenum, GLint), "glTextureParameteri");
+    glBindTextureUnit = GLFUNC(void, (GLuint, GLuint), "glBindTextureUnit");
 }
 LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     static PAINTSTRUCT paintStruct;
@@ -314,30 +332,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
     // Vertex Position VBO
-    glGenBuffers(1, &vertexBufferObject);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-    glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+    glCreateBuffers(1, &vertexBufferObject);
+    glNamedBufferData(vertexBufferObject, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
     // Texture VBO
-    glGenBuffers(1, &vertexBufferObjectTexture);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObjectTexture);
-    glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 2 * sizeof(GLfloat), overlayTextureCoordinates, GL_STATIC_DRAW);
+    glCreateBuffers(1, &vertexBufferObjectTexture);
+    glNamedBufferData(vertexBufferObjectTexture, numOverlayPoints * 2 * sizeof (GLfloat), overlayTextureCoordinates, GL_STATIC_DRAW);
     // VAO
-    glGenVertexArrays(1, &vertexArrayObject);
+    glCreateVertexArrays(1, &vertexArrayObject);
+    glEnableVertexArrayAttrib(vertexArrayObject, 0);
+    glEnableVertexArrayAttrib(vertexArrayObject, 1);
+    glVertexArrayVertexBuffer(vertexArrayObject, 0, vertexBufferObject, 0, 12);
+    glVertexArrayVertexBuffer(vertexArrayObject, 1, vertexBufferObjectTexture, 0, 8);
+    glVertexArrayAttribBinding(vertexArrayObject, 0, 0);
+    glVertexArrayAttribBinding(vertexArrayObject, 1, 1);
+    glVertexArrayAttribFormat(vertexArrayObject, 0, 3, GL_FLOAT, GL_FALSE, 0);
+    glVertexArrayAttribFormat(vertexArrayObject, 1, 2, GL_FLOAT, GL_FALSE, 0);
     glBindVertexArray(vertexArrayObject);
-    glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
-
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObjectTexture);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
-
-    GLuint overlayTexture;
-    glGenTextures(1, &overlayTexture);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, overlayTexture);
 
     unsigned char *buffer;
     int bpp, width, height;
@@ -353,11 +365,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
         buffer2[ii * 4 + 2] = ii * 10;
         buffer2[ii * 4 + 3] = 0x00;
     }
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+    GLuint overlayTexture;
+    glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture);
+    glTextureStorage2D(overlayTexture, 1, GL_RGBA8, width, height);
+    glTextureSubImage2D(overlayTexture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+    glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTextureParameteri(overlayTexture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTextureParameteri(overlayTexture, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTextureUnit(0, overlayTexture);
 
     glShaderSource(vertexShader, 1, &vertex_shader, NULL);
     glCompileShader(vertexShader);
