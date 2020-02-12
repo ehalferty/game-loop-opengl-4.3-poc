@@ -2,10 +2,14 @@
 #include <windowsx.h>
 #include <GL/gl.h>
 #include <GL/glcorearb.h>
+#include <gdiplus.h>
 #include <cstdio>
 #include <stdio.h>
+#include <vector>
 #include <io.h>
 #include <fcntl.h>
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 #define GLFUNC(RETTYP, ARGTYPES, NAME) (RETTYP (*)ARGTYPES)wglGetProcAddress(NAME)
 #define KEYPRESSED(scancode) (keyboardState[scancode] >> 7) == 0 && (previousKeyboardState[scancode] >> 7) != 0
 #define WM_WINDOWED WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
@@ -14,6 +18,14 @@
 #define WINDOW_MODE_WINDOWED 1
 #define WINDOW_MODE_BORDERLESS_WINDOWED 2
 #define WINDOW_MODE_FULLSCREEN 3
+const int numOverlayPoints = 6;
+GLfloat overlayTextureCoordinates[] = {
+        0.0f, 1.0f,
+        0.0f, 0.0f,
+        1.0f, 0.0f,
+        0.0f, 1.0f,
+        1.0f, 0.0f,
+        1.0f, 1.0f};
 HWND window;
 HDC deviceContext;
 HGLRC openGLRenderingContext;
@@ -30,28 +42,61 @@ INT xTemp = 0, yTemp = 0, filled = 0;
 INT windowStyleWindowed = 0;
 GLuint vertexArrayObject;
 GLuint vertexBufferObject;
+GLuint vertexBufferObjectTexture;
 GLfloat points[] = {
-    0.0f, 0.5f, 0.0f,
-    0.5f, -0.5f, 0.0f,
-    -0.5f, -0.5f, 0.0f
+    0.0f, -0.5f, 0.0f,
+    0.0f, 0.0f, 0.0f,
+    0.5f, 0.0f, 0.0f,
+    0.0f, -0.5f, 0.0f,
+    0.5f, 0.0f, 0.0f,
+    0.5f, -0.5f, 0.0f
 };
 INT windowMode = WINDOW_MODE_WINDOWED, oldWindowMode = WINDOW_MODE_WINDOWED;
 CHAR previousKeyboardState[256];
 CHAR keyboardState[256];
+// const char * vertex_shader = R"""(
+//     #version 410
+//     layout(location = 0) in vec3 vertex_position;
+//     layout(location = 1) in vec2 vertex_texture;
+//     out vec2 texture_coordinates;
+//     void main() {
+//         texture_coordinates = vertex_texture;
+//         gl_Position = vec4(vertex_position, 1.0);
+//     }
+// )""";
 const char * vertex_shader = R"""(
     #version 410
-    in vec3 vp;
-    void main () {
-      gl_Position = vec4 (vp, 1.0);
+    layout(location = 0) in vec3 vertex_position;
+    layout(location = 1) in vec2 vertex_texture;
+    out vec2 texture_coordinates;
+    void main() {
+        texture_coordinates = vertex_texture;
+        gl_Position = vec4(vertex_position, 1.0);
     }
 )""";
 const char * fragment_shader = R"""(
     #version 410
-    out vec4 frag_colour;
-    void main () {
-       frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);
+    in vec2 texture_coordinates;
+    uniform sampler2D overlay_texture;
+    out vec4 frag_color;
+    void main() {
+        frag_color = texture(overlay_texture, texture_coordinates);
     }
 )""";
+// const char * vertex_shader = R"""(
+//     #version 410
+//     in vec3 vp;
+//     void main () {
+//       gl_Position = vec4 (vp, 1.0);
+//     }
+// )""";
+// const char * fragment_shader = R"""(
+//     #version 410
+//     out vec4 frag_colour;
+//     void main () {
+//        frag_colour = vec4 (0.5, 0.0, 0.5, 1.0);
+//     }
+// )""";
 GLuint vertexShader, fragmentShader;
 GLuint shaderProgram;
 void (*glGenBuffers)(GLsizei n, GLuint * buffers);
@@ -69,6 +114,9 @@ GLuint (*glCreateProgram)();
 void (*glAttachShader)(GLuint program, GLuint shader);
 void (*glLinkProgram)(GLuint program);
 void (*glUseProgram)(GLuint program);
+void (*glActiveTexture)(GLenum texture);
+GLint (*glGetUniformLocation)(GLuint program, const GLchar *name);
+void (*glUniform1i)(GLint location, GLint v0);
 void LoadOpenGLFunctions() {
     glGenBuffers = GLFUNC(void, (GLsizei, GLuint *), "glGenBuffers");
     glBindBuffer = GLFUNC(void, (GLenum, GLuint), "glBindBuffer");
@@ -85,6 +133,9 @@ void LoadOpenGLFunctions() {
     glAttachShader = GLFUNC(void, (GLuint, GLuint), "glAttachShader");
     glLinkProgram = GLFUNC(void, (GLuint), "glLinkProgram");
     glUseProgram = GLFUNC(void, (GLuint), "glUseProgram");
+    glActiveTexture = GLFUNC(void, (GLenum), "glActiveTexture");
+    glGetUniformLocation = GLFUNC(GLint, (GLuint, const GLchar *), "glGetUniformLocation");
+    glUniform1i = GLFUNC(void, (GLint, GLint), "glUniform1i");
 }
 LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     static PAINTSTRUCT paintStruct;
@@ -183,9 +234,16 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
     case WM_LBUTTONDOWN:
         xTemp = GET_X_LPARAM(lParam);
         yTemp = GET_Y_LPARAM(lParam);
-        if (filled == 0 || filled == 3) {
+        // A - 0 & 3
+// B - 1
+// C - 2 & 4
+// D - 5
+
+        if (filled == 0 || filled == 4) {
             points[0] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
             points[1] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+            points[9] = points[0];
+            points[10] = points[1];
             filled = 1;
         } else if (filled == 1) {
             points[3] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
@@ -194,7 +252,13 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         } else if (filled == 2) {
             points[6] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
             points[7] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+            points[12] = points[6];
+            points[13] = points[7];
             filled = 3;
+        } else if (filled == 3) {
+            points[15] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+            points[16] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+            filled = 4;
         }
         return 0;
     case WM_CLOSE:
@@ -211,6 +275,29 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
+    // Need GDI+ to parse image files
+    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+    ULONG_PTR gdiplusToken;
+    Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
+    Gdiplus::Bitmap* image = new Gdiplus::Bitmap(L"C:\\Users\\phaz\\game-loop-opengl-4.3-poc\\kitten.jpg");
+    int w = (int)image->GetWidth();
+    int h = (int)image->GetHeight();
+    Gdiplus::Rect rc(0, 0, w, h);
+    Gdiplus::BitmapData* bitmapData = new Gdiplus::BitmapData;
+    image->LockBits(&rc, Gdiplus::ImageLockModeRead, PixelFormat32bppARGB, bitmapData);
+    std::vector<uint32_t> col;
+    col.resize(w * h);
+    for (int y = 0; y < h; y++) {
+        memcpy(&col[y * w], (char*)bitmapData->Scan0 + bitmapData->Stride * y, w * 4);
+        for (int x = 0; x < w; x++) {
+            uint32_t& c = col[y * w + x];
+            c = (c & 0xff00ff00) | ((c & 0xff) << 16) | ((c & 0xff0000) >> 16);
+        }
+    }
+    image->UnlockBits(bitmapData);
+    delete bitmapData;
+    delete image;
+    Gdiplus::GdiplusShutdown(gdiplusToken);
     // Setup a console for logging
     AllocConsole();
     HANDLE handle_out = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -255,15 +342,80 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     LoadOpenGLFunctions();
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
+    // Vertex Position VBO
     glGenBuffers(1, &vertexBufferObject);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-    glBufferData(GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+    // Texture VBO
+    glGenBuffers(1, &vertexBufferObjectTexture);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObjectTexture);
+    glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 2 * sizeof(GLfloat), overlayTextureCoordinates, GL_STATIC_DRAW);
+    // VAO
     glGenVertexArrays(1, &vertexArrayObject);
     glBindVertexArray(vertexArrayObject);
     glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+
     glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObjectTexture);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+
+
+    // // Overlay points VBO
+    // GLuint overlayVBO;
+    // glGenBuffers(1, &overlayVBO);
+    // glBindBuffer(GL_ARRAY_BUFFER, overlayVBO);
+    // glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3* sizeof(GLfloat), overlayPoints, GL_STATIC_DRAW);
+    // // Overlay texture VBO
+    // GLuint overlayTextureVBO;
+    // glGenBuffers(1, &overlayTextureVBO);
+    // glBindBuffer(GL_ARRAY_BUFFER, overlayTextureVBO);
+    // glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 2 * sizeof(GLfloat), overlayTextureCoordinates, GL_STATIC_DRAW);
+    // // overlayVAO
+    // GLuint overlayVAO;
+    // glGenVertexArrays(1, &overlayVAO);
+    // glBindVertexArray(overlayVAO);
+
+    // glBindBuffer(GL_ARRAY_BUFFER, overlayVBO);
+    // glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+
+    // glBindBuffer(GL_ARRAY_BUFFER, overlayTextureVBO);
+    // glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, NULL);
+
+    // glEnableVertexAttribArray(0);
+    // glEnableVertexAttribArray(1);
+
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
+
+    GLuint overlayTexture;
+    glGenTextures(1, &overlayTexture);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, overlayTexture);
+
+    unsigned char *buffer;
+    int bpp, width, height;
+    buffer = stbi_load("kitten.png", &width, &height, &bpp, 0);
+    printf("width=%d, height=%d, bpp=%d\r\n", width, height, bpp);
+    if (!buffer) {
+        MessageBox(0, "Uh... failed", "", 0);
+    }
+    unsigned char *buffer2 = (unsigned char *)malloc(100 * 100 * 4);
+    for (int ii = 0; ii < 100 * 100; ii++) {
+        buffer2[ii * 4 + 0] = 0x00;
+        buffer2[ii * 4 + 1] = ii * 10;
+        buffer2[ii * 4 + 2] = ii * 10;
+        buffer2[ii * 4 + 3] = 0x00;
+    }
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+    // glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 100, 100, 0, GL_RGBA, GL_UNSIGNED_BYTE, buffer2);
+    // MessageBox(0, "Uh... failed", "", 0);
+    // glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, &col[0]);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
     glShaderSource(vertexShader, 1, &vertex_shader, NULL);
     glCompileShader(vertexShader);
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -296,11 +448,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
             }
             // Make OpenGL calls
             glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-            glBufferData(GL_ARRAY_BUFFER, 9 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+            glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            
             glUseProgram(shaderProgram);
+            int textureLocation = glGetUniformLocation(shaderProgram, "overlay_texture");
+            glUniform1i(textureLocation, 0);
+
+            // glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 100, 100, GL_RGBA, GL_UNSIGNED_BYTE, buffer2);
+            glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
             glBindVertexArray(vertexArrayObject);
-            glDrawArrays(GL_TRIANGLES, 0, 3);
+            glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
             glFlush();
             SwapBuffers(deviceContext);
             // TODO: Calculate framerate
