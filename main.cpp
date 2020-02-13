@@ -2,18 +2,17 @@
 #include <windowsx.h>
 #include <GL/gl.h>
 #include <GL/glcorearb.h>
-#include <gdiplus.h>
+//#include <gdiplus.h>
+//#include <vector>
 #include <cstdio>
-#include <stdio.h>
-#include <vector>
 #include <io.h>
 #include <fcntl.h>
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #define GLFUNC(RETTYP, ARGTYPES, NAME) (RETTYP (*)ARGTYPES)wglGetProcAddress(NAME)
 #define KEYPRESSED(scancode) (keyboardState[scancode] >> 7) == 0 && (previousKeyboardState[scancode] >> 7) != 0
-#define WM_WINDOWED WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
-#define WM_BORDERLESS_WINDOWED WS_POPUP | WS_VISIBLE
+#define WM_WINDOWED (WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN)
+#define WM_BORDERLESS_WINDOWED (WS_POPUP | WS_VISIBLE)
 #define WM_CHANGE_WINDOW_MODE WM_USER
 #define WINDOW_MODE_WINDOWED 1
 #define WINDOW_MODE_BORDERLESS_WINDOWED 2
@@ -147,12 +146,14 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
             case 0:
                 printf("Timer 0\r\n");
                 return 0;
+            default:
+                return 0;
         }
     case WM_SIZE:
         windowSize.x = LOWORD(lParam);
         windowSize.y = HIWORD(lParam);
         glViewport(0, 0, LOWORD(lParam), HIWORD(lParam));
-        PostMessage(window, WM_PAINT, 0, 0);
+        InvalidateRect(window, nullptr, TRUE);
         perspectiveChanged = TRUE;
         return 0;
     case WM_CHANGE_WINDOW_MODE:
@@ -164,9 +165,9 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
                 SetWindowLongPtr(window, GWL_STYLE, windowStyleWindowed);
                 SetWindowPos(window, HWND_NOTOPMOST, 0, 0, 0, 0,  SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
             }
-            SetWindowPos(window, 0, 0, 0, 800, 600, SWP_SHOWWINDOW);
+            SetWindowPos(window, nullptr, 0, 0, 800, 600, SWP_SHOWWINDOW);
             if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
-                ChangeDisplaySettings(NULL, 0);
+                ChangeDisplaySettings(nullptr, 0);
             }
         } else if (windowMode == WINDOW_MODE_BORDERLESS_WINDOWED) {
             if (currentWindowStyle != WM_BORDERLESS_WINDOWED) {
@@ -174,12 +175,12 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
                 SetWindowPos(window, HWND_NOTOPMOST, 0, 0, 0, 0,  SWP_NOSIZE | SWP_NOMOVE|SWP_NOACTIVATE);
             }
             if (oldWindowMode == WINDOW_MODE_FULLSCREEN) {
-                ChangeDisplaySettings(NULL, 0);
+                ChangeDisplaySettings(nullptr, 0);
             }
             fullScreen.x = (int)GetSystemMetrics(SM_CXSCREEN);
             fullScreen.y = (int)GetSystemMetrics(SM_CYSCREEN);
             if (windowSize.x != fullScreen.x && windowSize.y != fullScreen.y) {
-                SetWindowPos(window, 0, 0, 0, fullScreen.x, fullScreen.y, SWP_SHOWWINDOW);
+                SetWindowPos(window, nullptr, 0, 0, fullScreen.x, fullScreen.y, SWP_SHOWWINDOW);
             }
         } else if (windowMode == WINDOW_MODE_FULLSCREEN) {
             // TODO: Is this really exclusive fullscreen?
@@ -194,7 +195,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
                          monitorInfo.rcMonitor.right  - monitorInfo.rcMonitor.left,
                          monitorInfo.rcMonitor.bottom - monitorInfo.rcMonitor.top,
                          SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
-            InvalidateRect(window, NULL, TRUE);
+            InvalidateRect(window, nullptr, TRUE);
             PostMessage(window, WM_PAINT, 0, 0);
         }
         PostMessage(window, WM_PAINT, 0, 0);
@@ -251,7 +252,7 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         return 0;
     case WM_CLOSE:
         if (windowMode == WINDOW_MODE_FULLSCREEN) {
-            ChangeDisplaySettings(NULL, 0);
+            ChangeDisplaySettings(nullptr, 0);
         }
         PostQuitMessage(0);
         done = TRUE;
@@ -263,55 +264,62 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
+    // Load JRE
+    HINSTANCE jre = LoadLibrary("java.dll");
+//    HKEY hKey;
+//    LONG lRes = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\JavaSoft\\Java Runtime Environment", 0, KEY_READ, &hKey);
+
+//    LONG lRes = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Perl", 0, KEY_READ, &hKey);
+//    HINSTANCE jre = LoadLibrary("C:\\Documents and Settings\\User\\Desktop  \\fgfdg\\dgdg\\test.dll");
     // Need GDI+ to parse image files
     // TODO: Now that textures work with stb_image, would this work instead?
-    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
-    ULONG_PTR gdiplusToken;
-    Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
-    Gdiplus::Bitmap* image = new Gdiplus::Bitmap(L"C:\\Users\\phaz\\game-loop-opengl-4.3-poc\\kitten.jpg");
-    int w = (int)image->GetWidth();
-    int h = (int)image->GetHeight();
-    Gdiplus::Rect rc(0, 0, w, h);
-    Gdiplus::BitmapData* bitmapData = new Gdiplus::BitmapData;
-    image->LockBits(&rc, Gdiplus::ImageLockModeRead, PixelFormat32bppARGB, bitmapData);
-    std::vector<uint32_t> col;
-    col.resize(w * h);
-    for (int y = 0; y < h; y++) {
-        memcpy(&col[y * w], (char*)bitmapData->Scan0 + bitmapData->Stride * y, w * 4);
-        for (int x = 0; x < w; x++) {
-            uint32_t& c = col[y * w + x];
-            c = (c & 0xff00ff00) | ((c & 0xff) << 16) | ((c & 0xff0000) >> 16);
-        }
-    }
-    image->UnlockBits(bitmapData);
-    delete bitmapData;
-    delete image;
-    Gdiplus::GdiplusShutdown(gdiplusToken);
+//    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+//    ULONG_PTR gdiplusToken;
+//    Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
+//    Gdiplus::Bitmap* image = new Gdiplus::Bitmap(L"C:\\Users\\phaz\\game-loop-opengl-4.3-poc\\kitten.jpg");
+//    int w = (int)image->GetWidth();
+//    int h = (int)image->GetHeight();
+//    Gdiplus::Rect rc(0, 0, w, h);
+//    Gdiplus::BitmapData* bitmapData = new Gdiplus::BitmapData;
+//    image->LockBits(&rc, Gdiplus::ImageLockModeRead, PixelFormat32bppARGB, bitmapData);
+//    std::vector<uint32_t> col;
+//    col.resize(w * h);
+//    for (int y = 0; y < h; y++) {
+//        memcpy(&col[y * w], (char*)bitmapData->Scan0 + bitmapData->Stride * y, w * 4);
+//        for (int x = 0; x < w; x++) {
+//            uint32_t& c = col[y * w + x];
+//            c = (c & 0xff00ff00) | ((c & 0xff) << 16) | ((c & 0xff0000) >> 16);
+//        }
+//    }
+//    image->UnlockBits(bitmapData);
+//    delete bitmapData;
+//    delete image;
+//    Gdiplus::GdiplusShutdown(gdiplusToken);
     // Setup a console for logging
     AllocConsole();
     HANDLE handle_out = GetStdHandle(STD_OUTPUT_HANDLE);
     int hCrt = _open_osfhandle((intptr_t)handle_out, _O_TEXT);
     FILE* hf_out = _fdopen(hCrt, "w");
-    setvbuf(hf_out, NULL, _IONBF, 1);
+    setvbuf(hf_out, nullptr, _IONBF, 1);
     *stdout = *hf_out;
     printf("Hello, party people!\r\n");
-    MSG   message;
-    WNDCLASS wc;
+    MSG message = {};
+    WNDCLASS wc = {};
     int pf;
-    PIXELFORMATDESCRIPTOR pfd;
-    hInstance = GetModuleHandle(NULL);
+    PIXELFORMATDESCRIPTOR pfd = {};
+    hInstance = GetModuleHandle(nullptr);
     wc.style = CS_OWNDC;
     wc.lpfnWndProc = (WNDPROC)WindowProc;
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
     wc.hInstance = hInstance;
-    wc.hIcon = LoadIcon(NULL, IDI_WINLOGO);
-    wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-    wc.hbrBackground = NULL;
-    wc.lpszMenuName = NULL;
+    wc.hIcon = LoadIcon(nullptr, IDI_WINLOGO);
+    wc.hCursor = LoadCursor(nullptr, IDC_ARROW);
+    wc.hbrBackground = nullptr;
+    wc.lpszMenuName = nullptr;
     wc.lpszClassName = "Test123";
     RegisterClass(&wc);
-    window = CreateWindow("Test123", "Hi there", WM_WINDOWED, 0, 0, 800, 600, NULL, NULL, hInstance, NULL);
+    window = CreateWindow("Test123", "Hi there", WM_WINDOWED, 0, 0, 800, 600, nullptr, nullptr, hInstance, nullptr);
     windowStyleWindowed = GetWindowLongPtr(window, GWL_STYLE);
     deviceContext = GetDC(window);
     memset(&pfd, 0, sizeof(pfd));
@@ -353,19 +361,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 
     unsigned char *buffer;
     int bpp, width, height;
-    buffer = stbi_load("kitten.png", &width, &height, &bpp, 0);
+    buffer = stbi_load(R"(C:\Users\phaz\game-loop-opengl-4.3-poc\kitten.png)", &width, &height, &bpp, 0);
     printf("width=%d, height=%d, bpp=%d\r\n", width, height, bpp);
     if (!buffer) {
-        MessageBox(0, "Uh... failed", "", 0);
+        MessageBox(nullptr, "FAILED TO LOAD THE KITTEN", "", 0);
     }
-    unsigned char *buffer2 = (unsigned char *)malloc(100 * 100 * 4);
-    for (int ii = 0; ii < 100 * 100; ii++) {
-        buffer2[ii * 4 + 0] = 0x00;
-        buffer2[ii * 4 + 1] = ii * 10;
-        buffer2[ii * 4 + 2] = ii * 10;
-        buffer2[ii * 4 + 3] = 0x00;
-    }
-
     GLuint overlayTexture;
     glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture);
     glTextureStorage2D(overlayTexture, 1, GL_RGBA8, width, height);
@@ -377,18 +377,18 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     glActiveTexture(GL_TEXTURE0);
     glBindTextureUnit(0, overlayTexture);
 
-    glShaderSource(vertexShader, 1, &vertex_shader, NULL);
+    glShaderSource(vertexShader, 1, &vertex_shader, nullptr);
     glCompileShader(vertexShader);
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragment_shader, NULL);
+    glShaderSource(fragmentShader, 1, &fragment_shader, nullptr);
     glCompileShader(fragmentShader);
     shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, fragmentShader);
     glAttachShader(shaderProgram, vertexShader);
     glLinkProgram(shaderProgram);
-    SetTimer(window, 0, 10000, (TIMERPROC) NULL);
+    SetTimer(window, 0, 10000, (TIMERPROC) nullptr);
     while (!done && message.message != WM_QUIT) {
-        if(PeekMessage(&message, 0, 0, 0, PM_REMOVE)) {
+        if(PeekMessage(&message, nullptr, 0, 0, PM_REMOVE)) {
             TranslateMessage(&message);
             DispatchMessage(&message);
         } else {
@@ -415,9 +415,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
             glUseProgram(shaderProgram);
             int textureLocation = glGetUniformLocation(shaderProgram, "overlay_texture");
             glUniform1i(textureLocation, 0);
-
-            // glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 100, 100, GL_RGBA, GL_UNSIGNED_BYTE, buffer2);
-            glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
             glBindVertexArray(vertexArrayObject);
             glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
             glFlush();
@@ -428,7 +425,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
             Sleep(10);
         }
     }
-    wglMakeCurrent(NULL, NULL);
+    wglMakeCurrent(nullptr, nullptr);
     ReleaseDC(window, deviceContext);
     wglDeleteContext(openGLRenderingContext);
     DestroyWindow(window);

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-x86_64-w64-mingw32-g++ stb_image.h main.c -std=c++11 -lgdi32 -lgdiplus -lopengl32 -Wl,--subsystem,windows -o "app.exe" && ./*exe*
+x86_64-w64-mingw32-g++ stb_image.h main.cpp \
+-std=c++11 -lgdi32 -lgdiplus -lopengl32 -Wl,--subsystem,windows -o "app.exe" && ./*exe*
 
 # gcc -D UNICODE -D _UNICODE -c myfile.c -o myfile.o
 # windres -i resource.rc -o resource.o

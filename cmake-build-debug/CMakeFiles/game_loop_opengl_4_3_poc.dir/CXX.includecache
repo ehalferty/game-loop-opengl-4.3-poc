@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/phaz/game-loop-opengl-4.3-poc/main.c
+C:/Users/phaz/game-loop-opengl-4.3-poc/main.cpp
 windows.h
 -
 windowsx.h

@@ -1,15 +1,15 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "C"
+  "CXX"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_C
-  "/home/ed/winhome/game-loop-opengl-4.3-poc/main.c" "/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/main.c.o"
+set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/phaz/game-loop-opengl-4.3-poc/main.cpp" "C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.obj"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
-set(CMAKE_C_TARGET_INCLUDE_PATH
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
   )
 
 # Targets to which this target links.

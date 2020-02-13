@@ -5,155 +5,86 @@
 		<Option title="game_loop_opengl_4_3_poc"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\bin\;CMake Files\..\bin\CLion-2017.3.5\;CMake Files\..\bin\CLion-2017.3.5\bin\;CMake Files\..\bin\CLion-2017.3.5\bin\cmake\;CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\;CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\;CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\;CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Platform\;CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Compiler\;"/>
+		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug"/>
+				<Option working_dir="C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug"/>
+				<Option working_dir="C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="game_loop_opengl_4_3_poc">
-				<Option output="/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/game_loop_opengl_4_3_poc" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug"/>
+				<Option output="C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/game_loop_opengl_4_3_poc.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include/c++"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include/c++/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include-fixed"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 game_loop_opengl_4_3_poc"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 game_loop_opengl_4_3_poc"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="game_loop_opengl_4_3_poc/fast">
-				<Option output="/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/game_loop_opengl_4_3_poc" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug"/>
+				<Option output="C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/game_loop_opengl_4_3_poc.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include/c++"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include/c++/x86_64-w64-mingw32"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include/c++/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/include-fixed"/>
-					<Add directory="/usr/lib/gcc/x86_64-w64-mingw32/8.3-win32/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 game_loop_opengl_4_3_poc/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/ed/winhome/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 game_loop_opengl_4_3_poc/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/phaz/game-loop-opengl-4.3-poc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/main.c">
+		<Unit filename="C:/Users/phaz/game-loop-opengl-4.3-poc/main.cpp">
 			<Option target="game_loop_opengl_4_3_poc"/>
 		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/CMakeLists.txt">
+		<Unit filename="C:/Users/phaz/game-loop-opengl-4.3-poc/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeSystemSpecificInitialize.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeSystemSpecificInformation.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeGenericSystem.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeFindCodeBlocks.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/ProcessorCount.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeCInformation.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeLanguageInformation.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeCommonLanguageInclude.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeCXXInformation.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeLanguageInformation.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/CMakeCommonLanguageInclude.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Platform/Linux.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Platform\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Platform/UnixPaths.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Platform\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Platform/Linux-GNU-C.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Platform\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Platform/Linux-GNU.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Platform\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Platform/Linux-GNU-CXX.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Platform\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Platform/Linux-GNU.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Platform\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Compiler/GNU-C.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Compiler/GNU.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Compiler/CMakeCommonCompilerMacros.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Compiler/GNU-CXX.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Compiler\"/>
-		</Unit>
-		<Unit filename="/home/ed/winhome/game-loop-opengl-4.3-poc/../bin/CLion-2017.3.5/bin/cmake/share/cmake-3.9/Modules/Compiler/GNU.cmake">
-			<Option virtualFolder="CMake Files\..\bin\CLion-2017.3.5\bin\cmake\share\cmake-3.9\Modules\Compiler\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

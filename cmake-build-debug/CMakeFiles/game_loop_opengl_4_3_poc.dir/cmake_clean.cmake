@@ -1,10 +1,12 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/game_loop_opengl_4_3_poc.dir/main.c.o"
+  "CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.obj"
   "game_loop_opengl_4_3_poc.pdb"
-  "game_loop_opengl_4_3_poc"
+  "game_loop_opengl_4_3_poc.exe"
+  "game_loop_opengl_4_3_poc.exe.manifest"
+  "libgame_loop_opengl_4_3_poc.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang C)
+foreach(lang CXX)
   include(CMakeFiles/game_loop_opengl_4_3_poc.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()
