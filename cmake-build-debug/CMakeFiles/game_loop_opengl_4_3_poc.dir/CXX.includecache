@@ -15,13 +15,7 @@ GL/gl.h
 -
 GL/glcorearb.h
 -
-gdiplus.h
--
 cstdio
--
-stdio.h
--
-vector
 -
 io.h
 -

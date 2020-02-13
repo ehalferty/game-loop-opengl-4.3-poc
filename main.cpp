@@ -264,13 +264,6 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
-    // Load JRE
-    HINSTANCE jre = LoadLibrary("java.dll");
-//    HKEY hKey;
-//    LONG lRes = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\JavaSoft\\Java Runtime Environment", 0, KEY_READ, &hKey);
-
-//    LONG lRes = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Perl", 0, KEY_READ, &hKey);
-//    HINSTANCE jre = LoadLibrary("C:\\Documents and Settings\\User\\Desktop  \\fgfdg\\dgdg\\test.dll");
     // Need GDI+ to parse image files
     // TODO: Now that textures work with stb_image, would this work instead?
 //    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
@@ -303,6 +296,35 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
     setvbuf(hf_out, nullptr, _IONBF, 1);
     *stdout = *hf_out;
     printf("Hello, party people!\r\n");
+
+
+
+    // Load JRE
+    // SetCurrentDirectory(R"(C:\Program Files\Java\jre1.8.0_241\bin\server)");
+    // SetCurrentDirectory(R"(C:\Users\phaz\Documents\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\jdk8u242-b08-jre\bin\server)");
+    // // HINSTANCE jre = LoadLibrary("jvm.dll");
+    // HINSTANCE jre = LoadLibrary("jvm.dll");
+
+    // C:\Users\phaz\game-loop-opengl-4.3-poc\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\jdk8u242-b08-jre\bin\server
+
+    // SetCurrentDirectory(R"(C:\Users\phaz\game-loop-opengl-4.3-poc\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\jdk8u242-b08-jre\bin\server)");
+    HINSTANCE jre = LoadLibrary(".\\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\\jdk8u242-b08-jre\\bin\\server\\jvm.dll");
+    // HINSTANCE jre = LoadLibrary(R"(".\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\jdk8u242-b08-jre\bin\server\jvm.dll")");
+    // C:\Program Files (x86)\Java\jre1.8.0_241\bin\client
+    if (!jre) {
+        printf("jre error=%d\r\n", GetLastError());
+    }
+//    HINSTANCE jre = LoadLibrary(R"(C:\Users\phaz\game-loop-opengl-4.3-poc\java8_32bit.dll)");
+//    FARPROC JNI_CreateJavaVM = GetProcAddress(jre, "JNI_CreateJavaVM");
+//    printf("JNI_CreateJavaVM=%X\r\n", (size_t)JNI_CreateJavaVM);
+//    HKEY hKey;
+//    LONG lRes = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\JavaSoft\\Java Runtime Environment", 0, KEY_READ, &hKey);
+
+//    LONG lRes = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Perl", 0, KEY_READ, &hKey);
+//    HINSTANCE jre = LoadLibrary("C:\\Documents and Settings\\User\\Desktop  \\fgfdg\\dgdg\\test.dll");
+
+
+    // win32 windows setup stuff
     MSG message = {};
     WNDCLASS wc = {};
     int pf;
