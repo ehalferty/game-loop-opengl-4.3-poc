@@ -1,5 +1,9 @@
 #!/bin/bash
 
+rm -rf "app.exe"
+
+javac Game.java
+
 x86_64-w64-mingw32-g++ \
 stb_image.h main.h main.cpp \
 -std=c++11 -lgdi32 -lgdiplus -lopengl32 -Wl,--subsystem,windows \

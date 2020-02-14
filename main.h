@@ -53,30 +53,30 @@ BOOL active = FALSE;
 BOOL done = FALSE;
 INT xTemp = 0, yTemp = 0, filled = 0;
 INT windowStyleWindowed = 0;
-GLuint vertexArrayObject;
-GLuint vertexArrayObject2;
-GLuint vertexBufferObject;
-GLuint vertexBufferObjectTexture;
-GLuint vertexBufferObject2;
-GLuint vertexBufferObjectTexture2;
-GLuint overlayTexture;
-GLuint overlayTexture2;
-GLfloat points[] = {
-        0.0f, -0.5f, 0.0f,
-        0.0f, 0.0f, 0.0f,
-        0.5f, 0.0f, 0.0f,
-        0.0f, -0.5f, 0.0f,
-        0.5f, 0.0f, 0.0f,
-        0.5f, -0.5f, 0.0f
-};
-GLfloat points2[] = {
-        -1.0f, -0.5f, 0.0f,
-        -1.0f, 0.0f, 0.0f,
-        -0.5f, 0.0f, 0.0f,
-        -1.0f, -0.5f, 0.0f,
-        -0.5f, 0.0f, 0.0f,
-        -0.5f, -0.5f, 0.0f
-};
+//GLuint vertexArrayObject;
+//GLuint vertexArrayObject2;
+//GLuint vertexBufferObject;
+//GLuint vertexBufferObjectTexture;
+//GLuint vertexBufferObject2;
+//GLuint vertexBufferObjectTexture2;
+//GLuint overlayTexture;
+//GLuint overlayTexture2;
+//GLfloat points[] = {
+//        0.0f, -0.5f, 0.0f,
+//        0.0f, 0.0f, 0.0f,
+//        0.5f, 0.0f, 0.0f,
+//        0.0f, -0.5f, 0.0f,
+//        0.5f, 0.0f, 0.0f,
+//        0.5f, -0.5f, 0.0f
+//};
+//GLfloat points2[] = {
+//        -1.0f, -0.5f, 0.0f,
+//        -1.0f, 0.0f, 0.0f,
+//        -0.5f, 0.0f, 0.0f,
+//        -1.0f, -0.5f, 0.0f,
+//        -0.5f, 0.0f, 0.0f,
+//        -0.5f, -0.5f, 0.0f
+//};
 INT windowMode = WINDOW_MODE_WINDOWED, oldWindowMode = WINDOW_MODE_WINDOWED;
 CHAR previousKeyboardState[256];
 CHAR keyboardState[256];
@@ -99,10 +99,31 @@ const char * fragment_shader = R"""(
         frag_color = texture(overlay_texture, texture_coordinates);
     }
 )""";
-GLuint vertexShader, fragmentShader;
-GLuint shaderProgram;
-GLuint vertexShader2, fragmentShader2;
-GLuint shaderProgram2;
+//GLuint vertexShader, fragmentShader;
+//GLuint shaderProgram;
+//GLuint vertexShader2, fragmentShader2;
+//GLuint shaderProgram2;
+class Sprite {
+public:
+    bool active;
+    GLuint vertexArrayObject;
+    GLuint vertexBufferObject;
+    GLuint vertexBufferObjectTexture;
+    GLuint overlayTexture;
+    unsigned char *buffer;
+    int bpp;
+    int width;
+    int height;
+    GLfloat points[18];
+    GLuint vertexShader;
+    GLuint fragmentShader;
+    GLuint shaderProgram;
+    void loadImageFile(const char *fileName);
+    void draw();
+};
+
+int numSprites = 0;
+Sprite sprites[100];
 
 // OpenGL functions
 void (*glBindBuffer)(GLenum target, GLuint buffer);

@@ -126,26 +126,28 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         case WM_LBUTTONDOWN:
             xTemp = GET_X_LPARAM(lParam);
             yTemp = GET_Y_LPARAM(lParam);
-            if (filled == 0 || filled == 4) {
-                points[0] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
-                points[1] = 1.0f - (yTemp / (float)windowSize.y) * 2;
-                points[9] = points[0];
-                points[10] = points[1];
-                filled = 1;
-            } else if (filled == 1) {
-                points[3] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
-                points[4] = 1.0f - (yTemp / (float)windowSize.y) * 2;
-                filled = 2;
-            } else if (filled == 2) {
-                points[6] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
-                points[7] = 1.0f - (yTemp / (float)windowSize.y) * 2;
-                points[12] = points[6];
-                points[13] = points[7];
-                filled = 3;
-            } else if (filled == 3) {
-                points[15] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
-                points[16] = 1.0f - (yTemp / (float)windowSize.y) * 2;
-                filled = 4;
+            if (sprites[0].active) {
+                if (filled == 0 || filled == 4) {
+                    sprites[0].points[0] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+                    sprites[0].points[1] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+                    sprites[0].points[9] = sprites[0].points[0];
+                    sprites[0].points[10] = sprites[0].points[1];
+                    filled = 1;
+                } else if (filled == 1) {
+                    sprites[0].points[3] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+                    sprites[0].points[4] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+                    filled = 2;
+                } else if (filled == 2) {
+                    sprites[0].points[6] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+                    sprites[0].points[7] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+                    sprites[0].points[12] = sprites[0].points[6];
+                    sprites[0].points[13] = sprites[0].points[7];
+                    filled = 3;
+                } else if (filled == 3) {
+                    sprites[0].points[15] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+                    sprites[0].points[16] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+                    filled = 4;
+                }
             }
             return 0;
         case WM_CLOSE:
@@ -267,8 +269,30 @@ VOID SetupJRE() {
     JNINativeMethod drawSprite {
             (char *)"drawSprite",
             (char *)"(Ljava/lang/String;FFFF)V",
-            (void *) *[](JNIEnv *env, jobject objectOrClass){
+            (void *) *[](JNIEnv *env, jobject objectOrClass, jstring fileName, jfloat x, jfloat y, jfloat w, jfloat h) {
                 printf("Hello from Java!\r\n");
+//                GLfloat points3[] = {
+//                        0.0f, -0.5f, 0.0f,
+//                        0.0f, 0.0f, 0.0f,
+//                        0.5f, 0.0f, 0.0f,
+//                        0.0f, -0.5f, 0.0f,
+//                        0.5f, 0.0f, 0.0f,
+//                        0.5f, -0.5f, 0.0f
+//                };
+                GLfloat points3[] = {
+                        x, y - h, 0.0f,
+                        x, y, 0.0f,
+                        x + w, y, 0.0f,
+                        x, y - h, 0.0f,
+                        x + w, y, 0.0f,
+                        x + w, y - h, 0.0f
+                };
+                for (int i = 0; i < 18; i++) {
+                    sprites[numSprites].points[i] = points3[i];
+                }
+//                sprites[numSprites].points = points3;
+                sprites[numSprites].loadImageFile(env->GetStringUTFChars(fileName, nullptr));
+                numSprites++;
             }
     };
     env->RegisterNatives(gameClass, &drawSprite, 1);
@@ -331,17 +355,22 @@ VOID Init() {
     SetupTimers();
 }
 
-VOID SetupOpenGL() {
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LESS);
-
-
+VOID Sprite::loadImageFile(const char *fileName) {
+    active = true;
+    buffer = stbi_load(fileName, &width, &height, &bpp, 0);
+    printf("width=%d, height=%d, bpp=%d\r\n", width, height, bpp);
+    if (!buffer) {
+        CHAR fullMessage[256];
+        snprintf(fullMessage, 256, "FAILED TO LOAD THE IMAGE %s", fileName);
+        MessageBox(nullptr, fullMessage, "", 0);
+    }
     // Vertex Position VBO
     glCreateBuffers(1, &vertexBufferObject);
-    glNamedBufferData(vertexBufferObject, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+    glNamedBufferData(vertexBufferObject, numOverlayPoints * 3 * sizeof(GLfloat), points, GL_STATIC_DRAW);
     // Texture VBO
     glCreateBuffers(1, &vertexBufferObjectTexture);
-    glNamedBufferData(vertexBufferObjectTexture, numOverlayPoints * 2 * sizeof (GLfloat), overlayTextureCoordinates, GL_STATIC_DRAW);
+    glNamedBufferData(vertexBufferObjectTexture, numOverlayPoints * 2 * sizeof(GLfloat), overlayTextureCoordinates,
+                      GL_STATIC_DRAW);
     // VAO
     glCreateVertexArrays(1, &vertexArrayObject);
     glEnableVertexArrayAttrib(vertexArrayObject, 0);
@@ -353,43 +382,6 @@ VOID SetupOpenGL() {
     glVertexArrayAttribFormat(vertexArrayObject, 0, 3, GL_FLOAT, GL_FALSE, 0);
     glVertexArrayAttribFormat(vertexArrayObject, 1, 2, GL_FLOAT, GL_FALSE, 0);
     glBindVertexArray(vertexArrayObject);
-
-
-    // Vertex Position VBO2
-    glCreateBuffers(1, &vertexBufferObject2);
-    glNamedBufferData(vertexBufferObject2, numOverlayPoints * 3 * sizeof (GLfloat), points2, GL_STATIC_DRAW);
-    // Texture VBO2
-    glCreateBuffers(1, &vertexBufferObjectTexture2);
-    glNamedBufferData(vertexBufferObjectTexture2, numOverlayPoints * 2 * sizeof (GLfloat), overlayTextureCoordinates, GL_STATIC_DRAW);
-    // VAO2
-    glCreateVertexArrays(1, &vertexArrayObject2);
-    glEnableVertexArrayAttrib(vertexArrayObject2, 0);
-    glEnableVertexArrayAttrib(vertexArrayObject2, 1);
-    glVertexArrayVertexBuffer(vertexArrayObject2, 0, vertexBufferObject2, 0, 12);
-    glVertexArrayVertexBuffer(vertexArrayObject2, 1, vertexBufferObjectTexture2, 0, 8);
-    glVertexArrayAttribBinding(vertexArrayObject2, 0, 0);
-    glVertexArrayAttribBinding(vertexArrayObject2, 1, 1);
-    glVertexArrayAttribFormat(vertexArrayObject2, 0, 3, GL_FLOAT, GL_FALSE, 0);
-    glVertexArrayAttribFormat(vertexArrayObject2, 1, 2, GL_FLOAT, GL_FALSE, 0);
-    glBindVertexArray(vertexArrayObject2);
-
-
-    // Load the images
-    unsigned char *buffer;
-    int bpp, width, height;
-    buffer = stbi_load("kitten.png", &width, &height, &bpp, 0);
-    printf("width=%d, height=%d, bpp=%d\r\n", width, height, bpp);
-    if (!buffer) {
-        MessageBox(nullptr, "FAILED TO LOAD THE KITTEN", "", 0);
-    }
-    unsigned char *buffer2;
-    int bpp2, width2, height2;
-    buffer2 = stbi_load("kitten2.png", &width2, &height2, &bpp2, 0);
-    printf("width2=%d, height2=%d, bpp2=%d\r\n", width2, height2, bpp2);
-    if (!buffer2) {
-        MessageBox(nullptr, "FAILED TO LOAD THE SECOND KITTEN", "", 0);
-    }
-
     // Load texture into VRAM
     glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture);
     glTextureStorage2D(overlayTexture, 1, GL_RGBA8, width, height);
@@ -398,48 +390,37 @@ VOID SetupOpenGL() {
     glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTextureParameteri(overlayTexture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTextureParameteri(overlayTexture, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-
-    // Load texture 2 into VRAM
-    glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture2);
-    glTextureStorage2D(overlayTexture2, 1, GL_RGBA8, width2, height2);
-    glTextureSubImage2D(overlayTexture2, 0, 0, 0, width2, height2, GL_RGBA, GL_UNSIGNED_BYTE, buffer2);
-    glTextureParameteri(overlayTexture2, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTextureParameteri(overlayTexture2, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTextureParameteri(overlayTexture2, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTextureParameteri(overlayTexture2, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//    glActiveTexture(GL_TEXTURE0);
-
     // Create vertex shader
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertex_shader, nullptr);
     glCompileShader(vertexShader);
-
     // Create fragment shader
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fragment_shader, nullptr);
     glCompileShader(fragmentShader);
-
     // Create shader program
     shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, fragmentShader);
     glAttachShader(shaderProgram, vertexShader);
     glLinkProgram(shaderProgram);
+}
 
-    // Create vertex shader 2
-    vertexShader2 = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader2, 1, &vertex_shader, nullptr);
-    glCompileShader(vertexShader2);
+VOID Sprite::draw() {
+    glBindTextureUnit(0, overlayTexture);
+    glUseProgram(shaderProgram);
+    int textureLocation = glGetUniformLocation(shaderProgram, "overlay_texture");
+    glUniform1i(textureLocation, 0);
+    glBindVertexArray(vertexArrayObject);
+    glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
+}
 
-    // Create fragment shader 2
-    fragmentShader2 = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader2, 1, &fragment_shader, nullptr);
-    glCompileShader(fragmentShader2);
-
-    // Create shader program 2
-    shaderProgram2 = glCreateProgram();
-    glAttachShader(shaderProgram2, fragmentShader2);
-    glAttachShader(shaderProgram2, vertexShader2);
-    glLinkProgram(shaderProgram2);
+VOID SetupOpenGL() {
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+//    sprites[0].points = points;
+//    sprites[0].loadImageFile("kitten.png");
+//    sprites[1].points = points2;
+//    sprites[1].loadImageFile("kitten2.png");
 }
 
 VOID GameLoop() {
@@ -466,26 +447,13 @@ VOID GameLoop() {
             // Run Java code
             RunGameLoop();
             // Make OpenGL calls
-            glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-            glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
+            glBindBuffer(GL_ARRAY_BUFFER, sprites[0].vertexBufferObject);
+            glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), sprites[0].points, GL_STATIC_DRAW);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            // Draw shader 1
-            glBindTextureUnit(0, overlayTexture);
-            glUseProgram(shaderProgram);
-            int textureLocation = glGetUniformLocation(shaderProgram, "overlay_texture");
-            glUniform1i(textureLocation, 0);
-            glBindVertexArray(vertexArrayObject);
-            glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
-
-            // Draw shader 2
-            glBindTextureUnit(0, overlayTexture2);
-            glUseProgram(shaderProgram2);
-            int textureLocation2 = glGetUniformLocation(shaderProgram, "overlay_texture");
-            glUniform1i(textureLocation2, 0);
-            glBindVertexArray(vertexArrayObject2);
-            glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
-
+            for (int i = 0; sprites[i].active; i++) {
+                sprites[i].draw();
+            }
 
             glFlush();
             SwapBuffers(deviceContext);
