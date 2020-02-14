@@ -1,110 +1,5 @@
-#include <windows.h>
-#include <windowsx.h>
-#include <GL/gl.h>
-#include <GL/glcorearb.h>
-//#include <gdiplus.h>
-//#include <vector>
-#include <cstdio>
-#include <io.h>
-#include <fcntl.h>
-#include "openjdk_8_jdk_includes/jni.h"
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-#define GLFUNC(RETTYP, ARGTYPES, NAME) (RETTYP (*)ARGTYPES)wglGetProcAddress(NAME)
-#define DLLFUNC(RETTYP, ARGTYPES, DLL, NAME) (RETTYP (*)ARGTYPES)GetProcAddress(DLL, NAME)
-#define KEYPRESSED(scancode) (keyboardState[scancode] >> 7) == 0 && (previousKeyboardState[scancode] >> 7) != 0
-#define WM_WINDOWED (WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN)
-#define WM_BORDERLESS_WINDOWED (WS_POPUP | WS_VISIBLE)
-#define WM_CHANGE_WINDOW_MODE WM_USER
-#define WINDOW_MODE_WINDOWED 1
-#define WINDOW_MODE_BORDERLESS_WINDOWED 2
-#define WINDOW_MODE_FULLSCREEN 3
-const int numOverlayPoints = 6;
-GLfloat overlayTextureCoordinates[] = {
-        0.0f, 1.0f,
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 0.0f,
-        1.0f, 1.0f};
-HWND window;
-MSG message = {};
-HDC deviceContext;
-HGLRC openGLRenderingContext;
-POINT windowSize = { 4, 3 };
-POINT fullScreen = { 4, 3 };
-BOOL windowVisible = FALSE;
-INT currentWindowStyle = WINDOW_MODE_WINDOWED;
-DEVMODE screenSettings;
-MONITORINFO monitorInfo = { sizeof(MONITORINFO) };
-BOOL perspectiveChanged = FALSE;
-BOOL active = FALSE;
-BOOL done = FALSE;
-INT xTemp = 0, yTemp = 0, filled = 0;
-INT windowStyleWindowed = 0;
-GLuint vertexArrayObject;
-GLuint vertexBufferObject;
-GLuint vertexBufferObjectTexture;
-GLfloat points[] = {
-        0.0f, -0.5f, 0.0f,
-        0.0f, 0.0f, 0.0f,
-        0.5f, 0.0f, 0.0f,
-        0.0f, -0.5f, 0.0f,
-        0.5f, 0.0f, 0.0f,
-        0.5f, -0.5f, 0.0f
-};
-INT windowMode = WINDOW_MODE_WINDOWED, oldWindowMode = WINDOW_MODE_WINDOWED;
-CHAR previousKeyboardState[256];
-CHAR keyboardState[256];
-const char * vertex_shader = R"""(
-    #version 410
-    layout(location = 0) in vec3 vertex_position;
-    layout(location = 1) in vec2 vertex_texture;
-    out vec2 texture_coordinates;
-    void main() {
-        texture_coordinates = vertex_texture;
-        gl_Position = vec4(vertex_position, 1.0);
-    }
-)""";
-const char * fragment_shader = R"""(
-    #version 450
-    in vec2 texture_coordinates;
-    layout (binding = 0) uniform sampler2D overlay_texture;
-    out vec4 frag_color;
-    void main() {
-        frag_color = texture(overlay_texture, texture_coordinates);
-    }
-)""";
-GLuint vertexShader, fragmentShader;
-GLuint shaderProgram;
-void (*glBindBuffer)(GLenum target, GLuint buffer);
-void (*glBufferData)(GLenum target, GLsizeiptr size, const GLvoid * data, GLenum usage);
-void (*glBindVertexArray)(GLuint array);
-GLuint (*glCreateShader)(GLenum shaderType);
-void (*glShaderSource)(GLuint shader, GLsizei count, const GLchar **string, const GLint *length);
-void (*glCompileShader)(GLuint shader);
-GLuint (*glCreateProgram)();
-void (*glAttachShader)(GLuint program, GLuint shader);
-void (*glLinkProgram)(GLuint program);
-void (*glUseProgram)(GLuint program);
-void (*glActiveTexture)(GLenum texture);
-GLint (*glGetUniformLocation)(GLuint program, const GLchar *name);
-void (*glUniform1i)(GLint location, GLint v0);
-void (*glCreateBuffers)(GLsizei n, GLuint *buffers);
-void (*glNamedBufferData)(GLuint buffer, GLsizeiptr size, const void *data, GLenum usage);
-void (*glCreateVertexArrays)(GLsizei n, GLuint *arrays);
-void (*glEnableVertexArrayAttrib)(GLuint vaobj, GLuint index);
-void (*glVertexArrayVertexBuffer)(GLuint vaobj, GLuint bindingindex, GLuint buffer, GLintptr offset, GLsizei stride);
-void (*glVertexArrayAttribFormat)(GLuint vaobj, GLuint attribindex, GLint size, GLenum type, GLboolean normalized,
-                                  GLuint relativeoffset);
-void (*glVertexArrayAttribBinding)(GLuint vaobj, GLuint attribindex, GLuint bindingindex);
-void (*glCreateTextures)(GLenum target, GLsizei n, GLuint *textures);
-void (*glTextureStorage2D)(GLuint texture, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height);
-void (*glTextureSubImage2D)(GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height,
-                            GLenum format,GLenum type, const void *pixels);
-void (*glTextureParameteri)(GLuint texture, GLenum pname, GLint param);
-void (*glBindTextureUnit)(GLuint unit, GLuint texture);
-void LoadOpenGLFunctions() {
+#include "main.h"
+VOID LoadOpenGLFunctions() {
     glBindBuffer = GLFUNC(void, (GLenum, GLuint), "glBindBuffer");
     glBufferData = GLFUNC(void, (GLenum, GLsizeiptr, const GLvoid *, GLenum), "glBufferData");
     glBindVertexArray = GLFUNC(void, (GLuint), "glBindVertexArray");
@@ -303,18 +198,84 @@ VOID SetupGDIPlusImageLoader() {
 //    Gdiplus::GdiplusShutdown(gdiplusToken);
 }
 
+void ExitWithMessage(const char * message) {
+    MessageBox(nullptr, message, "Error", MB_ICONERROR);
+    ExitProcess(1);
+}
+
+VOID HandleFileError(LPCTSTR message, LPCTSTR fileName) {
+    CHAR buffer[256];
+    snprintf(buffer, 256, "Error opening %s: %s!", message, fileName);
+    ExitWithMessage(buffer);
+}
+
+struct FileReadResult {
+    LPCTSTR data;
+    size_t size;
+};
+
+FileReadResult ReadLocalFile(LPCTSTR fileName) {
+    HANDLE file;
+    LARGE_INTEGER fileSizeInBytes = {};
+    CHAR * fileBytes = nullptr;
+    file = CreateFile(fileName, GENERIC_READ, FILE_SHARE_READ, nullptr,
+                      OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+    if (file == INVALID_HANDLE_VALUE) {
+        HandleFileError("Couldn't open file", fileName);
+    } else {
+        if (!GetFileSizeEx(file, (PLARGE_INTEGER)&fileSizeInBytes)) {
+            HandleFileError("Couldn't get file size", fileName);
+        } else {
+            // Allocate memory for the file data.
+            fileBytes = (CHAR *)malloc((size_t)(sizeof(CHAR) * fileSizeInBytes.QuadPart));
+            // Read the file.
+            int bytesRead;
+            BOOL success = ReadFile(
+                    file,
+                    fileBytes,
+                    fileSizeInBytes.LowPart,
+                    (PDWORD)&bytesRead,
+                    nullptr);
+            if (!success) {
+                HandleFileError("Couldn't read file", fileName);
+            } else {
+                fileBytes[fileSizeInBytes.LowPart] = 0x00;
+            }
+        }
+    }
+    FileReadResult res = { fileBytes, (size_t)(sizeof(CHAR) * fileSizeInBytes.QuadPart) };
+    return res;
+}
+
 VOID SetupJRE() {
-    HINSTANCE jre = LoadLibrary(".\\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\\jdk8u242-b08-jre\\bin\\server\\jvm.dll");
+    HINSTANCE jre = LoadLibrary(JRE_PATH);
     if (!jre) {
         printf("jre DLL load error=%d\r\n", (int)GetLastError());
     }
-    void (*JNI_GetDefaultJavaVMInitArgs)(void *args);
-    JNI_GetDefaultJavaVMInitArgs = DLLFUNC(void, (void *), jre, "JNI_GetDefaultJavaVMInitArgs");
-    JavaVM *jvm = nullptr;
-    JNIEnv *env = nullptr;
+    MyJNI_GetDefaultJavaVMInitArgs = DLLFUNC(void, (void *), jre, "JNI_GetDefaultJavaVMInitArgs");
+    MyJNI_CreateJavaVM = DLLFUNC(jint, (JavaVM **, void **, void *), jre, "JNI_CreateJavaVM");
     JavaVMInitArgs vm_args = {};
     vm_args.version = 0x00010001;
-    JNI_GetDefaultJavaVMInitArgs(&vm_args);
+    MyJNI_GetDefaultJavaVMInitArgs(&vm_args);
+    MyJNI_CreateJavaVM(&jvm, (void **)&env, &vm_args);
+    FileReadResult gameClassReadResult = ReadLocalFile("Game.class");
+    auto classBytes = (jbyte const *)gameClassReadResult.data;
+    auto classSize = (jsize)gameClassReadResult.size;
+    jclass gameClass = env->DefineClass("Game", nullptr, classBytes, classSize);
+//    jmethodID gameClassConstructor = env->GetMethodID(gameClass, "<init>", "()V");
+    gameMain = env->GetStaticMethodID(gameClass, "main", "()V");
+    JNINativeMethod drawSprite {
+            (char *)"drawSprite",
+            (char *)"(Ljava/lang/String;FFFF)V",
+            (void *) *[](JNIEnv *env, jobject objectOrClass){
+                printf("Hello from Java!\r\n");
+            }
+    };
+    env->RegisterNatives(gameClass, &drawSprite, 1);
+}
+
+VOID RunGameLoop() {
+    env->CallStaticVoidMethod(nullptr, gameMain);
 }
 
 VOID SetupWin32Stuff() {
@@ -373,6 +334,8 @@ VOID Init() {
 VOID SetupOpenGL() {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
+
+
     // Vertex Position VBO
     glCreateBuffers(1, &vertexBufferObject);
     glNamedBufferData(vertexBufferObject, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
@@ -391,16 +354,43 @@ VOID SetupOpenGL() {
     glVertexArrayAttribFormat(vertexArrayObject, 1, 2, GL_FLOAT, GL_FALSE, 0);
     glBindVertexArray(vertexArrayObject);
 
-    vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
+    // Vertex Position VBO2
+    glCreateBuffers(1, &vertexBufferObject2);
+    glNamedBufferData(vertexBufferObject2, numOverlayPoints * 3 * sizeof (GLfloat), points2, GL_STATIC_DRAW);
+    // Texture VBO2
+    glCreateBuffers(1, &vertexBufferObjectTexture2);
+    glNamedBufferData(vertexBufferObjectTexture2, numOverlayPoints * 2 * sizeof (GLfloat), overlayTextureCoordinates, GL_STATIC_DRAW);
+    // VAO2
+    glCreateVertexArrays(1, &vertexArrayObject2);
+    glEnableVertexArrayAttrib(vertexArrayObject2, 0);
+    glEnableVertexArrayAttrib(vertexArrayObject2, 1);
+    glVertexArrayVertexBuffer(vertexArrayObject2, 0, vertexBufferObject2, 0, 12);
+    glVertexArrayVertexBuffer(vertexArrayObject2, 1, vertexBufferObjectTexture2, 0, 8);
+    glVertexArrayAttribBinding(vertexArrayObject2, 0, 0);
+    glVertexArrayAttribBinding(vertexArrayObject2, 1, 1);
+    glVertexArrayAttribFormat(vertexArrayObject2, 0, 3, GL_FLOAT, GL_FALSE, 0);
+    glVertexArrayAttribFormat(vertexArrayObject2, 1, 2, GL_FLOAT, GL_FALSE, 0);
+    glBindVertexArray(vertexArrayObject2);
+
+
+    // Load the images
     unsigned char *buffer;
     int bpp, width, height;
-    buffer = stbi_load(R"(C:\Users\phaz\game-loop-opengl-4.3-poc\kitten.png)", &width, &height, &bpp, 0);
+    buffer = stbi_load("kitten.png", &width, &height, &bpp, 0);
     printf("width=%d, height=%d, bpp=%d\r\n", width, height, bpp);
     if (!buffer) {
         MessageBox(nullptr, "FAILED TO LOAD THE KITTEN", "", 0);
     }
-    GLuint overlayTexture;
+    unsigned char *buffer2;
+    int bpp2, width2, height2;
+    buffer2 = stbi_load("kitten2.png", &width2, &height2, &bpp2, 0);
+    printf("width2=%d, height2=%d, bpp2=%d\r\n", width2, height2, bpp2);
+    if (!buffer2) {
+        MessageBox(nullptr, "FAILED TO LOAD THE SECOND KITTEN", "", 0);
+    }
+
+    // Load texture into VRAM
     glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture);
     glTextureStorage2D(overlayTexture, 1, GL_RGBA8, width, height);
     glTextureSubImage2D(overlayTexture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
@@ -408,18 +398,48 @@ VOID SetupOpenGL() {
     glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTextureParameteri(overlayTexture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTextureParameteri(overlayTexture, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTextureUnit(0, overlayTexture);
 
+    // Load texture 2 into VRAM
+    glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture2);
+    glTextureStorage2D(overlayTexture2, 1, GL_RGBA8, width2, height2);
+    glTextureSubImage2D(overlayTexture2, 0, 0, 0, width2, height2, GL_RGBA, GL_UNSIGNED_BYTE, buffer2);
+    glTextureParameteri(overlayTexture2, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTextureParameteri(overlayTexture2, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTextureParameteri(overlayTexture2, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTextureParameteri(overlayTexture2, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//    glActiveTexture(GL_TEXTURE0);
+
+    // Create vertex shader
+    vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertex_shader, nullptr);
     glCompileShader(vertexShader);
+
+    // Create fragment shader
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fragment_shader, nullptr);
     glCompileShader(fragmentShader);
+
+    // Create shader program
     shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, fragmentShader);
     glAttachShader(shaderProgram, vertexShader);
     glLinkProgram(shaderProgram);
+
+    // Create vertex shader 2
+    vertexShader2 = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertexShader2, 1, &vertex_shader, nullptr);
+    glCompileShader(vertexShader2);
+
+    // Create fragment shader 2
+    fragmentShader2 = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentShader2, 1, &fragment_shader, nullptr);
+    glCompileShader(fragmentShader2);
+
+    // Create shader program 2
+    shaderProgram2 = glCreateProgram();
+    glAttachShader(shaderProgram2, fragmentShader2);
+    glAttachShader(shaderProgram2, vertexShader2);
+    glLinkProgram(shaderProgram2);
 }
 
 VOID GameLoop() {
@@ -443,16 +463,30 @@ VOID GameLoop() {
             } else if (KEYPRESSED(0x51) && windowMode != 3) {
                 SendMessage(window, WM_CLOSE, 0, 0);
             }
+            // Run Java code
+            RunGameLoop();
             // Make OpenGL calls
             glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
             glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+            // Draw shader 1
+            glBindTextureUnit(0, overlayTexture);
             glUseProgram(shaderProgram);
             int textureLocation = glGetUniformLocation(shaderProgram, "overlay_texture");
             glUniform1i(textureLocation, 0);
             glBindVertexArray(vertexArrayObject);
             glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
+
+            // Draw shader 2
+            glBindTextureUnit(0, overlayTexture2);
+            glUseProgram(shaderProgram2);
+            int textureLocation2 = glGetUniformLocation(shaderProgram, "overlay_texture");
+            glUniform1i(textureLocation2, 0);
+            glBindVertexArray(vertexArrayObject2);
+            glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
+
+
             glFlush();
             SwapBuffers(deviceContext);
             // TODO: Calculate framerate

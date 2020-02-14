@@ -8,4 +8,4 @@ link_libraries( -lgdi32 -lgdiplus -lopengl32 -Wl,--subsystem,windows)
 #target_compile_options(game_loop_opengl_4_3_poc PRIVATE -fexceptions)
 
 add_executable(game_loop_opengl_4_3_poc
-        main.cpp)
+        main.cpp main.h)
