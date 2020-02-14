@@ -1,4 +1,23 @@
+//    HINSTANCE jre = LoadLibrary(R"(C:\Users\phaz\game-loop-opengl-4.3-poc\java8_32bit.dll)");
+   // _JNI_IMPORT_OR_EXPORT_ jint JNICALL (*JNI_GetDefaultJavaVMInitArgs)(void *args);
+    // JNI_GetDefaultJavaVMInitArgs = ((*)(void *))GetProcAddress(jre, "JNI_GetDefaultJavaVMInitArgs");
+    // printf("JNI_GetDefaultJavaVMInitArgs=%X\r\n", (size_t)JNI_GetDefaultJavaVMInitArgs);
+//    HKEY hKey;
+//    LONG lRes = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\JavaSoft\\Java Runtime Environment", 0, KEY_READ, &hKey);
 
+//    LONG lRes = RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Perl", 0, KEY_READ, &hKey);
+//    HINSTANCE jre = LoadLibrary("C:\\Documents and Settings\\User\\Desktop  \\fgfdg\\dgdg\\test.dll");
+    // HINSTANCE jre = LoadLibrary(R"(".\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\jdk8u242-b08-jre\bin\server\jvm.dll")");
+    // C:\Program Files (x86)\Java\jre1.8.0_241\bin\client
+    // SetCurrentDirectory(R"(C:\Program Files\Java\jre1.8.0_241\bin\server)");
+    // SetCurrentDirectory(R"(C:\Users\phaz\Documents\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\jdk8u242-b08-jre\bin\server)");
+    // // HINSTANCE jre = LoadLibrary("jvm.dll");
+    // HINSTANCE jre = LoadLibrary("jvm.dll");
+
+    // C:\Users\phaz\game-loop-opengl-4.3-poc\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\jdk8u242-b08-jre\bin\server
+
+    // SetCurrentDirectory(R"(C:\Users\phaz\game-loop-opengl-4.3-poc\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\jdk8u242-b08-jre\bin\server)");
+    
 // const char * vertex_shader = R"""(
 //     #version 410
 //     layout(location = 0) in vec3 vertex_position;
