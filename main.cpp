@@ -211,11 +211,6 @@ VOID HandleFileError(LPCTSTR message, LPCTSTR fileName) {
     ExitWithMessage(buffer);
 }
 
-struct FileReadResult {
-    LPCTSTR data;
-    size_t size;
-};
-
 FileReadResult ReadLocalFile(LPCTSTR fileName) {
     HANDLE file;
     LARGE_INTEGER fileSizeInBytes = {};

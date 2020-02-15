@@ -53,6 +53,12 @@ BOOL active = FALSE;
 BOOL done = FALSE;
 INT xTemp = 0, yTemp = 0, filled = 0;
 INT windowStyleWindowed = 0;
+
+
+struct FileReadResult {
+    LPCTSTR data;
+    size_t size;
+};
 //GLuint vertexArrayObject;
 //GLuint vertexArrayObject2;
 //GLuint vertexBufferObject;
