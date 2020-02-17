@@ -13,6 +13,7 @@
 //#include <vector>
 #include <cstdio>
 #include <io.h>
+#include <math.h>
 #include <fcntl.h>
 #include "openjdk_8_jdk_includes/jni.h"
 #define STB_IMAGE_IMPLEMENTATION
@@ -54,6 +55,15 @@ BOOL done = FALSE;
 INT xTemp = 0, yTemp = 0, filled = 0;
 INT windowStyleWindowed = 0;
 
+
+
+GLuint overlayVAO;
+GLuint overlayPointsVBO;
+GLuint overlayTextureVBO;
+GLuint overlayTexture;
+GLuint overlayVertexShader;
+GLuint overlayFragmentShader;
+GLuint overlayShaderProgram;
 
 struct FileReadResult {
     LPCTSTR data;
@@ -105,31 +115,94 @@ const char * fragment_shader = R"""(
         frag_color = texture(overlay_texture, texture_coordinates);
     }
 )""";
+
+
+class Sprite {
+public:
+    CHAR name[100];
+    INT width;
+    INT height;
+    FLOAT atlasX;
+    FLOAT atlasY;
+    FLOAT atlasW;
+    FLOAT atlasH;
+    INT bpp;
+    PBYTE buffer;
+    VOID loadImageFile(const char *fileName);
+};
+int numSprites = 0;
+Sprite sprites[100];
+
+class Widget {
+public:
+    CHAR name[100];
+    FLOAT x;
+    FLOAT y;
+    FLOAT width;
+    FLOAT height;
+    INT numSpritesInWidget;
+    CHAR spriteNames[100][100];
+    INT spriteIndexes[100];
+    GLfloat spritesPoints[100][18];
+    GLfloat spritesTextureCoordinates[100][12];
+    VOID draw();
+};
+int numWidgets = 0;
+Widget widgets[100];
+
+
 //GLuint vertexShader, fragmentShader;
 //GLuint shaderProgram;
 //GLuint vertexShader2, fragmentShader2;
 //GLuint shaderProgram2;
-class Sprite {
-public:
-    bool active;
-    GLuint vertexArrayObject;
-    GLuint vertexBufferObject;
-    GLuint vertexBufferObjectTexture;
-    GLuint overlayTexture;
-    unsigned char *buffer;
-    int bpp;
-    int width;
-    int height;
-    GLfloat points[18];
-    GLuint vertexShader;
-    GLuint fragmentShader;
-    GLuint shaderProgram;
-    void loadImageFile(const char *fileName);
-    void draw();
-};
 
-int numSprites = 0;
-Sprite sprites[100];
+// Holds image buffer from a file
+// Things you can do:
+// 1. Initialize it from an image file on disk (and give it a unique name)
+// 2. Initialize it with a blit operation from another buffer (and give it a unique name)
+// 3. blit a region from another buffer
+//class UIBitmap {
+//public:
+//    BOOL active;
+//    DWORD width;
+//    DWORD height;
+//    PBYTE data;
+//};
+//
+//class UIRegion {
+//    BOOL active;
+//    DWORD width;
+//    DWORD height;
+//    // Indexes of bitmaps to use to build this region
+//    DWORD bitmaps[256];
+//    // Locations within this region to draw each bitmap
+//    POINT bitmapsLocations[256];
+//    VOID rebuild();
+//};
+
+//class
+
+//class Widget {
+//public:
+//    BOOL active;
+//    GLuint vertexArrayObject;
+//    GLuint vertexBufferObject;
+//    GLuint vertexBufferObjectTexture;
+//    GLuint overlayTexture;
+//    PBYTE buffer;
+//    INT bpp;
+//    INT width;
+//    INT height;
+//    GLfloat points[18];
+//    GLuint vertexShader;
+//    GLuint fragmentShader;
+//    GLuint shaderProgram;
+//    VOID loadImageFile(const char *fileName);
+//    VOID draw();
+//};
+//
+//int numWidgets = 0;
+//Sprite widgets[100];
 
 // OpenGL functions
 void (*glBindBuffer)(GLenum target, GLuint buffer);

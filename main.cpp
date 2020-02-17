@@ -126,29 +126,29 @@ LONG WINAPI WindowProc(HWND window, UINT uMsg, WPARAM wParam, LPARAM lParam) {
         case WM_LBUTTONDOWN:
             xTemp = GET_X_LPARAM(lParam);
             yTemp = GET_Y_LPARAM(lParam);
-            if (sprites[0].active) {
-                if (filled == 0 || filled == 4) {
-                    sprites[0].points[0] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
-                    sprites[0].points[1] = 1.0f - (yTemp / (float)windowSize.y) * 2;
-                    sprites[0].points[9] = sprites[0].points[0];
-                    sprites[0].points[10] = sprites[0].points[1];
-                    filled = 1;
-                } else if (filled == 1) {
-                    sprites[0].points[3] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
-                    sprites[0].points[4] = 1.0f - (yTemp / (float)windowSize.y) * 2;
-                    filled = 2;
-                } else if (filled == 2) {
-                    sprites[0].points[6] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
-                    sprites[0].points[7] = 1.0f - (yTemp / (float)windowSize.y) * 2;
-                    sprites[0].points[12] = sprites[0].points[6];
-                    sprites[0].points[13] = sprites[0].points[7];
-                    filled = 3;
-                } else if (filled == 3) {
-                    sprites[0].points[15] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
-                    sprites[0].points[16] = 1.0f - (yTemp / (float)windowSize.y) * 2;
-                    filled = 4;
-                }
-            }
+//            if (sprites[0].active) {
+//                if (filled == 0 || filled == 4) {
+//                    sprites[0].points[0] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+//                    sprites[0].points[1] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+//                    sprites[0].points[9] = sprites[0].points[0];
+//                    sprites[0].points[10] = sprites[0].points[1];
+//                    filled = 1;
+//                } else if (filled == 1) {
+//                    sprites[0].points[3] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+//                    sprites[0].points[4] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+//                    filled = 2;
+//                } else if (filled == 2) {
+//                    sprites[0].points[6] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+//                    sprites[0].points[7] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+//                    sprites[0].points[12] = sprites[0].points[6];
+//                    sprites[0].points[13] = sprites[0].points[7];
+//                    filled = 3;
+//                } else if (filled == 3) {
+//                    sprites[0].points[15] = (xTemp / (float)windowSize.x) * 2 - 1.0f;
+//                    sprites[0].points[16] = 1.0f - (yTemp / (float)windowSize.y) * 2;
+//                    filled = 4;
+//                }
+//            }
             return 0;
         case WM_CLOSE:
             if (windowMode == WINDOW_MODE_FULLSCREEN) {
@@ -244,6 +244,63 @@ FileReadResult ReadLocalFile(LPCTSTR fileName) {
     return res;
 }
 
+// TODO: This is the verily dumbest texture atlas "packer" I ever dun did perchance to lay mine own two eyes upon. Fix.
+// TODO: Maybe pad all textures out to the nearest power of 2 and use a quadtree? (record padding amount of course)
+VOID RebuildOverlayTextureAtlas() {
+    INT largestWidth = 0;
+    INT largestHeight = 0;
+    for (INT i = 0; i < numSprites; i++) {
+        if (sprites[i].width > largestWidth) {
+            largestWidth = sprites[i].width;
+        }
+        if (sprites[i].height > largestHeight) {
+            largestHeight = sprites[i].height;
+        }
+    }
+    auto spritesPerRow = (INT)ceil(sqrt(numSprites));
+    auto spritesPerCol = (INT)ceil(numSprites / spritesPerRow);
+    INT width = largestWidth * spritesPerRow;
+    INT height = ((INT)ceil(numSprites / spritesPerRow)) * largestHeight;
+    if (width > 0 && height > 0) {
+        auto buffer = (PBYTE)HeapAlloc(GetProcessHeap(), 0, sizeof(BYTE) * 4 * height * width);
+        INT i = 0;
+        // Go through every texture atlas location
+        for (int x = 0; x < spritesPerRow; x++) {
+            for (int y = 0; y < spritesPerCol; y++) {
+                if (i < numSprites) {
+                    // blit the sprite buffer to the texture atlas location
+                    for (int xx = 0; xx < sprites[i].width; xx++) {
+                        for (int yy = 0; yy < sprites[i].height; yy++) {
+                            INT offsetDstX = (x * largestWidth + xx) * 4;
+                            INT offsetDstY = y * largestHeight * largestWidth;
+                            INT offsetDst = offsetDstX + offsetDstY;
+                            INT offsetSrcX = xx * 4;
+                            INT offsetSrcY = yy;
+                            INT offsetSrc = offsetSrcX + offsetSrcY;
+                            buffer[offsetDst] = sprites[i].buffer[offsetSrc];
+                            buffer[offsetDst + 1] = sprites[i].buffer[offsetSrc + 1];
+                            buffer[offsetDst + 2] = sprites[i].buffer[offsetSrc + 2];
+                            buffer[offsetDst + 3] = sprites[i].buffer[offsetSrc + 3];
+                        }
+                    }
+                    sprites[i].atlasX = x * (largestWidth / width);
+                    sprites[i].atlasY = y * (largestHeight / height);
+                    sprites[i].atlasW = sprites[i].atlasX + (sprites[i].width / width);
+                    sprites[i].atlasH = sprites[i].atlasY + (sprites[i].height / height);
+                    i++;
+                }
+            }
+        }
+        glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture);
+        glTextureStorage2D(overlayTexture, 1, GL_RGBA8, width, height);
+        glTextureSubImage2D(overlayTexture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+        glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTextureParameteri(overlayTexture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTextureParameteri(overlayTexture, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    }
+}
+
 VOID SetupJRE() {
     HINSTANCE jre = LoadLibrary(JRE_PATH);
     if (!jre) {
@@ -261,36 +318,112 @@ VOID SetupJRE() {
     jclass gameClass = env->DefineClass("Game", nullptr, classBytes, classSize);
 //    jmethodID gameClassConstructor = env->GetMethodID(gameClass, "<init>", "()V");
     gameMain = env->GetStaticMethodID(gameClass, "main", "()V");
-    JNINativeMethod drawSprite {
-            (char *)"drawSprite",
-            (char *)"(Ljava/lang/String;FFFF)V",
-            (void *) *[](JNIEnv *env, jobject objectOrClass, jstring fileName, jfloat x, jfloat y, jfloat w, jfloat h) {
-                printf("Hello from Java!\r\n");
+//    JNINativeMethod drawSprite {
+//            (char *)"drawSprite",
+//            (char *)"(Ljava/lang/String;FFFF)V",
+//            (void *) *[](JNIEnv *env, jobject objectOrClass, jstring fileName, jfloat x, jfloat y, jfloat w, jfloat h) {
+//                printf("Hello from Java!\r\n");
 //                GLfloat points3[] = {
-//                        0.0f, -0.5f, 0.0f,
-//                        0.0f, 0.0f, 0.0f,
-//                        0.5f, 0.0f, 0.0f,
-//                        0.0f, -0.5f, 0.0f,
-//                        0.5f, 0.0f, 0.0f,
-//                        0.5f, -0.5f, 0.0f
+//                        x, y - h, 0.0f,
+//                        x, y, 0.0f,
+//                        x + w, y, 0.0f,
+//                        x, y - h, 0.0f,
+//                        x + w, y, 0.0f,
+//                        x + w, y - h, 0.0f
 //                };
-                GLfloat points3[] = {
-                        x, y - h, 0.0f,
-                        x, y, 0.0f,
-                        x + w, y, 0.0f,
-                        x, y - h, 0.0f,
-                        x + w, y, 0.0f,
-                        x + w, y - h, 0.0f
-                };
-                for (int i = 0; i < 18; i++) {
-                    sprites[numSprites].points[i] = points3[i];
-                }
-//                sprites[numSprites].points = points3;
+//                for (int i = 0; i < 18; i++) {
+//                    sprites[numSprites].points[i] = points3[i];
+//                }
+////                sprites[numSprites].points = points3;
+//                sprites[numSprites].loadImageFile(env->GetStringUTFChars(fileName, nullptr));
+//                numSprites++;
+//            }
+//    };
+//    env->RegisterNatives(gameClass, &drawSprite, 1);
+    JNINativeMethod loadSpriteFile {
+            (char *)"loadSpriteFile",
+            (char *)"(Ljava/lang/String;Ljava/lang/String;)V",
+            (void *) *[](JNIEnv *env, jobject objectOrClass, jstring name, jstring fileName) {
+                // Load sprite file from disk
+                strcpy(sprites[numSprites].name, env->GetStringUTFChars(name, nullptr));
                 sprites[numSprites].loadImageFile(env->GetStringUTFChars(fileName, nullptr));
                 numSprites++;
+                RebuildOverlayTextureAtlas();
             }
     };
-    env->RegisterNatives(gameClass, &drawSprite, 1);
+    env->RegisterNatives(gameClass, &loadSpriteFile, 1);
+    JNINativeMethod createWidget {
+            (char *)"createWidget",
+            (char *)"(Ljava/lang/String;[Ljava/lang/String;[[Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V",
+            (void *) *[](JNIEnv *env, jclass objectOrClass, jstring name, jobjectArray spriteNames,
+                         jobjectArray spriteLocations, jfloat x, jfloat y, jfloat w, jfloat h) {
+//                createWidget(String name, String[] spriteNames, Float[][] spriteLocations, Float x, Float y, Float w, Float h);
+                strcpy(widgets[numWidgets].name, env->GetStringUTFChars(name, nullptr));
+                widgets[numWidgets].x = x;
+                widgets[numWidgets].y = y;
+                widgets[numWidgets].width = w;
+                widgets[numWidgets].height = h;
+                INT numSpritesInWidget = env->GetArrayLength(spriteNames);
+                for (INT i = 0; i < numSpritesInWidget; i++) {
+                    // Get name
+                    const CHAR * spriteName = env->GetStringUTFChars((jstring)env->GetObjectArrayElement(spriteNames, i), nullptr);
+                    // Set sprite name
+                    strcpy(widgets[numWidgets].spriteNames[i], spriteName);
+                    // Set sprite index
+                    INT spriteIndex = 0;
+                    for (INT j = 0; j < numSprites; j++) {
+                        if (strcmp(sprites[j].name, spriteName) == 0) {
+                            break;
+                        }
+                        spriteIndex++;
+                    }
+                    widgets[numWidgets].spriteIndexes[i] = spriteIndex;
+                    // Set sprite triangle points
+                    FLOAT * spriteLocation = env->GetFloatArrayElements((jfloatArray)env->GetObjectArrayElement(spriteLocations, i), JNI_FALSE);
+                    FLOAT spriteX = spriteLocation[0];
+                    FLOAT spriteY = spriteLocation[1];
+                    FLOAT spriteW = spriteLocation[2];
+                    FLOAT spriteH = spriteLocation[3];
+                    GLfloat pointsTemp[] = {
+                            spriteX, spriteY - spriteH, 0.0f,
+                            spriteX, spriteY, 0.0f,
+                            spriteX + spriteW, spriteY, 0.0f,
+                            spriteX, spriteY - spriteH, 0.0f,
+                            spriteX + spriteW, spriteY, 0.0f,
+                            spriteX + spriteW, spriteY - spriteH, 0.0f
+                    };
+                    for (INT j = 0; j < 18; j++) {
+                        widgets[numWidgets].spritesPoints[i][j] = pointsTemp[j];
+                    }
+                    // Set sprite texture coordinates
+                    FLOAT atlasX = sprites[spriteIndex].atlasX;
+                    FLOAT atlasY = sprites[spriteIndex].atlasY;
+                    FLOAT atlasW = sprites[spriteIndex].atlasW;
+                    FLOAT atlasH = sprites[spriteIndex].atlasH;
+                    GLfloat textureCoordinatesTemp[] = {
+                        0.0f, 1.0f,
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        0.0f, 1.0f,
+                        1.0f, 0.0f,
+                        1.0f, 1.0f
+                    };
+//                    GLfloat overlayTextureCoordinates[] = {
+//                            0.0f, 1.0f,
+//                            0.0f, 0.0f,
+//                            1.0f, 0.0f,
+//                            0.0f, 1.0f,
+//                            1.0f, 0.0f,
+//                            1.0f, 1.0f
+//                    };
+                    for (INT j = 0; j < 12; j++) {
+                        widgets[numWidgets].spritesTextureCoordinates[i][j] = textureCoordinatesTemp[j];
+                    }
+                }
+                numWidgets++;
+            }
+    };
+    env->RegisterNatives(gameClass, &createWidget, 1);
 }
 
 VOID RunGameLoop() {
@@ -350,8 +483,8 @@ VOID Init() {
     SetupTimers();
 }
 
-VOID Sprite::loadImageFile(const char *fileName) {
-    active = true;
+VOID Sprite::loadImageFile(const CHAR * fileName) {
+    active = TRUE;
     buffer = stbi_load(fileName, &width, &height, &bpp, 0);
     printf("width=%d, height=%d, bpp=%d\r\n", width, height, bpp);
     if (!buffer) {
@@ -359,63 +492,116 @@ VOID Sprite::loadImageFile(const char *fileName) {
         snprintf(fullMessage, 256, "FAILED TO LOAD THE IMAGE %s", fileName);
         MessageBox(nullptr, fullMessage, "", 0);
     }
-    // Vertex Position VBO
-    glCreateBuffers(1, &vertexBufferObject);
-    glNamedBufferData(vertexBufferObject, numOverlayPoints * 3 * sizeof(GLfloat), points, GL_STATIC_DRAW);
-    // Texture VBO
-    glCreateBuffers(1, &vertexBufferObjectTexture);
-    glNamedBufferData(vertexBufferObjectTexture, numOverlayPoints * 2 * sizeof(GLfloat), overlayTextureCoordinates,
-                      GL_STATIC_DRAW);
-    // VAO
-    glCreateVertexArrays(1, &vertexArrayObject);
-    glEnableVertexArrayAttrib(vertexArrayObject, 0);
-    glEnableVertexArrayAttrib(vertexArrayObject, 1);
-    glVertexArrayVertexBuffer(vertexArrayObject, 0, vertexBufferObject, 0, 12);
-    glVertexArrayVertexBuffer(vertexArrayObject, 1, vertexBufferObjectTexture, 0, 8);
-    glVertexArrayAttribBinding(vertexArrayObject, 0, 0);
-    glVertexArrayAttribBinding(vertexArrayObject, 1, 1);
-    glVertexArrayAttribFormat(vertexArrayObject, 0, 3, GL_FLOAT, GL_FALSE, 0);
-    glVertexArrayAttribFormat(vertexArrayObject, 1, 2, GL_FLOAT, GL_FALSE, 0);
-    glBindVertexArray(vertexArrayObject);
-    // Load texture into VRAM
-    glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture);
-    glTextureStorage2D(overlayTexture, 1, GL_RGBA8, width, height);
-    glTextureSubImage2D(overlayTexture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
-    glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTextureParameteri(overlayTexture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTextureParameteri(overlayTexture, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    // Create vertex shader
-    vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertex_shader, nullptr);
-    glCompileShader(vertexShader);
-    // Create fragment shader
-    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragment_shader, nullptr);
-    glCompileShader(fragmentShader);
-    // Create shader program
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, fragmentShader);
-    glAttachShader(shaderProgram, vertexShader);
-    glLinkProgram(shaderProgram);
 }
+//VOID Sprite::loadImageFile(const char *fileName) {
+//    active = true;
+//    buffer = stbi_load(fileName, &width, &height, &bpp, 0);
+//    printf("width=%d, height=%d, bpp=%d\r\n", width, height, bpp);
+//    if (!buffer) {
+//        CHAR fullMessage[256];
+//        snprintf(fullMessage, 256, "FAILED TO LOAD THE IMAGE %s", fileName);
+//        MessageBox(nullptr, fullMessage, "", 0);
+//    }
+//    // Vertex Position VBO
+//    glCreateBuffers(1, &vertexBufferObject);
+//    glNamedBufferData(vertexBufferObject, numOverlayPoints * 3 * sizeof(GLfloat), points, GL_STATIC_DRAW);
+//    // Texture VBO
+//    glCreateBuffers(1, &vertexBufferObjectTexture);
+//    glNamedBufferData(vertexBufferObjectTexture, numOverlayPoints * 2 * sizeof(GLfloat), overlayTextureCoordinates,
+//                      GL_STATIC_DRAW);
+//    // VAO
+//    glCreateVertexArrays(1, &vertexArrayObject);
+//    glEnableVertexArrayAttrib(vertexArrayObject, 0);
+//    glEnableVertexArrayAttrib(vertexArrayObject, 1);
+//    glVertexArrayVertexBuffer(vertexArrayObject, 0, vertexBufferObject, 0, 12);
+//    glVertexArrayVertexBuffer(vertexArrayObject, 1, vertexBufferObjectTexture, 0, 8);
+//    glVertexArrayAttribBinding(vertexArrayObject, 0, 0);
+//    glVertexArrayAttribBinding(vertexArrayObject, 1, 1);
+//    glVertexArrayAttribFormat(vertexArrayObject, 0, 3, GL_FLOAT, GL_FALSE, 0);
+//    glVertexArrayAttribFormat(vertexArrayObject, 1, 2, GL_FLOAT, GL_FALSE, 0);
+//    glBindVertexArray(vertexArrayObject);
+//    // Load texture into VRAM
+//    glCreateTextures(GL_TEXTURE_2D, 1, &overlayTexture);
+//    glTextureStorage2D(overlayTexture, 1, GL_RGBA8, width, height);
+//    glTextureSubImage2D(overlayTexture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+//    glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_S, GL_REPEAT);
+//    glTextureParameteri(overlayTexture, GL_TEXTURE_WRAP_T, GL_REPEAT);
+//    glTextureParameteri(overlayTexture, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//    glTextureParameteri(overlayTexture, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//    // Create vertex shader
+//    vertexShader = glCreateShader(GL_VERTEX_SHADER);
+//    glShaderSource(vertexShader, 1, &vertex_shader, nullptr);
+//    glCompileShader(vertexShader);
+//    // Create fragment shader
+//    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+//    glShaderSource(fragmentShader, 1, &fragment_shader, nullptr);
+//    glCompileShader(fragmentShader);
+//    // Create shader program
+//    shaderProgram = glCreateProgram();
+//    glAttachShader(shaderProgram, fragmentShader);
+//    glAttachShader(shaderProgram, vertexShader);
+//    glLinkProgram(shaderProgram);
+//}
 
-VOID Sprite::draw() {
+//VOID Sprite::draw() {
+//    glBindTextureUnit(0, overlayTexture);
+//    glUseProgram(shaderProgram);
+//    int textureLocation = glGetUniformLocation(shaderProgram, "overlay_texture");
+//    glUniform1i(textureLocation, 0);
+//    glBindVertexArray(vertexArrayObject);
+//    glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
+//}
+
+VOID Widget::draw() {
     glBindTextureUnit(0, overlayTexture);
-    glUseProgram(shaderProgram);
-    int textureLocation = glGetUniformLocation(shaderProgram, "overlay_texture");
+    glUseProgram(overlayShaderProgram);
+    int textureLocation = glGetUniformLocation(overlayShaderProgram, "overlay_texture");
     glUniform1i(textureLocation, 0);
-    glBindVertexArray(vertexArrayObject);
-    glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
+
+    for (INT i = 0; i < numSpritesInWidget; i++) {
+        glBindBuffer(GL_ARRAY_BUFFER, overlayPointsVBO);
+        glNamedBufferData(overlayPointsVBO, numOverlayPoints * 3 * sizeof(GLfloat), spritesPoints[i], GL_STATIC_DRAW);
+//        glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), spritesPoints[i], GL_STATIC_DRAW);
+        glBindVertexArray(overlayVAO);
+        glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
+    }
 }
 
 VOID SetupOpenGL() {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
-//    sprites[0].points = points;
-//    sprites[0].loadImageFile("kitten.png");
-//    sprites[1].points = points2;
-//    sprites[1].loadImageFile("kitten2.png");
+    // Vertex Position VBO
+    glCreateBuffers(1, &overlayPointsVBO);
+//    glNamedBufferData(overlayPointsVBO, numOverlayPoints * 3 * sizeof(GLfloat), points, GL_STATIC_DRAW);
+    // Texture VBO
+    glCreateBuffers(1, &overlayTextureVBO);
+    glNamedBufferData(overlayTextureVBO, numOverlayPoints * 2 * sizeof(GLfloat), overlayTextureCoordinates,
+                      GL_STATIC_DRAW);
+    // VAO
+    glCreateVertexArrays(1, &overlayVAO);
+    glEnableVertexArrayAttrib(overlayVAO, 0);
+    glEnableVertexArrayAttrib(overlayVAO, 1);
+    glVertexArrayVertexBuffer(overlayVAO, 0, overlayTextureVBO, 0, 12);
+    glVertexArrayVertexBuffer(overlayVAO, 1, overlayTextureVBO, 0, 8);
+    glVertexArrayAttribBinding(overlayVAO, 0, 0);
+    glVertexArrayAttribBinding(overlayVAO, 1, 1);
+    glVertexArrayAttribFormat(overlayVAO, 0, 3, GL_FLOAT, GL_FALSE, 0);
+    glVertexArrayAttribFormat(overlayVAO, 1, 2, GL_FLOAT, GL_FALSE, 0);
+    glBindVertexArray(overlayVAO);
+
+    // Create vertex shader
+    overlayVertexShader = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(overlayVertexShader, 1, &vertex_shader, nullptr);
+    glCompileShader(overlayVertexShader);
+    // Create fragment shader
+    overlayFragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(overlayFragmentShader, 1, &fragment_shader, nullptr);
+    glCompileShader(overlayFragmentShader);
+    // Create shader program
+    overlayShaderProgram = glCreateProgram();
+    glAttachShader(overlayShaderProgram, overlayFragmentShader);
+    glAttachShader(overlayShaderProgram, overlayVertexShader);
+    glLinkProgram(overlayShaderProgram);
 }
 
 VOID GameLoop() {
@@ -442,12 +628,12 @@ VOID GameLoop() {
             // Run Java code
             RunGameLoop();
             // Make OpenGL calls
-            glBindBuffer(GL_ARRAY_BUFFER, sprites[0].vertexBufferObject);
-            glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), sprites[0].points, GL_STATIC_DRAW);
+//            glBindBuffer(GL_ARRAY_BUFFER, sprites[0].vertexBufferObject);
+//            glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), sprites[0].points, GL_STATIC_DRAW);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-            for (int i = 0; sprites[i].active; i++) {
-                sprites[i].draw();
+//
+            for (int i = 0; i < numWidgets; i++) {
+                widgets[i].draw();
             }
 
             glFlush();
