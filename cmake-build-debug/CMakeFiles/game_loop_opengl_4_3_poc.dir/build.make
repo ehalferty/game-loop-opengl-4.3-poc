@@ -59,15 +59,15 @@ include CMakeFiles/game_loop_opengl_4_3_poc.dir/flags.make
 CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.obj: CMakeFiles/game_loop_opengl_4_3_poc.dir/flags.make
 CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\phaz\game-loop-opengl-4.3-poc\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game_loop_opengl_4_3_poc.dir\main.cpp.obj -c C:\Users\phaz\game-loop-opengl-4.3-poc\main.cpp
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\game_loop_opengl_4_3_poc.dir\main.cpp.obj -c C:\Users\phaz\game-loop-opengl-4.3-poc\main.cpp
 
 CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\phaz\game-loop-opengl-4.3-poc\main.cpp > CMakeFiles\game_loop_opengl_4_3_poc.dir\main.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\phaz\game-loop-opengl-4.3-poc\main.cpp > CMakeFiles\game_loop_opengl_4_3_poc.dir\main.cpp.i
 
 CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\phaz\game-loop-opengl-4.3-poc\main.cpp -o CMakeFiles\game_loop_opengl_4_3_poc.dir\main.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\phaz\game-loop-opengl-4.3-poc\main.cpp -o CMakeFiles\game_loop_opengl_4_3_poc.dir\main.cpp.s
 
 CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.obj.requires:
 

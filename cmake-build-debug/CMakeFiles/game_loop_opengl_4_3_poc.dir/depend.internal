@@ -3,4 +3,8 @@
 
 CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.obj
  C:/Users/phaz/game-loop-opengl-4.3-poc/main.cpp
+ C:/Users/phaz/game-loop-opengl-4.3-poc/main.h
+ C:/Users/phaz/game-loop-opengl-4.3-poc/openjdk_8_jdk_includes/jni.h
+ C:/Users/phaz/game-loop-opengl-4.3-poc/openjdk_8_jdk_includes/win32/jni_md.h
  C:/Users/phaz/game-loop-opengl-4.3-poc/stb_image.h
+ C:/Users/phaz/game-loop-opengl-4.3-poc/stb_image_write.h

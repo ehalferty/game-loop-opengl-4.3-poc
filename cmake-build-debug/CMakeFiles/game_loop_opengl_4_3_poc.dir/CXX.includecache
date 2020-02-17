@@ -7,6 +7,10 @@
 #IncludeRegexTransform: 
 
 C:/Users/phaz/game-loop-opengl-4.3-poc/main.cpp
+main.h
+C:/Users/phaz/game-loop-opengl-4.3-poc/main.h
+
+C:/Users/phaz/game-loop-opengl-4.3-poc/main.h
 windows.h
 -
 windowsx.h
@@ -19,10 +23,26 @@ cstdio
 -
 io.h
 -
+cmath
+-
 fcntl.h
 -
+openjdk_8_jdk_includes/jni.h
+C:/Users/phaz/game-loop-opengl-4.3-poc/openjdk_8_jdk_includes/jni.h
 stb_image.h
 C:/Users/phaz/game-loop-opengl-4.3-poc/stb_image.h
+stb_image_write.h
+C:/Users/phaz/game-loop-opengl-4.3-poc/stb_image_write.h
+
+C:/Users/phaz/game-loop-opengl-4.3-poc/openjdk_8_jdk_includes/jni.h
+stdio.h
+-
+stdarg.h
+-
+win32/jni_md.h
+C:/Users/phaz/game-loop-opengl-4.3-poc/openjdk_8_jdk_includes/win32/jni_md.h
+
+C:/Users/phaz/game-loop-opengl-4.3-poc/openjdk_8_jdk_includes/win32/jni_md.h
 
 C:/Users/phaz/game-loop-opengl-4.3-poc/stb_image.h
 stb_image.h
@@ -50,5 +70,21 @@ emmintrin.h
 intrin.h
 -
 arm_neon.h
+-
+
+C:/Users/phaz/game-loop-opengl-4.3-poc/stb_image_write.h
+stdlib.h
+-
+stdio.h
+-
+stdarg.h
+-
+stdlib.h
+-
+string.h
+-
+math.h
+-
+assert.h
 -
 

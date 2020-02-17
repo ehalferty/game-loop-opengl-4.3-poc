@@ -18,10 +18,10 @@ JNIEXPORT void JNICALL Java_Game_loadSpriteFile
 /*
  * Class:     Game
  * Method:    createWidget
- * Signature: (Ljava/lang/String;[Ljava/lang/String;[[Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
+ * Signature: (Ljava/lang/String;[Ljava/lang/String;[[FFFFF)V
  */
 JNIEXPORT void JNICALL Java_Game_createWidget
-  (JNIEnv *, jclass, jstring, jobjectArray, jobjectArray, jobject, jobject, jobject, jobject);
+  (JNIEnv *, jclass, jstring, jobjectArray, jobjectArray, jfloat, jfloat, jfloat, jfloat);
 
 #ifdef __cplusplus
 }

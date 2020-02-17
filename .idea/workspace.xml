@@ -5,17 +5,153 @@
       <config projectName="game_loop_opengl_4_3_poc" targetName="game_loop_opengl_4_3_poc" />
     </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="146d049e-6f52-48c8-b599-ccdd1f854b5b" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/atlas.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/build_game_java.sh" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/Game.class" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/ASSEMBLY_EXCEPTION" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/THIRD_PARTY_README" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/JAWTAccessBridge-64.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/JavaAccessBridge-64.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/WindowsAccessBridge-64.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/awt.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/dt_shmem.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/dt_socket.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/fontmanager.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/freetype.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/hprof.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/instrument.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/j2pcsc.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/j2pkcs11.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jaas_nt.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/java.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/java_crw_demo.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jawt.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jdwp.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jli.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jpeg.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsdt.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsound.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsoundds.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/lcms.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/management.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/mlib_image.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/msvcp120.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/msvcr120.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/net.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/nio.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/npt.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/server/Xusage.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/server/jvm.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/splashscreen.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/sunec.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/sunmscapi.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/unpack.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/verify.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/w2k_lsa_auth.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/zip.dll" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/accessibility.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/amd64/jvm.cfg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/calendars.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/charsets.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/classlist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/CIEXYZ.pf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/GRAY.pf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/LINEAR_RGB.pf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/PYCC.pf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/sRGB.pf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/content-types.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/currency.data" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/access-bridge-64.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/cldrdata.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/dnsns.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/jaccess.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/localedata.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/meta-index" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/nashorn.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunec.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunjce_provider.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunmscapi.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunpkcs11.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/zipfs.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/flavormap.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/fontconfig.bfc" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/fontconfig.properties.src" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/hijrah-config-umalqura.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/cursors.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/invalid32x32.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_CopyDrop32x32.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_CopyNoDrop32x32.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_LinkDrop32x32.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_LinkNoDrop32x32.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_MoveDrop32x32.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_MoveNoDrop32x32.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jce.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jsse.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jvm.hprof.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/logging.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management-agent.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/jmxremote.access" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/jmxremote.password.template" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/management.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/snmp.acl.template" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/meta-index" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/net.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/psfont.properties.ja" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/psfontj2d.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/resources.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/rt.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/blacklisted.certs" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/cacerts" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/java.policy" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/java.security" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/limited/US_export_policy.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/limited/local_policy.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/unlimited/US_export_policy.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/unlimited/local_policy.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/sound.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzdb.dat" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzmappings" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/release" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/atlas.bmp" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/atlas.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten5.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/classfile_constants.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jawt.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jdwpTransport.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jni.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jvmti.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jvmticmlr.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgeCallbacks.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgeCalls.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgePackages.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/jawt_md.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/jni_md.h" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid16104.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid18668.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/kitten3.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/kitten3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/kitten4.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/kitten4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/kitten5.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/kitten5.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/stb_image_write.h" />
       <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
       <change beforePath="$PROJECT_DIR$/Game.class" afterPath="$PROJECT_DIR$/Game.class" />
+      <change beforePath="$PROJECT_DIR$/Game.h" afterPath="$PROJECT_DIR$/Game.h" />
       <change beforePath="$PROJECT_DIR$/Game.java" afterPath="$PROJECT_DIR$/Game.java" />
       <change beforePath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/ASSEMBLY_EXCEPTION" afterPath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/ASSEMBLY_EXCEPTION" />
       <change beforePath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/LICENSE" afterPath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/LICENSE" />
@@ -142,7 +278,7 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/C.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/C.includecache" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/C.includecache" afterPath="" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/CXX.includecache" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/DependInfo.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/build.make" />
@@ -159,8 +295,6 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/game_loop_opengl_4_3_poc" afterPath="$PROJECT_DIR$/cmake-build-debug/game_loop_opengl_4_3_poc" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/game_loop_opengl_4_3_poc.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/game_loop_opengl_4_3_poc.cbp" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid21724.log" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid3564.log" afterPath="" />
       <change beforePath="$PROJECT_DIR$/kitten.jpg" afterPath="$PROJECT_DIR$/kitten.jpg" />
       <change beforePath="$PROJECT_DIR$/kitten.png" afterPath="$PROJECT_DIR$/kitten.png" />
       <change beforePath="$PROJECT_DIR$/kitten2.png" afterPath="$PROJECT_DIR$/kitten2.png" />
@@ -191,11 +325,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="201" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="285" column="0" lean-forward="false" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
               <folding>
                 <element signature="e#22#2243#0" expanded="false" />
                 <element signature="e#2244#8672#0" expanded="false" />
@@ -204,26 +338,40 @@
                 <element signature="e#10180#10303#0" expanded="false" />
                 <element signature="e#10309#10486#0" expanded="false" />
                 <element signature="e#10488#11748#0" expanded="false" />
-                <element signature="e#11990#14842#0" expanded="false" />
-                <element signature="e#14848#21293#0" expanded="false" />
-                <element signature="e#21299#21367#0" expanded="false" />
-                <element signature="e#21373#22689#0" expanded="false" />
-                <element signature="e#22695#22766#0" expanded="false" />
-                <element signature="e#22772#23070#0" expanded="false" />
-                <element signature="e#23076#23453#0" expanded="false" />
-                <element signature="e#30660#30859#0" expanded="false" />
-                <element signature="e#30861#31058#0" expanded="false" />
+                <element signature="e#15002#21386#0" expanded="false" />
+                <element signature="e#21392#21460#0" expanded="false" />
+                <element signature="e#21466#22782#0" expanded="false" />
+                <element signature="e#22788#22859#0" expanded="false" />
+                <element signature="e#22865#23163#0" expanded="false" />
+                <element signature="e#23169#23673#0" expanded="false" />
+                <element signature="e#23679#25510#0" expanded="false" />
+                <element signature="e#25516#27198#0" expanded="false" />
+                <element signature="e#27204#28858#0" expanded="false" />
+                <element signature="e#28860#29059#0" expanded="false" />
+                <element signature="e#29061#29258#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.h">
+      <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
-              <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+              <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <folding>
+                <element signature="e#121#141#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -232,35 +380,41 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>failed</find>
-      <find>stb_</find>
-      <find>kitten</find>
-      <find>wm_paint</find>
-      <find>invalidatere</find>
-      <find>buffer2</find>
-      <find>, 0</find>
-      <find>JNI_CreateJavaVM</find>
-      <find>overlayTexture</find>
-      <find>vertexsha</find>
-      <find>points2</find>
-      <find>overlaytex</find>
-      <find>bpp2</find>
-      <find>height2</find>
-      <find>vertexBufferObjectTexture2</find>
-      <find>shaderprogram</find>
-      <find>vertexBufferObject</find>
-      <find>points[</find>
       <find>filereadre</find>
       <find>sprites</find>
       <find>widget</find>
-      <find>sprite</find>
       <find>stbi_</find>
       <find>overlay</find>
       <find>glCreateBuffers(</find>
       <find>glNamedBufferData(</find>
+      <find>1.0f,</find>
+      <find>SetupOpenGL</find>
+      <find>setup</find>
+      <find>2d</find>
+      <find>messagebox(</find>
+      <find>numspritesin</find>
+      <find>exitwi</find>
+      <find>testpoi</find>
+      <find>jre_path</find>
+      <find>spritesPoints</find>
+      <find>createwi</find>
+      <find>loadspritefile</find>
+      <find>jni loadspri</find>
+      <find>0xff</find>
+      <find>atlasx</find>
+      <find>stb_</find>
+      <find>comp</find>
+      <find>class spri</find>
+      <find>sprite</find>
+      <find>atlasX</find>
+      <find>1.0f</find>
+      <find>atlasX =</find>
+      <find>+ 1</find>
     </findStrings>
     <replaceStrings>
       <replace>sprites[0].points[</replace>
+      <replace>atlas</replace>
+      <replace>0.5f</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -270,11 +424,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/run.sh" />
         <option value="$PROJECT_DIR$/.clang-tidy" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/stb_image_write.c" />
         <option value="$PROJECT_DIR$/main.h" />
+        <option value="$PROJECT_DIR$/build_game_java.sh" />
+        <option value="$PROJECT_DIR$/run.sh" />
+        <option value="$PROJECT_DIR$/build_game_java.bat" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
@@ -466,7 +623,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="language.cpp.clang-tidy" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="last_opened_file_path" value="C:/Windows/System32/wsl.exe" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -483,6 +641,9 @@
   <component name="RunManager">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="game_loop_opengl_4_3_poc" TARGET_NAME="game_loop_opengl_4_3_poc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="game_loop_opengl_4_3_poc" RUN_TARGET_NAME="game_loop_opengl_4_3_poc">
       <envs />
+      <method>
+        <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_build_game_java" />
+      </method>
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -505,29 +666,34 @@
       <workItem from="1581646189002" duration="3867000" />
       <workItem from="1581655985357" duration="21896000" />
       <workItem from="1581812937500" duration="4243000" />
-      <workItem from="1581822600215" duration="13903000" />
+      <workItem from="1581822600215" duration="17610000" />
+      <workItem from="1581904577741" duration="204000" />
+      <workItem from="1581904797027" duration="144000" />
+      <workItem from="1581905052501" duration="59000" />
+      <workItem from="1581905129219" duration="4786000" />
+      <workItem from="1581910011134" duration="23218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57563000" />
+    <option name="totallyTimeSpent" value="89681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14322917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.042810097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35784853" sideWeight="0.6645833" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.042810097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.05708013" sideWeight="0.37447917" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6388584" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46432492" sideWeight="0.6255208" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31613612" sideWeight="0.6255208" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35784853" sideWeight="0.6645833" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -544,7 +710,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -561,6 +727,15 @@
     </expand>
     <select />
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>sqrt(numSprites)</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
@@ -574,32 +749,250 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#11990#14842#0" expanded="false" />
-            <element signature="e#14848#21293#0" expanded="false" />
-            <element signature="e#21299#21367#0" expanded="false" />
-            <element signature="e#21373#22689#0" expanded="false" />
-            <element signature="e#22695#22766#0" expanded="false" />
-            <element signature="e#22772#23070#0" expanded="false" />
-            <element signature="e#23076#23453#0" expanded="false" />
-            <element signature="e#30660#30859#0" expanded="false" />
-            <element signature="e#30861#31058#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.clang-tidy">
+    <entry file="file://$PROJECT_DIR$/Game.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="49" column="24" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+        <state relative-caret-position="336">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.h">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2625">
+          <caret line="125" column="25" lean-forward="false" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="25" />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#2243#0" expanded="false" />
+            <element signature="e#2244#8672#0" expanded="false" />
+            <element signature="e#8678#8993#0" expanded="false" />
+            <element signature="e#9072#10178#0" expanded="false" />
+            <element signature="e#10180#10303#0" expanded="false" />
+            <element signature="e#10309#10486#0" expanded="false" />
+            <element signature="e#10488#11748#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6573">
+          <caret line="313" column="98" lean-forward="true" selection-start-line="313" selection-start-column="98" selection-end-line="313" selection-end-column="98" />
+          <folding>
+            <element signature="e#22#2243#0" expanded="false" />
+            <element signature="e#2244#8672#0" expanded="false" />
+            <element signature="e#8678#8993#0" expanded="false" />
+            <element signature="e#9072#10178#0" expanded="false" />
+            <element signature="e#10180#10303#0" expanded="false" />
+            <element signature="e#10309#10486#0" expanded="false" />
+            <element signature="e#10488#11748#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#2243#0" expanded="false" />
+            <element signature="e#2244#8672#0" expanded="false" />
+            <element signature="e#8678#8993#0" expanded="false" />
+            <element signature="e#9072#10178#0" expanded="false" />
+            <element signature="e#10180#10303#0" expanded="false" />
+            <element signature="e#10309#10486#0" expanded="false" />
+            <element signature="e#10488#11748#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#2243#0" expanded="false" />
+            <element signature="e#2244#8672#0" expanded="false" />
+            <element signature="e#8678#8993#0" expanded="false" />
+            <element signature="e#9072#10178#0" expanded="false" />
+            <element signature="e#10180#10303#0" expanded="false" />
+            <element signature="e#10309#10486#0" expanded="false" />
+            <element signature="e#10488#11748#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#22#2243#0" expanded="false" />
+            <element signature="e#2244#8672#0" expanded="false" />
+            <element signature="e#8678#8993#0" expanded="false" />
+            <element signature="e#9072#10178#0" expanded="false" />
+            <element signature="e#10180#10303#0" expanded="false" />
+            <element signature="e#10309#10486#0" expanded="false" />
+            <element signature="e#10488#11748#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.clang-tidy" />
+    <entry file="file://$PROJECT_DIR$/main.h">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -615,15 +1008,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#11990#14842#0" expanded="false" />
-            <element signature="e#14848#21293#0" expanded="false" />
-            <element signature="e#21299#21367#0" expanded="false" />
-            <element signature="e#21373#22689#0" expanded="false" />
-            <element signature="e#22695#22766#0" expanded="false" />
-            <element signature="e#22772#23070#0" expanded="false" />
-            <element signature="e#23076#23453#0" expanded="false" />
-            <element signature="e#30660#30859#0" expanded="false" />
-            <element signature="e#30861#31058#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -632,7 +1027,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2331">
           <caret line="111" column="0" lean-forward="true" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -648,15 +1045,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#11990#14842#0" expanded="false" />
-            <element signature="e#14848#21293#0" expanded="false" />
-            <element signature="e#21299#21367#0" expanded="false" />
-            <element signature="e#21373#22689#0" expanded="false" />
-            <element signature="e#22695#22766#0" expanded="false" />
-            <element signature="e#22772#23070#0" expanded="false" />
-            <element signature="e#23076#23453#0" expanded="false" />
-            <element signature="e#30660#30859#0" expanded="false" />
-            <element signature="e#30861#31058#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -665,7 +1064,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="882">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -681,15 +1082,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#11990#14842#0" expanded="false" />
-            <element signature="e#14848#21293#0" expanded="false" />
-            <element signature="e#21299#21367#0" expanded="false" />
-            <element signature="e#21373#22689#0" expanded="false" />
-            <element signature="e#22695#22766#0" expanded="false" />
-            <element signature="e#22772#23070#0" expanded="false" />
-            <element signature="e#23076#23453#0" expanded="false" />
-            <element signature="e#30660#30859#0" expanded="false" />
-            <element signature="e#30861#31058#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -698,7 +1101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="41223">
           <caret line="1963" column="0" lean-forward="false" selection-start-line="1963" selection-start-column="0" selection-end-line="1963" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -706,7 +1108,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2436">
           <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -722,15 +1126,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#11990#14842#0" expanded="false" />
-            <element signature="e#14848#21293#0" expanded="false" />
-            <element signature="e#21299#21367#0" expanded="false" />
-            <element signature="e#21373#22689#0" expanded="false" />
-            <element signature="e#22695#22766#0" expanded="false" />
-            <element signature="e#22772#23070#0" expanded="false" />
-            <element signature="e#23076#23453#0" expanded="false" />
-            <element signature="e#30660#30859#0" expanded="false" />
-            <element signature="e#30861#31058#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -768,15 +1174,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#11990#14842#0" expanded="false" />
-            <element signature="e#14848#21293#0" expanded="false" />
-            <element signature="e#21299#21367#0" expanded="false" />
-            <element signature="e#21373#22689#0" expanded="false" />
-            <element signature="e#22695#22766#0" expanded="false" />
-            <element signature="e#22772#23070#0" expanded="false" />
-            <element signature="e#23076#23453#0" expanded="false" />
-            <element signature="e#30660#30859#0" expanded="false" />
-            <element signature="e#30861#31058#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -807,15 +1215,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#11990#14842#0" expanded="false" />
-            <element signature="e#14848#21293#0" expanded="false" />
-            <element signature="e#21299#21367#0" expanded="false" />
-            <element signature="e#21373#22689#0" expanded="false" />
-            <element signature="e#22695#22766#0" expanded="false" />
-            <element signature="e#22772#23070#0" expanded="false" />
-            <element signature="e#23076#23453#0" expanded="false" />
-            <element signature="e#30660#30859#0" expanded="false" />
-            <element signature="e#30861#31058#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -834,13 +1244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Game.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -852,52 +1255,97 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="512" column="8" lean-forward="true" selection-start-line="512" selection-start-column="8" selection-end-line="512" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.clang-tidy" />
+    <entry file="file://$PROJECT_DIR$/hs_err_pid11832.log" />
+    <entry file="file://$PROJECT_DIR$/openjdk_8_jdk_includes/jni.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="1686" column="13" lean-forward="false" selection-start-line="1686" selection-start-column="13" selection-end-line="1686" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scratch.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6363">
+          <caret line="303" column="24" lean-forward="true" selection-start-line="303" selection-start-column="24" selection-end-line="303" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/winnt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="418" column="15" lean-forward="false" selection-start-line="418" selection-start-column="15" selection-end-line="418" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Game.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="230">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stb_image_write.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="28" />
+          <folding>
+            <element signature="e#6881#6905#0" expanded="false" />
+            <element signature="e#7775#7870#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.clang-tidy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="49" column="24" lean-forward="false" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+        <state relative-caret-position="84">
+          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hs_err_pid11832.log">
+    <entry file="file://$PROJECT_DIR$/build_game_java.bat">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2520">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/openjdk_8_jdk_includes/jni.h">
+    <entry file="file://$PROJECT_DIR$/build_game_java.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="1686" column="13" lean-forward="false" selection-start-line="1686" selection-start-column="13" selection-end-line="1686" selection-end-column="13" />
+        <state relative-caret-position="21">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="201" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="285" column="0" lean-forward="false" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
           <folding>
             <element signature="e#22#2243#0" expanded="false" />
             <element signature="e#2244#8672#0" expanded="false" />
@@ -906,24 +1354,18 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#11990#14842#0" expanded="false" />
-            <element signature="e#14848#21293#0" expanded="false" />
-            <element signature="e#21299#21367#0" expanded="false" />
-            <element signature="e#21373#22689#0" expanded="false" />
-            <element signature="e#22695#22766#0" expanded="false" />
-            <element signature="e#22772#23070#0" expanded="false" />
-            <element signature="e#23076#23453#0" expanded="false" />
-            <element signature="e#30660#30859#0" expanded="false" />
-            <element signature="e#30861#31058#0" expanded="false" />
+            <element signature="e#15002#21386#0" expanded="false" />
+            <element signature="e#21392#21460#0" expanded="false" />
+            <element signature="e#21466#22782#0" expanded="false" />
+            <element signature="e#22788#22859#0" expanded="false" />
+            <element signature="e#22865#23163#0" expanded="false" />
+            <element signature="e#23169#23673#0" expanded="false" />
+            <element signature="e#23679#25510#0" expanded="false" />
+            <element signature="e#25516#27198#0" expanded="false" />
+            <element signature="e#27204#28858#0" expanded="false" />
+            <element signature="e#28860#29059#0" expanded="false" />
+            <element signature="e#29061#29258#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

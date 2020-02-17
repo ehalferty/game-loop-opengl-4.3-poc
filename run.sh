@@ -2,9 +2,13 @@
 
 rm -rf "app.exe"
 
-javac Game.java
+./build_game_java.sh
+
+#cp Game.class ./cmake*/
+
+#javac Game.java
 # This header isn't actually used, I just regenerate it for reference.
-javah Game
+#javah Game
 
 x86_64-w64-mingw32-g++ \
 stb_image.h main.h main.cpp \

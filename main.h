@@ -9,15 +9,15 @@
 #include <windowsx.h>
 #include <GL/gl.h>
 #include <GL/glcorearb.h>
-//#include <gdiplus.h>
-//#include <vector>
 #include <cstdio>
 #include <io.h>
-#include <math.h>
+#include <cmath>
 #include <fcntl.h>
 #include "openjdk_8_jdk_includes/jni.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
 #define GLFUNC(RETTYP, ARGTYPES, NAME) (RETTYP (*)ARGTYPES)wglGetProcAddress(NAME)
 #define DLLFUNC(RETTYP, ARGTYPES, DLL, NAME) (RETTYP (*)ARGTYPES)GetProcAddress(DLL, NAME)
 #define KEYPRESSED(scancode) (keyboardState[scancode] >> 7) == 0 && (previousKeyboardState[scancode] >> 7) != 0
@@ -29,13 +29,21 @@
 #define WINDOW_MODE_FULLSCREEN 3
 #define JRE_PATH ".\\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\\jdk8u242-b08-jre\\bin\\server\\jvm.dll"
 const int numOverlayPoints = 6;
-GLfloat overlayTextureCoordinates[] = {
+GLfloat testTextureCoordinates[] = {
         0.0f, 1.0f,
         0.0f, 0.0f,
         1.0f, 0.0f,
         0.0f, 1.0f,
         1.0f, 0.0f,
         1.0f, 1.0f};
+GLfloat testPoints[] = {
+        -1.0f, -0.5f, 0.0f,
+        -1.0f, 0.0f, 0.0f,
+        -0.5f, 0.0f, 0.0f,
+        -1.0f, -0.5f, 0.0f,
+        -0.5f, 0.0f, 0.0f,
+        -0.5f, -0.5f, 0.0f
+};
 HWND window;
 MSG message = {};
 JavaVM *jvm = nullptr;
@@ -56,7 +64,6 @@ INT xTemp = 0, yTemp = 0, filled = 0;
 INT windowStyleWindowed = 0;
 
 
-
 GLuint overlayVAO;
 GLuint overlayPointsVBO;
 GLuint overlayTextureVBO;
@@ -69,30 +76,6 @@ struct FileReadResult {
     LPCTSTR data;
     size_t size;
 };
-//GLuint vertexArrayObject;
-//GLuint vertexArrayObject2;
-//GLuint vertexBufferObject;
-//GLuint vertexBufferObjectTexture;
-//GLuint vertexBufferObject2;
-//GLuint vertexBufferObjectTexture2;
-//GLuint overlayTexture;
-//GLuint overlayTexture2;
-//GLfloat points[] = {
-//        0.0f, -0.5f, 0.0f,
-//        0.0f, 0.0f, 0.0f,
-//        0.5f, 0.0f, 0.0f,
-//        0.0f, -0.5f, 0.0f,
-//        0.5f, 0.0f, 0.0f,
-//        0.5f, -0.5f, 0.0f
-//};
-//GLfloat points2[] = {
-//        -1.0f, -0.5f, 0.0f,
-//        -1.0f, 0.0f, 0.0f,
-//        -0.5f, 0.0f, 0.0f,
-//        -1.0f, -0.5f, 0.0f,
-//        -0.5f, 0.0f, 0.0f,
-//        -0.5f, -0.5f, 0.0f
-//};
 INT windowMode = WINDOW_MODE_WINDOWED, oldWindowMode = WINDOW_MODE_WINDOWED;
 CHAR previousKeyboardState[256];
 CHAR keyboardState[256];
@@ -116,7 +99,6 @@ const char * fragment_shader = R"""(
     }
 )""";
 
-
 class Sprite {
 public:
     CHAR name[100];
@@ -127,6 +109,7 @@ public:
     FLOAT atlasW;
     FLOAT atlasH;
     INT bpp;
+    INT bufferSize;
     PBYTE buffer;
     VOID loadImageFile(const char *fileName);
 };
@@ -149,60 +132,6 @@ public:
 };
 int numWidgets = 0;
 Widget widgets[100];
-
-
-//GLuint vertexShader, fragmentShader;
-//GLuint shaderProgram;
-//GLuint vertexShader2, fragmentShader2;
-//GLuint shaderProgram2;
-
-// Holds image buffer from a file
-// Things you can do:
-// 1. Initialize it from an image file on disk (and give it a unique name)
-// 2. Initialize it with a blit operation from another buffer (and give it a unique name)
-// 3. blit a region from another buffer
-//class UIBitmap {
-//public:
-//    BOOL active;
-//    DWORD width;
-//    DWORD height;
-//    PBYTE data;
-//};
-//
-//class UIRegion {
-//    BOOL active;
-//    DWORD width;
-//    DWORD height;
-//    // Indexes of bitmaps to use to build this region
-//    DWORD bitmaps[256];
-//    // Locations within this region to draw each bitmap
-//    POINT bitmapsLocations[256];
-//    VOID rebuild();
-//};
-
-//class
-
-//class Widget {
-//public:
-//    BOOL active;
-//    GLuint vertexArrayObject;
-//    GLuint vertexBufferObject;
-//    GLuint vertexBufferObjectTexture;
-//    GLuint overlayTexture;
-//    PBYTE buffer;
-//    INT bpp;
-//    INT width;
-//    INT height;
-//    GLfloat points[18];
-//    GLuint vertexShader;
-//    GLuint fragmentShader;
-//    GLuint shaderProgram;
-//    VOID loadImageFile(const char *fileName);
-//    VOID draw();
-//};
-//
-//int numWidgets = 0;
-//Sprite widgets[100];
 
 // OpenGL functions
 void (*glBindBuffer)(GLenum target, GLuint buffer);
