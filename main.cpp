@@ -259,9 +259,6 @@ VOID RebuildOverlayTextureAtlas() {
     }
     auto spritesPerRow = (INT)ceil(sqrt(numSprites));
     auto spritesPerCol = (INT)ceil(numSprites / (float)spritesPerRow);
-//    if (numSprites > 4) {
-//        volatile int x = 0;
-//    }
     INT width = largestWidth * spritesPerRow;
     INT height = spritesPerCol * largestHeight;
     if (width > 0 && height > 0) {
@@ -331,6 +328,23 @@ VOID SetupJRE() {
             }
     };
     env->RegisterNatives(gameClass, &loadSpriteFile, 1);
+    JNINativeMethod loadSpriteFiles {
+            (char *)"loadSpriteFiles",
+            (char *)"([Ljava/lang/String;[Ljava/lang/String;)V",
+            (void *) *[](JNIEnv *env, jobject objectOrClass, jobjectArray spriteNames, jobjectArray spriteFilePaths) {
+                // Load sprite files from disk
+                for (int i = 0; i < env->GetArrayLength(spriteNames); i++) {
+                    auto name = env->GetStringUTFChars((jstring)env->GetObjectArrayElement(spriteNames, i), nullptr);
+                    auto filePath = env->GetStringUTFChars((jstring)env->GetObjectArrayElement(spriteFilePaths, i), nullptr);
+                    strcpy(sprites[numSprites].name, name);
+                    sprites[numSprites].loadImageFile(filePath);
+                    numSprites++;
+                    RebuildOverlayTextureAtlas();
+                    printf("JNI loadSpriteFile\r\n");
+                }
+            }
+    };
+    env->RegisterNatives(gameClass, &loadSpriteFiles, 1);
     JNINativeMethod sayHello {
             (char *)"sayHello",
             (char *)"()V",
@@ -372,17 +386,22 @@ VOID SetupJRE() {
                     FLOAT spriteY = spriteLocation[1];
                     FLOAT spriteW = spriteLocation[2];
                     FLOAT spriteH = spriteLocation[3];
+                    FLOAT widgetX = widgets[numWidgets].x;
+                    FLOAT widgetY = widgets[numWidgets].y;
+                    FLOAT widgetW = widgets[numWidgets].width;
+                    FLOAT widgetH = widgets[numWidgets].height;
                     printf("%f\r\n", spriteX);
                     printf("%f\r\n", spriteY);
                     printf("%f\r\n", spriteW);
                     printf("%f\r\n", spriteH);
+                    // TODO: Factor in location of widget itself
                     GLfloat pointsTemp[] = {
-                            spriteX, spriteY - spriteH, 0.0f,
-                            spriteX, spriteY, 0.0f,
-                            spriteX + spriteW, spriteY, 0.0f,
-                            spriteX, spriteY - spriteH, 0.0f,
-                            spriteX + spriteW, spriteY, 0.0f,
-                            spriteX + spriteW, spriteY - spriteH, 0.0f
+                            spriteX * (widgetW * 2.0f)  + widgetX, (spriteY - spriteH) * (widgetH * 2.0f)  - widgetY, 0.0f,
+                            spriteX * (widgetW * 2.0f)  + widgetX, spriteY * (widgetH * 2.0f)  - widgetY, 0.0f,
+                            (spriteX + spriteW) * (widgetW * 2.0f)  + widgetX, spriteY * (widgetH * 2.0f)  - widgetY, 0.0f,
+                            spriteX * (widgetW * 2.0f)  + widgetX, (spriteY - spriteH) * (widgetH * 2.0f)  - widgetY, 0.0f,
+                            (spriteX + spriteW) * (widgetW * 2.0f)  + widgetX, spriteY * (widgetH * 2.0f)  - widgetY, 0.0f,
+                            (spriteX + spriteW) * (widgetW * 2.0f)  + widgetX, (spriteY - spriteH) * (widgetH * 2.0f)  - widgetY, 0.0f
                     };
                     for (INT j = 0; j < 18; j++) {
                         widgets[numWidgets].spritesPoints[i][j] = pointsTemp[j];
@@ -392,15 +411,6 @@ VOID SetupJRE() {
                     FLOAT atlasY = sprites[spriteIndex].atlasY;
                     FLOAT atlasW = sprites[spriteIndex].atlasW;
                     FLOAT atlasH = sprites[spriteIndex].atlasH;
-                    // TODO: Actually use the above variables in the array below!
-//                    GLfloat textureCoordinatesTemp[] = {
-//                        0.0f, 1.0f,
-//                        0.0f, 0.0f,
-//                        1.0f, 0.0f,
-//                        0.0f, 1.0f,
-//                        1.0f, 0.0f,
-//                        1.0f, 1.0f
-//                    };
                     GLfloat textureCoordinatesTemp[] = {
                         atlasX, atlasY + atlasH,
                         atlasX, atlasY,
@@ -409,14 +419,6 @@ VOID SetupJRE() {
                         atlasX + atlasW, atlasY,
                         atlasX + atlasW, atlasY + atlasH
                     };
-//                    GLfloat textureCoordinatesTemp[] = {
-//                            atlasX, atlasY - atlasH,
-//                            atlasX, atlasY,
-//                            atlasX + atlasW, atlasY,
-//                            atlasX, atlasY - atlasH,
-//                            atlasX + atlasW, atlasY,
-//                            atlasX + atlasW, atlasY - atlasH
-//                    };
                     for (INT j = 0; j < 12; j++) {
                         widgets[numWidgets].spritesTextureCoordinates[i][j] = textureCoordinatesTemp[j];
                     }
@@ -506,33 +508,12 @@ VOID Widget::draw() {
     int textureLocation = glGetUniformLocation(overlayShaderProgram, "overlay_texture");
     glUniform1i(textureLocation, 0);
     for (INT i = 0; i < numSpritesInWidget; i++) {
-//        glBindBuffer(GL_ARRAY_BUFFER, overlayPointsVBO);
         glNamedBufferData(overlayPointsVBO, numOverlayPoints * 3 * sizeof(GLfloat), spritesPoints[i], GL_STATIC_DRAW);
         glNamedBufferData(overlayTextureVBO, numOverlayPoints * 2 * sizeof(GLfloat), spritesTextureCoordinates[i],
                           GL_STATIC_DRAW);
-//        glNamedBufferData(overlayPointsVBO, numOverlayPoints * 3 * sizeof(GLfloat), testPoints, GL_STATIC_DRAW);
-//        glNamedBufferData(overlayTextureVBO, numOverlayPoints * 2 * sizeof(GLfloat), testTextureCoordinates,
-//                          GL_STATIC_DRAW);
         glBindVertexArray(overlayVAO);
         glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
-//        ExitWithMessage("test");
     }
-
-
-        // Make OpenGL calls
-//        glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
-////        glBufferData(GL_ARRAY_BUFFER, numOverlayPoints * 3 * sizeof (GLfloat), points, GL_STATIC_DRAW);
-////        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//        glUseProgram(shaderProgram);
-//        int textureLocation = glGetUniformLocation(shaderProgram, "overlay_texture");
-//        glUniform1i(textureLocation, 0);
-//        // glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 100, 100, GL_RGBA, GL_UNSIGNED_BYTE, buffer2);
-//        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
-//        glBindVertexArray(vertexArrayObject);
-//        glDrawArrays(GL_TRIANGLES, 0, numOverlayPoints);
-//        glFlush();
-//        SwapBuffers(deviceContext);
-//    }
 }
 
 VOID SetupOpenGL() {

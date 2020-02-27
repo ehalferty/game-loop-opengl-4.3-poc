@@ -12,141 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="146d049e-6f52-48c8-b599-ccdd1f854b5b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/atlas.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/build_game_java.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/Game.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/ASSEMBLY_EXCEPTION" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/THIRD_PARTY_README" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/JAWTAccessBridge-64.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/JavaAccessBridge-64.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/WindowsAccessBridge-64.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/awt.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/dt_shmem.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/dt_socket.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/fontmanager.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/freetype.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/hprof.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/instrument.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/j2pcsc.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/j2pkcs11.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jaas_nt.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/java.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/java_crw_demo.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jawt.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jdwp.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jli.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jpeg.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsdt.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsound.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsoundds.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/lcms.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/management.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/mlib_image.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/msvcp120.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/msvcr120.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/net.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/nio.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/npt.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/server/Xusage.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/server/jvm.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/splashscreen.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/sunec.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/sunmscapi.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/unpack.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/verify.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/w2k_lsa_auth.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/zip.dll" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/accessibility.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/amd64/jvm.cfg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/calendars.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/charsets.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/classlist" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/CIEXYZ.pf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/GRAY.pf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/LINEAR_RGB.pf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/PYCC.pf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/sRGB.pf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/content-types.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/currency.data" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/access-bridge-64.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/cldrdata.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/dnsns.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/jaccess.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/localedata.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/meta-index" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/nashorn.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunec.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunjce_provider.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunmscapi.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunpkcs11.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/zipfs.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/flavormap.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/fontconfig.bfc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/fontconfig.properties.src" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/hijrah-config-umalqura.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/cursors.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/invalid32x32.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_CopyDrop32x32.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_CopyNoDrop32x32.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_LinkDrop32x32.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_LinkNoDrop32x32.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_MoveDrop32x32.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_MoveNoDrop32x32.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jce.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jsse.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jvm.hprof.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/logging.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management-agent.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/jmxremote.access" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/jmxremote.password.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/management.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/snmp.acl.template" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/meta-index" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/net.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/psfont.properties.ja" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/psfontj2d.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/resources.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/rt.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/blacklisted.certs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/cacerts" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/java.policy" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/java.security" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/limited/US_export_policy.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/limited/local_policy.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/unlimited/US_export_policy.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/unlimited/local_policy.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/sound.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzdb.dat" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzmappings" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/release" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/atlas.bmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/atlas.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/classfile_constants.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jawt.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jdwpTransport.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jni.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jvmti.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jvmticmlr.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgeCallbacks.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgeCalls.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgePackages.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/jawt_md.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/jni_md.h" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid16104.log" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid18668.log" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kitten3.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kitten3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kitten4.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kitten4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kitten5.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/kitten5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/stb_image_write.h" />
       <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
@@ -258,6 +123,8 @@
       <change beforePath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzdb.dat" afterPath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzdb.dat" />
       <change beforePath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzmappings" afterPath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzmappings" />
       <change beforePath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/release" afterPath="$PROJECT_DIR$/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/release" />
+      <change beforePath="$PROJECT_DIR$/atlas.png" afterPath="$PROJECT_DIR$/atlas.png" />
+      <change beforePath="$PROJECT_DIR$/build_game_java.sh" afterPath="$PROJECT_DIR$/build_game_java.sh" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCCompiler.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCCompiler.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCXXCompiler.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeCXXCompiler.cmake" />
@@ -278,7 +145,6 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/C.includecache" afterPath="" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/CXX.includecache" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/DependInfo.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/build.make" />
@@ -291,13 +157,149 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/objects1.rsp" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/objects1.rsp" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/game_loop_opengl_4_3_poc.dir/progress.make" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Game.class" afterPath="$PROJECT_DIR$/cmake-build-debug/Game.class" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/ASSEMBLY_EXCEPTION" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/ASSEMBLY_EXCEPTION" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/LICENSE" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/THIRD_PARTY_README" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/THIRD_PARTY_README" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/JAWTAccessBridge-64.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/JAWTAccessBridge-64.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/JavaAccessBridge-64.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/JavaAccessBridge-64.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/WindowsAccessBridge-64.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/WindowsAccessBridge-64.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/awt.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/awt.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/dt_shmem.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/dt_shmem.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/dt_socket.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/dt_socket.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/fontmanager.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/fontmanager.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/freetype.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/freetype.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/hprof.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/hprof.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/instrument.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/instrument.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/j2pcsc.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/j2pcsc.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/j2pkcs11.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/j2pkcs11.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jaas_nt.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jaas_nt.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/java.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/java.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/java_crw_demo.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/java_crw_demo.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jawt.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jawt.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jdwp.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jdwp.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jli.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jli.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jpeg.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jpeg.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsdt.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsdt.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsound.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsound.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsoundds.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/jsoundds.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/lcms.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/lcms.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/management.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/management.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/mlib_image.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/mlib_image.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/msvcp120.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/msvcp120.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/msvcr120.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/msvcr120.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/net.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/net.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/nio.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/nio.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/npt.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/npt.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/server/Xusage.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/server/Xusage.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/server/jvm.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/server/jvm.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/splashscreen.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/splashscreen.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/sunec.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/sunec.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/sunmscapi.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/sunmscapi.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/unpack.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/unpack.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/verify.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/verify.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/w2k_lsa_auth.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/w2k_lsa_auth.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/zip.dll" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/bin/zip.dll" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/accessibility.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/accessibility.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/amd64/jvm.cfg" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/amd64/jvm.cfg" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/calendars.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/calendars.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/charsets.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/charsets.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/classlist" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/classlist" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/CIEXYZ.pf" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/CIEXYZ.pf" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/GRAY.pf" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/GRAY.pf" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/LINEAR_RGB.pf" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/LINEAR_RGB.pf" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/PYCC.pf" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/PYCC.pf" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/sRGB.pf" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/cmm/sRGB.pf" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/content-types.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/content-types.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/currency.data" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/currency.data" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/access-bridge-64.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/access-bridge-64.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/cldrdata.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/cldrdata.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/dnsns.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/dnsns.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/jaccess.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/jaccess.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/localedata.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/localedata.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/meta-index" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/meta-index" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/nashorn.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/nashorn.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunec.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunec.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunjce_provider.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunjce_provider.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunmscapi.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunmscapi.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunpkcs11.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/sunpkcs11.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/zipfs.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/ext/zipfs.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/flavormap.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/flavormap.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/fontconfig.bfc" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/fontconfig.bfc" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/fontconfig.properties.src" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/fontconfig.properties.src" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/hijrah-config-umalqura.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/hijrah-config-umalqura.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/cursors.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/cursors.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/invalid32x32.gif" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/invalid32x32.gif" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_CopyDrop32x32.gif" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_CopyDrop32x32.gif" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_CopyNoDrop32x32.gif" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_CopyNoDrop32x32.gif" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_LinkDrop32x32.gif" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_LinkDrop32x32.gif" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_LinkNoDrop32x32.gif" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_LinkNoDrop32x32.gif" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_MoveDrop32x32.gif" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_MoveDrop32x32.gif" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_MoveNoDrop32x32.gif" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/images/cursors/win32_MoveNoDrop32x32.gif" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jce.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jce.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jsse.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jsse.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jvm.hprof.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/jvm.hprof.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/logging.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/logging.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management-agent.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management-agent.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/jmxremote.access" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/jmxremote.access" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/jmxremote.password.template" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/jmxremote.password.template" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/management.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/management.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/snmp.acl.template" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/management/snmp.acl.template" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/meta-index" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/meta-index" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/net.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/net.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/psfont.properties.ja" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/psfont.properties.ja" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/psfontj2d.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/psfontj2d.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/resources.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/resources.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/rt.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/rt.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/blacklisted.certs" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/blacklisted.certs" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/cacerts" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/cacerts" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/java.policy" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/java.policy" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/java.security" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/java.security" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/limited/US_export_policy.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/limited/US_export_policy.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/limited/local_policy.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/limited/local_policy.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/unlimited/US_export_policy.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/unlimited/US_export_policy.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/unlimited/local_policy.jar" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/security/policy/unlimited/local_policy.jar" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/sound.properties" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/sound.properties" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzdb.dat" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzdb.dat" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzmappings" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/lib/tzmappings" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/release" afterPath="$PROJECT_DIR$/cmake-build-debug/OpenJDK8U-jre_x64_windows_hotspot_8u242b08/jdk8u242-b08-jre/release" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/atlas.bmp" afterPath="$PROJECT_DIR$/cmake-build-debug/atlas.bmp" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/atlas.png" afterPath="$PROJECT_DIR$/cmake-build-debug/atlas.png" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/game_loop_opengl_4_3_poc" afterPath="$PROJECT_DIR$/cmake-build-debug/game_loop_opengl_4_3_poc" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/game_loop_opengl_4_3_poc.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/game_loop_opengl_4_3_poc.cbp" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten.jpg" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten.jpg" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten.png" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten.png" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten2.png" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten2.png" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten3.jpg" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten3.jpg" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten3.png" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten3.png" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten4.jpg" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten4.jpg" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten4.png" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten4.png" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten5.jpg" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten5.jpg" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kitten5.png" afterPath="$PROJECT_DIR$/cmake-build-debug/kitten5.png" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/classfile_constants.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/classfile_constants.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jawt.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jawt.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jdwpTransport.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jdwpTransport.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jni.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jni.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jvmti.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jvmti.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jvmticmlr.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/jvmticmlr.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgeCallbacks.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgeCallbacks.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgeCalls.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgeCalls.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgePackages.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/bridge/AccessBridgePackages.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/jawt_md.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/jawt_md.h" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/jni_md.h" afterPath="$PROJECT_DIR$/cmake-build-debug/openjdk_8_jdk_includes/win32/jni_md.h" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid16104.log" afterPath="$PROJECT_DIR$/hs_err_pid16104.log" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid18668.log" afterPath="$PROJECT_DIR$/hs_err_pid18668.log" />
       <change beforePath="$PROJECT_DIR$/kitten.jpg" afterPath="$PROJECT_DIR$/kitten.jpg" />
       <change beforePath="$PROJECT_DIR$/kitten.png" afterPath="$PROJECT_DIR$/kitten.png" />
       <change beforePath="$PROJECT_DIR$/kitten2.png" afterPath="$PROJECT_DIR$/kitten2.png" />
+      <change beforePath="$PROJECT_DIR$/kitten3.jpg" afterPath="$PROJECT_DIR$/kitten3.jpg" />
+      <change beforePath="$PROJECT_DIR$/kitten3.png" afterPath="$PROJECT_DIR$/kitten3.png" />
+      <change beforePath="$PROJECT_DIR$/kitten4.jpg" afterPath="$PROJECT_DIR$/kitten4.jpg" />
+      <change beforePath="$PROJECT_DIR$/kitten4.png" afterPath="$PROJECT_DIR$/kitten4.png" />
+      <change beforePath="$PROJECT_DIR$/kitten5.jpg" afterPath="$PROJECT_DIR$/kitten5.jpg" />
+      <change beforePath="$PROJECT_DIR$/kitten5.png" afterPath="$PROJECT_DIR$/kitten5.png" />
       <change beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
       <change beforePath="$PROJECT_DIR$/main.h" afterPath="$PROJECT_DIR$/main.h" />
       <change beforePath="$PROJECT_DIR$/openjdk_8_jdk_includes/classfile_constants.h" afterPath="$PROJECT_DIR$/openjdk_8_jdk_includes/classfile_constants.h" />
@@ -313,6 +315,7 @@
       <change beforePath="$PROJECT_DIR$/openjdk_8_jdk_includes/win32/jni_md.h" afterPath="$PROJECT_DIR$/openjdk_8_jdk_includes/win32/jni_md.h" />
       <change beforePath="$PROJECT_DIR$/run.bat" afterPath="$PROJECT_DIR$/run.bat" />
       <change beforePath="$PROJECT_DIR$/run.sh" afterPath="$PROJECT_DIR$/run.sh" />
+      <change beforePath="$PROJECT_DIR$/stb_image_write.h" afterPath="$PROJECT_DIR$/stb_image_write.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -328,8 +331,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="285" column="0" lean-forward="false" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
+            <state relative-caret-position="87">
+              <caret line="393" column="46" lean-forward="true" selection-start-line="393" selection-start-column="46" selection-end-line="393" selection-end-column="46" />
               <folding>
                 <element signature="e#22#2243#0" expanded="false" />
                 <element signature="e#2244#8672#0" expanded="false" />
@@ -338,17 +341,17 @@
                 <element signature="e#10180#10303#0" expanded="false" />
                 <element signature="e#10309#10486#0" expanded="false" />
                 <element signature="e#10488#11748#0" expanded="false" />
-                <element signature="e#15002#21386#0" expanded="false" />
-                <element signature="e#21392#21460#0" expanded="false" />
-                <element signature="e#21466#22782#0" expanded="false" />
-                <element signature="e#22788#22859#0" expanded="false" />
-                <element signature="e#22865#23163#0" expanded="false" />
-                <element signature="e#23169#23673#0" expanded="false" />
-                <element signature="e#23679#25510#0" expanded="false" />
-                <element signature="e#25516#27198#0" expanded="false" />
-                <element signature="e#27204#28858#0" expanded="false" />
-                <element signature="e#28860#29059#0" expanded="false" />
-                <element signature="e#29061#29258#0" expanded="false" />
+                <element signature="e#11990#14930#0" expanded="false" />
+                <element signature="e#22191#22259#0" expanded="false" />
+                <element signature="e#22265#23581#0" expanded="false" />
+                <element signature="e#23587#23658#0" expanded="false" />
+                <element signature="e#23664#23962#0" expanded="false" />
+                <element signature="e#23968#24472#0" expanded="false" />
+                <element signature="e#24478#25135#0" expanded="false" />
+                <element signature="e#25141#26823#0" expanded="false" />
+                <element signature="e#26829#28483#0" expanded="false" />
+                <element signature="e#28485#28684#0" expanded="false" />
+                <element signature="e#28686#28883#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -367,7 +370,7 @@
       <file leaf-file-name="main.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
+            <state relative-caret-position="2415">
               <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding>
                 <element signature="e#121#141#0" expanded="true" />
@@ -380,8 +383,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>filereadre</find>
-      <find>sprites</find>
       <find>widget</find>
       <find>stbi_</find>
       <find>overlay</find>
@@ -410,6 +411,8 @@
       <find>1.0f</find>
       <find>atlasX =</find>
       <find>+ 1</find>
+      <find>todo</find>
+      <find>+ 0.5f</find>
     </findStrings>
     <replaceStrings>
       <replace>sprites[0].points[</replace>
@@ -671,12 +674,13 @@
       <workItem from="1581904797027" duration="144000" />
       <workItem from="1581905052501" duration="59000" />
       <workItem from="1581905129219" duration="4786000" />
-      <workItem from="1581910011134" duration="23218000" />
+      <workItem from="1581910011134" duration="27790000" />
+      <workItem from="1582790415610" duration="9308000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89681000" />
+    <option name="totallyTimeSpent" value="103561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -710,6 +714,9 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
       <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager>
@@ -737,6 +744,16 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2415">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding>
+            <element signature="e#121#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -749,17 +766,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -768,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,17 +810,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -838,17 +854,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -882,17 +898,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -926,17 +942,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -970,17 +986,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1008,17 +1024,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1045,17 +1061,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1082,17 +1098,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1126,17 +1142,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1174,17 +1190,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1215,17 +1231,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1285,7 +1301,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="418" column="15" lean-forward="false" selection-start-line="418" selection-start-column="15" selection-end-line="418" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,7 +1308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1301,16 +1315,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="80" column="28" lean-forward="false" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="28" />
-          <folding>
-            <element signature="e#6881#6905#0" expanded="false" />
-            <element signature="e#7775#7870#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
+        <state relative-caret-position="2415">
           <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding>
             <element signature="e#121#141#0" expanded="true" />
@@ -1326,26 +1336,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build_game_java.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/build_game_java.bat" />
     <entry file="file://$PROJECT_DIR$/build_game_java.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="285" column="0" lean-forward="false" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
+        <state relative-caret-position="87">
+          <caret line="393" column="46" lean-forward="true" selection-start-line="393" selection-start-column="46" selection-end-line="393" selection-end-column="46" />
           <folding>
             <element signature="e#22#2243#0" expanded="false" />
             <element signature="e#2244#8672#0" expanded="false" />
@@ -1354,17 +1356,17 @@
             <element signature="e#10180#10303#0" expanded="false" />
             <element signature="e#10309#10486#0" expanded="false" />
             <element signature="e#10488#11748#0" expanded="false" />
-            <element signature="e#15002#21386#0" expanded="false" />
-            <element signature="e#21392#21460#0" expanded="false" />
-            <element signature="e#21466#22782#0" expanded="false" />
-            <element signature="e#22788#22859#0" expanded="false" />
-            <element signature="e#22865#23163#0" expanded="false" />
-            <element signature="e#23169#23673#0" expanded="false" />
-            <element signature="e#23679#25510#0" expanded="false" />
-            <element signature="e#25516#27198#0" expanded="false" />
-            <element signature="e#27204#28858#0" expanded="false" />
-            <element signature="e#28860#29059#0" expanded="false" />
-            <element signature="e#29061#29258#0" expanded="false" />
+            <element signature="e#11990#14930#0" expanded="false" />
+            <element signature="e#22191#22259#0" expanded="false" />
+            <element signature="e#22265#23581#0" expanded="false" />
+            <element signature="e#23587#23658#0" expanded="false" />
+            <element signature="e#23664#23962#0" expanded="false" />
+            <element signature="e#23968#24472#0" expanded="false" />
+            <element signature="e#24478#25135#0" expanded="false" />
+            <element signature="e#25141#26823#0" expanded="false" />
+            <element signature="e#26829#28483#0" expanded="false" />
+            <element signature="e#28485#28684#0" expanded="false" />
+            <element signature="e#28686#28883#0" expanded="false" />
           </folding>
         </state>
       </provider>
