@@ -30,16 +30,16 @@ public class Game {
             //     new float[] { -1.0f, 0.0f, 0.5f, 0.5f }
             // };
             float[][] spritePositions = new float[][] {
-                new float[] { 0.0f, 0.0f, 0.5f, 0.5f },
-                new float[] { 0.5f, 0.0f, 0.5f, 0.5f },
-                new float[] { 0.0f, 0.5f, 0.5f, 0.5f },
-                new float[] { 0.5f, 0.5f, 0.5f, 0.5f },
-                new float[] { 0.25f, 0.25f, 0.5f, 0.5f }
+                new float[] { -0.25f, 0.25f, 0.5f, 0.5f },
+                new float[] { -1.0f, 1.0f, 0.5f, 0.5f },
+                new float[] { 0.5f, -0.5f, 0.5f, 0.5f },
+                new float[] { -1.0f, -0.5f, 0.5f, 0.5f },
+                new float[] { 0.5f, 1.0f, 0.5f, 0.5f }
             };
             // TODO: Support creating widget before named textures are loaded, auto-add them once loaded.
-            createWidget("kittens", spriteNames, spritePositions, 0.0f, 0.0f, 1.0f, 1.0f);
-            // createWidget("kittens2", spriteNames, spritePositions, 1.0f, 1.0f, 0.5f, 0.5f);
-            // createWidget("kittens2", spriteNames, spritePositions, 1.25f, 0.75f, 0.5f, 0.5f);
+            createWidget("kittens", spriteNames, spritePositions, 0.0f, 0.0f, 0.5f, 0.5f);
+            createWidget("kittens2", spriteNames, spritePositions, 1.0f, 1.0f, 0.5f, 0.5f);
+            createWidget("kittens2", spriteNames, spritePositions, 1.25f, 0.75f, 0.5f, 0.5f);
         }
     }
 }

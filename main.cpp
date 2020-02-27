@@ -396,13 +396,21 @@ VOID SetupJRE() {
                     printf("%f\r\n", spriteH);
                     // TODO: Factor in location of widget itself
                     GLfloat pointsTemp[] = {
-                            spriteX * (widgetW * 2.0f)  + widgetX, (spriteY - spriteH) * (widgetH * 2.0f)  - widgetY, 0.0f,
-                            spriteX * (widgetW * 2.0f)  + widgetX, spriteY * (widgetH * 2.0f)  - widgetY, 0.0f,
-                            (spriteX + spriteW) * (widgetW * 2.0f)  + widgetX, spriteY * (widgetH * 2.0f)  - widgetY, 0.0f,
-                            spriteX * (widgetW * 2.0f)  + widgetX, (spriteY - spriteH) * (widgetH * 2.0f)  - widgetY, 0.0f,
-                            (spriteX + spriteW) * (widgetW * 2.0f)  + widgetX, spriteY * (widgetH * 2.0f)  - widgetY, 0.0f,
-                            (spriteX + spriteW) * (widgetW * 2.0f)  + widgetX, (spriteY - spriteH) * (widgetH * 2.0f)  - widgetY, 0.0f
+                            spriteX * widgetW - 0.5f + widgetX, (spriteY - spriteH) * widgetH + 0.5f - widgetY, 0.0f,
+                            spriteX * widgetW - 0.5f + widgetX, spriteY * widgetH + 0.5f - widgetY, 0.0f,
+                            (spriteX + spriteW) * widgetW - 0.5f + widgetX, spriteY * widgetH + 0.5f - widgetY, 0.0f,
+                            spriteX * widgetW - 0.5f + widgetX, (spriteY - spriteH) * widgetH + 0.5f - widgetY, 0.0f,
+                            (spriteX + spriteW) * widgetW - 0.5f + widgetX, spriteY * widgetH + 0.5f - widgetY, 0.0f,
+                            (spriteX + spriteW) * widgetW - 0.5f + widgetX, (spriteY - spriteH) * widgetH + 0.5f - widgetY, 0.0f
                     };
+//                    GLfloat pointsTemp[] = {
+//                            spriteX, spriteY - spriteH, 0.0f,
+//                            spriteX, spriteY, 0.0f,
+//                            spriteX + spriteW, spriteY, 0.0f,
+//                            spriteX, spriteY - spriteH, 0.0f,
+//                            spriteX + spriteW, spriteY, 0.0f,
+//                            spriteX + spriteW, spriteY - spriteH, 0.0f
+//                    };
                     for (INT j = 0; j < 18; j++) {
                         widgets[numWidgets].spritesPoints[i][j] = pointsTemp[j];
                     }
