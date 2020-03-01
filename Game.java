@@ -1,10 +1,26 @@
+// TODO: Remove true fullscreen.
+// TODO: Make window resize maintain aspect ratio
+
+// The idea:
+// A C++ game engine with integrated editor. Includes mapping/modeling/scripting/debugging in-game.
+// Scripting via Java and/or BASIC (a BASIC-flavored Java-compatible dynamic language for the JVM).
+
+interface LoadSpriteFilesCallbackFunc {
+    void cb();
+}
+
 public class Game {
+    private static native void print(String str);
     private static native void loadSpriteFile(String name, String filePath);
-    private static native void loadSpriteFiles(String[] spriteNames, String[] spriteFilePaths);
+    private static native void loadSpriteFiles(String[] spriteNames, String[] spriteFilePaths, LoadSpriteFilesCallbackFunc cb);
     private static native void createWidget(String name, String[] spriteNames, float[][] spriteLocations, float x, float y, float w, float h);
     private static boolean showedSprite = false;
     public static void main() {
         if (!showedSprite) {
+            // print("HELLO FROM JAVA 1\r\n");
+            // LoadSpriteFilesCallbackFunc cb = () -> {
+            //     // print("HELLO FROM JAVA\r\n");
+            // };
             showedSprite = true;
             // TODO: Add fire-and-forget texture loading (on a separate thread?). Polling. Callback on success/failed?
             String[] spriteNames = new String[] {
@@ -21,14 +37,28 @@ public class Game {
                 "kitten4.png",
                 "kitten5.png"
             };
-            loadSpriteFiles(spriteNames, spriteFilePaths);
+            loadSpriteFiles(spriteNames, spriteFilePaths, null);
+            // loadSpriteFiles(spriteNames, spriteFilePaths, () -> {
+            //     print("HELLO FROM JAVA 2\r\n");
+            //     // float[][] spritePositions = new float[][] {
+            //     //     new float[] { -0.25f, 0.25f, 0.5f, 0.5f },
+            //     //     new float[] { -1.0f, 1.0f, 0.5f, 0.5f },
+            //     //     new float[] { 0.5f, -0.5f, 0.5f, 0.5f },
+            //     //     new float[] { -1.0f, -0.5f, 0.5f, 0.5f },
+            //     //     new float[] { 0.5f, 1.0f, 0.5f, 0.5f }
+            //     // };
+            //     // // TODO: Support creating widget before named textures are loaded, auto-add them once loaded.
+            //     // createWidget("kittens", spriteNames, spritePositions, 0.0f, 0.0f, 0.5f, 0.5f);
+            //     // createWidget("kittens2", spriteNames, spritePositions, 1.0f, 1.0f, 0.5f, 0.5f);
+            //     // createWidget("kittens2", spriteNames, spritePositions, 1.25f, 0.75f, 0.5f, 0.5f);
+            // });
             // float[][] spritePositions = new float[][] {
             //     new float[] { 0.0f, 0.0f, 0.5f, 0.5f },
             //     new float[] { -0.5f, 0.5f, 0.5f, 0.5f },
             //     new float[] { 0.0f, 0.5f, 0.5f, 0.5f },
             //     new float[] { -0.5f, 0.0f, 0.5f, 0.5f },
             //     new float[] { -1.0f, 0.0f, 0.5f, 0.5f }
-            // };
+            // // };
             float[][] spritePositions = new float[][] {
                 new float[] { -0.25f, 0.25f, 0.5f, 0.5f },
                 new float[] { -1.0f, 1.0f, 0.5f, 0.5f },

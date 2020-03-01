@@ -9,6 +9,14 @@ extern "C" {
 #endif
 /*
  * Class:     Game
+ * Method:    print
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_Game_print
+  (JNIEnv *, jclass, jstring);
+
+/*
+ * Class:     Game
  * Method:    loadSpriteFile
  * Signature: (Ljava/lang/String;Ljava/lang/String;)V
  */
@@ -18,10 +26,10 @@ JNIEXPORT void JNICALL Java_Game_loadSpriteFile
 /*
  * Class:     Game
  * Method:    loadSpriteFiles
- * Signature: ([Ljava/lang/String;[Ljava/lang/String;)V
+ * Signature: ([Ljava/lang/String;[Ljava/lang/String;LLoadSpriteFilesCallbackFunc;)V
  */
 JNIEXPORT void JNICALL Java_Game_loadSpriteFiles
-  (JNIEnv *, jclass, jobjectArray, jobjectArray);
+  (JNIEnv *, jclass, jobjectArray, jobjectArray, jobject);
 
 /*
  * Class:     Game

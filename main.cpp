@@ -330,8 +330,8 @@ VOID SetupJRE() {
     env->RegisterNatives(gameClass, &loadSpriteFile, 1);
     JNINativeMethod loadSpriteFiles {
             (char *)"loadSpriteFiles",
-            (char *)"([Ljava/lang/String;[Ljava/lang/String;)V",
-            (void *) *[](JNIEnv *env, jobject objectOrClass, jobjectArray spriteNames, jobjectArray spriteFilePaths) {
+            (char *)"([Ljava/lang/String;[Ljava/lang/String;LLoadSpriteFilesCallbackFunc;)V",
+            (void *) *[](JNIEnv *env, jobject objectOrClass, jobjectArray spriteNames, jobjectArray spriteFilePaths, jobject cb) {
                 // Load sprite files from disk
                 for (int i = 0; i < env->GetArrayLength(spriteNames); i++) {
                     auto name = env->GetStringUTFChars((jstring)env->GetObjectArrayElement(spriteNames, i), nullptr);
@@ -342,17 +342,20 @@ VOID SetupJRE() {
                     RebuildOverlayTextureAtlas();
                     printf("JNI loadSpriteFile\r\n");
                 }
+//                jclass objclass = env->GetObjectClass(cb);
+//                jmethodID method = env->GetMethodID(objclass, "cb", "()V");
+//                env->CallStaticVoidMethod(nullptr, method);
             }
     };
     env->RegisterNatives(gameClass, &loadSpriteFiles, 1);
-    JNINativeMethod sayHello {
-            (char *)"sayHello",
-            (char *)"()V",
-            (void *) *[](JNIEnv *env, jobject objectOrClass) {
-                printf("Hello!!!\r\n");
+    JNINativeMethod print {
+            (char *)"print",
+            (char *)"(Ljava/lang/String)V",
+            (void *) *[](JNIEnv *env, jobject objectOrClass, jstring str) {
+                printf("%s", env->GetStringUTFChars(str, nullptr));
             }
     };
-    env->RegisterNatives(gameClass, &sayHello, 1);
+    env->RegisterNatives(gameClass, &print, 1);
     JNINativeMethod createWidget {
             (char *)"createWidget",
             (char *)"(Ljava/lang/String;[Ljava/lang/String;[[FFFFF)V",
