@@ -8,5 +8,8 @@ link_libraries( -lgdi32 -lgdiplus -lopengl32)
 
 #target_compile_options(game_loop_opengl_4_3_poc PRIVATE -fexceptions)
 
+
 add_executable(game_loop_opengl_4_3_poc
-        main.cpp main.h)
+        main.cpp main.h unzip.cpp unzip.h)
+
+#target_include_directories(game_loop_opengl_4_3_poc PUBLIC ./libzip/include)

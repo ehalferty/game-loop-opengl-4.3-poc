@@ -299,6 +299,20 @@ VOID RebuildOverlayTextureAtlas() {
     }
 }
 
+//VOID SetupLibZip() {
+//    HINSTANCE libzip = LoadLibrary(LIBZIP_PATH);
+//    if (!libzip) {
+//        printf("libzip DLL load error=%d\r\n", (int)GetLastError());
+//    }
+//}
+
+VOID ReadGameData() {
+    FileReadResult gameClassReadResult = ReadLocalFile("Game.zip");
+    auto unzippedArchive = (struct UnzippedArchive *)malloc(sizeof(struct UnzippedArchive));
+    Unzip::unzipArchive(gameClassReadResult.data, gameClassReadResult.size, unzippedArchive);
+    volatile int x = 0;
+}
+
 VOID SetupJRE() {
     HINSTANCE jre = LoadLibrary(JRE_PATH);
     if (!jre) {
@@ -330,9 +344,11 @@ VOID SetupJRE() {
     env->RegisterNatives(gameClass, &loadSpriteFile, 1);
     JNINativeMethod loadSpriteFiles {
             (char *)"loadSpriteFiles",
-            (char *)"([Ljava/lang/String;[Ljava/lang/String;LLoadSpriteFilesCallbackFunc;)V",
+//            (char *)"([Ljava/lang/String;[Ljava/lang/String;LLoadSpriteFilesCallbackFunc;)V",
+            (char *)"([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/Runnable;)V",
             (void *) *[](JNIEnv *env, jobject objectOrClass, jobjectArray spriteNames, jobjectArray spriteFilePaths, jobject cb) {
                 // Load sprite files from disk
+                int x = 0;
                 for (int i = 0; i < env->GetArrayLength(spriteNames); i++) {
                     auto name = env->GetStringUTFChars((jstring)env->GetObjectArrayElement(spriteNames, i), nullptr);
                     auto filePath = env->GetStringUTFChars((jstring)env->GetObjectArrayElement(spriteFilePaths, i), nullptr);
@@ -343,6 +359,7 @@ VOID SetupJRE() {
                     printf("JNI loadSpriteFile\r\n");
                 }
 //                jclass objclass = env->GetObjectClass(cb);
+//                volatile int x = 234324;
 //                jmethodID method = env->GetMethodID(objclass, "cb", "()V");
 //                env->CallStaticVoidMethod(nullptr, method);
             }
@@ -350,7 +367,7 @@ VOID SetupJRE() {
     env->RegisterNatives(gameClass, &loadSpriteFiles, 1);
     JNINativeMethod print {
             (char *)"print",
-            (char *)"(Ljava/lang/String)V",
+            (char *)"(Ljava/lang/String;)V",
             (void *) *[](JNIEnv *env, jobject objectOrClass, jstring str) {
                 printf("%s", env->GetStringUTFChars(str, nullptr));
             }
@@ -492,6 +509,10 @@ VOID Init() {
     SetupGDIPlusImageLoader();
     // Load JRE
     SetupJRE();
+    // Load LibZip
+//    SetupLibZip();
+    // Load game data
+    ReadGameData();
     // win32 windows setup stuff
     SetupWin32Stuff();
     // Setup timers for game events

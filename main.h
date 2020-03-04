@@ -14,6 +14,7 @@
 #include <cmath>
 #include <fcntl.h>
 #include "openjdk_8_jdk_includes/jni.h"
+#include "unzip.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -28,6 +29,7 @@
 #define WINDOW_MODE_BORDERLESS_WINDOWED 2
 #define WINDOW_MODE_FULLSCREEN 3
 #define JRE_PATH ".\\OpenJDK8U-jre_x64_windows_hotspot_8u242b08\\jdk8u242-b08-jre\\bin\\server\\jvm.dll"
+#define LIBZIP_PATH ".\\libzip\\zip.dll"
 const int numOverlayPoints = 6;
 GLfloat testTextureCoordinates[] = {
         0.0f, 1.0f,
@@ -165,5 +167,11 @@ void (*glBindTextureUnit)(GLuint unit, GLuint texture);
 // JRE functions
 void (*MyJNI_GetDefaultJavaVMInitArgs)(void *args);
 jint (*MyJNI_CreateJavaVM)(JavaVM **pvm, void **penv, void *args);
+
+// LibZip functions
+//void *(*zip_source_buffer_create)(const void *data, uint64_t len, int freep, zip_error_t *error)
+//zip_source_t *
+//zip_source_buffer_create(const void *data, zip_uint64_t len, int freep, zip_error_t *error);
+
 
 #endif //GAME_LOOP_OPENGL_4_3_POC_MAIN_H

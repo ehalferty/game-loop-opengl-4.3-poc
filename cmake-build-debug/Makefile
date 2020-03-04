@@ -149,6 +149,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\game_loop_opengl_4_3_poc.dir\build.make CMakeFiles/game_loop_opengl_4_3_poc.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+unzip.obj: unzip.cpp.obj
+
+.PHONY : unzip.obj
+
+# target to build an object file
+unzip.cpp.obj:
+	$(MAKE) -f CMakeFiles\game_loop_opengl_4_3_poc.dir\build.make CMakeFiles/game_loop_opengl_4_3_poc.dir/unzip.cpp.obj
+.PHONY : unzip.cpp.obj
+
+unzip.i: unzip.cpp.i
+
+.PHONY : unzip.i
+
+# target to preprocess a source file
+unzip.cpp.i:
+	$(MAKE) -f CMakeFiles\game_loop_opengl_4_3_poc.dir\build.make CMakeFiles/game_loop_opengl_4_3_poc.dir/unzip.cpp.i
+.PHONY : unzip.cpp.i
+
+unzip.s: unzip.cpp.s
+
+.PHONY : unzip.s
+
+# target to generate assembly for a file
+unzip.cpp.s:
+	$(MAKE) -f CMakeFiles\game_loop_opengl_4_3_poc.dir\build.make CMakeFiles/game_loop_opengl_4_3_poc.dir/unzip.cpp.s
+.PHONY : unzip.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -161,6 +188,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... unzip.obj
+	@echo ... unzip.i
+	@echo ... unzip.s
 .PHONY : help
 
 

@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_Game_loadSpriteFile
 /*
  * Class:     Game
  * Method:    loadSpriteFiles
- * Signature: ([Ljava/lang/String;[Ljava/lang/String;LLoadSpriteFilesCallbackFunc;)V
+ * Signature: ([Ljava/lang/String;[Ljava/lang/String;Ljava/lang/Runnable;)V
  */
 JNIEXPORT void JNICALL Java_Game_loadSpriteFiles
   (JNIEnv *, jclass, jobjectArray, jobjectArray, jobject);

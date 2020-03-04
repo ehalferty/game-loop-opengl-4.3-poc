@@ -29,6 +29,8 @@ fcntl.h
 -
 openjdk_8_jdk_includes/jni.h
 C:/Users/phaz/game-loop-opengl-4.3-poc/openjdk_8_jdk_includes/jni.h
+unzip.h
+C:/Users/phaz/game-loop-opengl-4.3-poc/unzip.h
 stb_image.h
 C:/Users/phaz/game-loop-opengl-4.3-poc/stb_image.h
 stb_image_write.h
@@ -86,5 +88,13 @@ string.h
 math.h
 -
 assert.h
+-
+
+C:/Users/phaz/game-loop-opengl-4.3-poc/unzip.cpp
+unzip.h
+C:/Users/phaz/game-loop-opengl-4.3-poc/unzip.h
+
+C:/Users/phaz/game-loop-opengl-4.3-poc/unzip.h
+windows.h
 -
 

@@ -86,6 +86,12 @@
 		<Unit filename="C:/Users/phaz/game-loop-opengl-4.3-poc/main.h">
 			<Option target="game_loop_opengl_4_3_poc"/>
 		</Unit>
+		<Unit filename="C:/Users/phaz/game-loop-opengl-4.3-poc/unzip.cpp">
+			<Option target="game_loop_opengl_4_3_poc"/>
+		</Unit>
+		<Unit filename="C:/Users/phaz/game-loop-opengl-4.3-poc/unzip.h">
+			<Option target="game_loop_opengl_4_3_poc"/>
+		</Unit>
 		<Unit filename="C:/Users/phaz/game-loop-opengl-4.3-poc/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

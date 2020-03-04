@@ -5,19 +5,22 @@
 // A C++ game engine with integrated editor. Includes mapping/modeling/scripting/debugging in-game.
 // Scripting via Java and/or BASIC (a BASIC-flavored Java-compatible dynamic language for the JVM).
 
-interface LoadSpriteFilesCallbackFunc {
-    void cb();
-}
+// @FunctionalInterface
+// public interface LoadSpriteFilesCallbackFunc {
+//     public void cb();
+// }
 
 public class Game {
     private static native void print(String str);
     private static native void loadSpriteFile(String name, String filePath);
-    private static native void loadSpriteFiles(String[] spriteNames, String[] spriteFilePaths, LoadSpriteFilesCallbackFunc cb);
+    private static native void loadSpriteFiles(String[] spriteNames, String[] spriteFilePaths, Runnable cb);
+    // private static native void loadSpriteFiles(String[] spriteNames, String[] spriteFilePaths, LoadSpriteFilesCallbackFunc cb);
     private static native void createWidget(String name, String[] spriteNames, float[][] spriteLocations, float x, float y, float w, float h);
     private static boolean showedSprite = false;
     public static void main() {
         if (!showedSprite) {
-            // print("HELLO FROM JAVA 1\r\n");
+            print("HELLO FROM JAVA 1\r\n");
+            print("HELLO FROM JAVA 2\r\n");
             // LoadSpriteFilesCallbackFunc cb = () -> {
             //     // print("HELLO FROM JAVA\r\n");
             // };
@@ -37,9 +40,19 @@ public class Game {
                 "kitten4.png",
                 "kitten5.png"
             };
-            loadSpriteFiles(spriteNames, spriteFilePaths, null);
-            // loadSpriteFiles(spriteNames, spriteFilePaths, () -> {
-            //     print("HELLO FROM JAVA 2\r\n");
+            // loadSpriteFiles(spriteNames, spriteFilePaths, null);
+            // loadSpriteFiles(spriteNames, spriteFilePaths, new LoadSpriteFilesCallbackFunc() {
+            //     @Override
+            //     public void cb() {
+            //         print("HELLO FROM JAVA 2\r\n");
+            //     }
+            // });
+            loadSpriteFiles(spriteNames, spriteFilePaths, () -> {});
+            // loadSpriteFiles(spriteNames, spriteFilePaths, new LoadSpriteFilesCallbackFunc() {
+            //     @Override
+            //     public void cb() {
+            //         // print("HELLO FROM JAVA 2\r\n");
+            //     }
             //     // float[][] spritePositions = new float[][] {
             //     //     new float[] { -0.25f, 0.25f, 0.5f, 0.5f },
             //     //     new float[] { -1.0f, 1.0f, 0.5f, 0.5f },
